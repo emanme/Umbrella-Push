@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             x:Class="Umbrella.Views.WeaponsPage"
+             BackgroundColor="#EBEBEB"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+       <StackLayout Orientation="Vertical" Spacing="0">
+        <Grid>
+            <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical" Spacing="0">
+                <controls:HeaderView VerticalOptions="Start" />
+                <StackLayout Orientation="Vertical" Spacing="0">
+                    <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="10" BackgroundColor="Transparent">
+                        <Label Text="WEAPONS" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold" TextColor="#435742"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="0,28,0,0">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#D9D9D9">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRecruitsArmoryTapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="guyt_black"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="58"
+                                   HeightRequest="58"
+                                   Margin="5"
+                                   Aspect="AspectFit" />
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal"
+                                             HeightRequest="25"
+                                             BackgroundColor="Black">
+                                    <Label Text="RECRUITS ARMORY"
+                                           TextColor="#FFD700"
+                                           VerticalTextAlignment="Center"
+                                           FontSize="Medium"
+                                           Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="For businesses who you think would benefit from becoming an Umbrella's services"
+                                           TextColor="Black"
+                                           FontSize="12"
+                                           Margin="5,0,5,5"/>
+                                </StackLayout>
+                            </StackLayout>
+                           <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="CenterAndExpand"
+                                         WidthRequest="60">
+                                <Label Text=">"
+                                       FontSize="40"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                         Margin="0,0,3,10"
+                                       TextColor="#435742"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#D9D9D9">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnComradesArmoryTapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="army_5t_black"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="58"
+                                   HeightRequest="58"
+                                   Margin="5"
+                                   Aspect="AspectFit" />
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal"
+                                         HeightRequest="25"
+                                         BackgroundColor="Black"
+                                         >
+                                    <Label Text="COMRADES ARMORY"
+                                       TextColor="#FFD700"
+                                       FontSize="Medium"
+                                       VerticalTextAlignment="Center"
+                                       Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                         Padding="3">
+                                    <Label Text="For individuals or business owners looking to generate a full or part time revenue stream"
+                                       TextColor="Black"
+                                       FontSize="12"
+                                       Margin="5,0,5,5"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="CenterAndExpand"
+                                         WidthRequest="60">
+                                <Label Text=">"
+                                       FontSize="40"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                         Margin="0,0,3,10"
+                                       TextColor="#435742"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" BackgroundColor="#D9D9D9">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCreateAllianceTapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="hand_shaket_black"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="58"
+                                   HeightRequest="58"
+                                   Margin="5"
+                                   Aspect="AspectFit" />
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical">
+                                <StackLayout Orientation="Horizontal"
+                                         HeightRequest="25"
+                                         BackgroundColor="Black"
+                                         >
+                                    <Label Text="CREATE AN ALLIANCE"
+                                       TextColor="#FFD700"
+                                       FontSize="Medium"
+                                       VerticalTextAlignment="Center"    
+                                       Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                         Padding="3">
+                                    <Label Text="For businesses that you think could provide large numbers of Recruits and/or Comrades"
+                                       TextColor="Black"
+                                       FontSize="12"
+                                       Margin="5,0,5,5"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="CenterAndExpand"
+                                         WidthRequest="60">
+                                <Label Text=">"
+                                       FontSize="40"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="CenterAndExpand"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                         Margin="0,0,3,10"
+                                       TextColor="#435742"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button BackgroundColor="#435742" HorizontalOptions="Center" VerticalOptions="End" Clicked="GoStepProgress" WidthRequest="120" Margin="5,0,5,0" Text="Step Progress" TextColor="White"/>
+                </StackLayout>
+        </Grid>
+                <controls:FooterView x:Name="WeaponFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

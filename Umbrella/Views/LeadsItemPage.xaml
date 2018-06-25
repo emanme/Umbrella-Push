@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.LeadsItemPage"
+     xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentPage.Content>
+        <ScrollView>
+             <AbsoluteLayout>
+            <StackLayout Orientation="Vertical"
+                         Padding="20">
+                <StackLayout Orientation="Vertical"
+                             Margin="0,0,0,5"
+                             Spacing="0">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 Spacing="20">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Category:"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            <Label Text="{Binding Category}"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Contact ID:"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            <Label Text="{Binding ContactId}"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand ">
+                        <Label Text="Enquiry ID:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding EnquiryId}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                </StackLayout>
+                <Label Text="Gary Peter's Lead"
+                       HorizontalOptions="Center"
+                       FontSize="{StaticResource HeaderFontSize}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       LineBreakMode="WordWrap" />
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <StackLayout Orientation="Vertical"
+                             Spacing="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Name:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Name}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Business:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Business}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Email:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Email}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                </StackLayout>
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <StackLayout Orientation="Vertical"
+                             Spacing="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Mobile:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Mobile}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Home:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Home}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Office:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Office}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                </StackLayout>
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <StackLayout Orientation="Horizontal"
+                             Spacing="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Source:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Source}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Call Back:"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Status}"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                </StackLayout>
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <Label Text="Their Enquiry"
+                       FontSize="{StaticResource TextFontSize}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                <Editor x:Name="Editor"
+                        Text="Enter your question here"
+                        HeightRequest="150"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="{StaticResource InputFontSize}"
+                        TextColor="{StaticResource SecondaryTextColor}"
+                        BackgroundColor="{StaticResource MainGrayColor}"
+                        Focused="EditorFocused"
+                        Unfocused="EditorUnfocused" />
+                <Grid RowSpacing="{StaticResource ButtonsRowSpacing}"
+                      ColumnSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="0"
+                                             Text="YOUR NOTES"
+                                             Clicked="YourNotesClicked" />
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="AGENTS NOTES"
+                                             Clicked="AgentsNotesClicked" />
+                </Grid>
+                <Label Text="Actions"
+                       HorizontalOptions="Center"
+                       FontSize="{StaticResource HeaderFontSize}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                <Grid RowSpacing="{StaticResource ButtonsRowSpacing}"
+                      ColumnSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="0"
+                                             Text="MARK CONVERTED"
+                                             Clicked="MarkAsConvertedClicked" />
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="SELL ENQUIRY £££"
+                                             Clicked="SellEnquiryClicked" />
+                    <controls:DirectedButton Grid.Row="1"
+                                             Grid.Column="0"
+                                             Text="UNCONVERTIBLE"
+                                             Clicked="UnconvertibleClicked" />
+                    <controls:DirectedButton Grid.Row="1"
+                                             Grid.Column="1"
+                                             Text="BOOK CALL BACK"
+                                             Clicked="BookCallBackClicked" />
+                    <controls:DirectedButton Grid.Row="2"
+                                             Grid.Column="0"
+                                             Text="ASSIGN TASK"
+                                             Clicked="AssignTaskClicked" />
+                    <controls:DirectedButton Grid.Row="2"
+                                             Grid.Column="1"
+                                             Text="SEND"
+                                             Clicked="AddNotesClicked" />
+                </Grid>
+               
+            </StackLayout>
+                 <AbsoluteLayout AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                                x:Name="BusyIndicator"
+                                IsVisible="false">
+                    <ContentView AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 AbsoluteLayout.LayoutBounds="0.5,0.4,150,150"
+                                 BackgroundColor="Black"
+                                 Opacity="0.8">
+                        <busyindicator:SfBusyIndicator x:Name="Indicator"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       AnimationType="SingleCircle"
+                                                       Title="Please Wait..."
+                                                       TextColor="White"
+                                                       IsBusy="true">
+                            <busyindicator:SfBusyIndicator.ViewBoxWidth>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxWidth>
+                            <busyindicator:SfBusyIndicator.ViewBoxHeight>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxHeight>
+                            <busyindicator:SfBusyIndicator.TextSize>
+                                <OnPlatform x:TypeArguments="x:Single"
+                                            iOS="12"
+                                            Android="45" />
+                            </busyindicator:SfBusyIndicator.TextSize>
+                        </busyindicator:SfBusyIndicator>
+                    </ContentView>
+                </AbsoluteLayout>
+                </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

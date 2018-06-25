@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_AppExtensionCodesignProperties Include="OneSignalNotificationServiceExtension.appex">
+      <CodesignAppExtensionInputs>/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/OneSignalNotificationServiceExtension/bin/iPhone/Debug/device-builds/iphone6.2-11.0/OneSignalNotificationServiceExtension.appex/Info.plist;/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/OneSignalNotificationServiceExtension/bin/iPhone/Debug/device-builds/iphone6.2-11.0/OneSignalNotificationServiceExtension.appex/MonoTouchDebugConfiguration.txt;/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/OneSignalNotificationServiceExtension/bin/iPhone/Debug/device-builds/iphone6.2-11.0/OneSignalNotificationServiceExtension.appex/archived-expanded-entitlements.xcent;/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/OneSignalNotificationServiceExtension/bin/iPhone/Debug/device-builds/iphone6.2-11.0/OneSignalNotificationServiceExtension.appex/embedded.mobileprovision;/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/OneSignalNotificationServiceExtension/bin/iPhone/Debug/device-builds/iphone6.2-11.0/OneSignalNotificationServiceExtension.appex/Settings.bundle/Root.plist;</CodesignAppExtensionInputs>
+      <NativeExecutable>OneSignalNotificationServiceExtension</NativeExecutable>
+      <CodesignAllocate>/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/codesign_allocate</CodesignAllocate>
+      <DisableTimestamp>True</DisableTimestamp>
+      <Entitlements>/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/OneSignalNotificationServiceExtension/obj/iPhone/Debug/device-builds/iphone6.2-11.0/Entitlements.xcent</Entitlements>
+      <ResourceRules></ResourceRules>
+      <Keychain></Keychain>
+      <LibrarySigningKey>379B7C7CA33BD0118D848EF9455487E01DA882B4</LibrarySigningKey>
+      <SigningKey>379B7C7CA33BD0118D848EF9455487E01DA882B4</SigningKey>
+      <ExtraArgs></ExtraArgs>
+    </_AppExtensionCodesignProperties>
+  </ItemGroup>
+</Project>

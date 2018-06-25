@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Controls.DirectedButton"
+             xmlns:custom="clr-namespace:Umbrella.Custom;assembly=Umbrella"
+             xmlns:constants="clr-namespace:Umbrella.Constants;assembly=Umbrella"
+             HorizontalOptions="FillAndExpand"
+             >
+
+    <ContentView.Content>
+       <AbsoluteLayout>
+            <Button AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    x:Name="ButtonLabel"
+                    Text="{Binding Text}"
+                    FontSize="{StaticResource ButtonFontSize}"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="#435742"
+                    Clicked="DirectedButtonClicked" />
+            <custom:FontAwesomeLabel AbsoluteLayout.LayoutFlags="PositionProportional"
+                                     AbsoluteLayout.LayoutBounds="0.98,0.5,30,30"
+                                     x:Name="ButtonDirection"
+                                     Text="{Binding Direction}"
+                                     FontFamily="FontAwesome"
+                                     WidthRequest="{StaticResource IconFontSize}"
+                                     HeightRequest="{StaticResource IconFontSize}"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center"
+                                     VerticalTextAlignment="Center"
+                                     HorizontalTextAlignment="Center"
+                                     FontSize="{StaticResource IconFontSize}"
+                                     TextColor="{StaticResource IconsColor}" />
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

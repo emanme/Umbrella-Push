@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Controls.BarcodeImage"
+             Rotation="270">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="Center" >
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Label Text="Business:"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{StaticResource LabelFontSize}"
+                       FontAttributes="Bold" />
+                <Label Text="Premier Plumbers Ltd."
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{StaticResource LabelFontSize}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="StartAndExpand">
+                    <Label Text="Partner ID:"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource LabelFontSize}"
+                           FontAttributes="Bold" />
+                    <Label Text="12481"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource LabelFontSize}" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="EndAndExpand">
+                    <Label Text="Package:"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource LabelFontSize}"
+                           FontAttributes="Bold" />
+                    <Label Text="Gold"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource LabelFontSize}" />
+                </StackLayout>
+            </StackLayout>
+            <Image Source="barcode_image.png"
+                   HeightRequest="150"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill"
+                   Aspect="Fill" x:Name="imgbarcode"   />
+            <Label Text="0 07567 8 164125"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="{StaticResource BarcodeNumberFontSize}"
+                   FontAttributes="Bold" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

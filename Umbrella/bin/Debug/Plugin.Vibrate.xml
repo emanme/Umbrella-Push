@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Plugin.Vibrate</name>
+    </assembly>
+    <members>
+        <member name="T:Plugin.Vibrate.CrossVibrate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Plugin.Vibrate.CrossVibrate.IsSupported">
+            <summary>
+            Gets if the plugin is supported on the current platform.
+            </summary>
+        </member>
+        <member name="P:Plugin.Vibrate.CrossVibrate.Current">
+            <summary>
+            Current plugin implementation to use
+            </summary>
+        </member>
+    </members>
+</doc>

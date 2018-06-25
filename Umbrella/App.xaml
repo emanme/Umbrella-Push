@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!-- Titles -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource backgroundColor}"/>
+                  <Setter Property="BarTextColor" Value="{DynamicResource backTextColor}"/>
+            </Style>
+                
+            <x:String x:Key="AppNameString">Umbrella</x:String>
+            <x:String x:Key="LoginString">LOGIN</x:String>
+            <x:String x:Key="HomeString">Home</x:String>
+            <x:String x:Key="RankString">RANK</x:String>
+            <x:String x:Key="MessagesString">MESSAGES</x:String>
+            <x:String x:Key="RecruitsString">RECRUITS</x:String>
+            <x:String x:Key="MedalString">MEDALS</x:String>
+            <x:String x:Key="ComradesString">COMRADES</x:String>
+            <x:String x:Key="ResourcesString">RESOURCES</x:String>
+            <x:String x:Key="WeaponsString">WEAPONS</x:String>
+            <x:String x:Key="CharityString">CHARITY</x:String>
+            <x:String x:Key="TargetsString">TARGETS</x:String>
+            <x:String x:Key="CalendarsString">CALENDAR</x:String>
+            <x:String x:Key="CallBackString">CALL BACKS</x:String>
+            <x:String x:Key="CustomerServicesString">Customer Services</x:String>
+             <x:String x:Key="CustomersString">Customers</x:String>
+            <x:String x:Key="ReferAndEarnString">REFER &amp; EARN</x:String>
+            <x:String x:Key="YourRankString">YOUR RANK</x:String>
+            <x:String x:Key="BackIconString">&lt;</x:String>
+            <x:String x:Key="EarningsString">EARNINGS</x:String>
+
+            <x:String x:Key="OtherString">Other</x:String>
+             <x:String x:Key="YourNotesString">Your Notes</x:String>
+            <x:String x:Key="AddNotesString">Add Notes</x:String>
+              <x:String x:Key="AgentsNotesString">Agents Notes</x:String>
+
+            
+            <x:String x:Key="SuppliersString">Suppliers</x:String>
+            <x:String x:Key="StaffString">Staff</x:String>
+            <x:String x:Key="TopupString">Topup</x:String>
+            <x:String x:Key="SettingsString">Settings</x:String>
+            <x:String x:Key="NotificationsString">Notifications</x:String>
+            <x:String x:Key="TermsAndConditionsString">Terms &amp; Conditions</x:String>
+            <x:String x:Key="PrivacyPolicyString">Privacy Policy</x:String>
+            <x:String x:Key="ContactUsString">Contact Us</x:String>
+            
+            <x:String x:Key="EnquiriesString">Enquiries</x:String>
+            <x:String x:Key="AllEnquiriesString">All Enquiries</x:String>
+            
+            <x:String x:Key="AppointmentsString">Appointments</x:String>
+            
+            <!-- PAGE HEADER MARGINS -->
+            <Style x:Key="PageHeaderMargins" TargetType="Label">
+                <Setter Property="Margin" Value="100,8,0,0"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            
+            <!-- Login -->
+            <x:String x:Key="UsernameString">Email Address / Username</x:String>
+            <x:String x:Key="PasswordString">Password</x:String>
+            <x:String x:Key="ForgotPasswordString">Forgot Password?</x:String>
+            <x:String x:Key="EmailString">Email Address</x:String>
+            <!-- Files -->
+            <x:String x:Key="UmbrellaLogoFile">umbrella_army_logo</x:String>
+            <x:String x:Key="TopupIconFile">topup_icon</x:String>
+            <x:String x:Key="SettingsIconFile">settings_icon</x:String>
+            <x:String x:Key="RecruitsIconFile">recruits</x:String>
+            <x:String x:Key="ComradesIconFile">comrades</x:String>
+            <x:String x:Key="ResourcesIconFile">resources</x:String>
+            <x:String x:Key="WeaponsIconFile">weapons</x:String>
+            <x:String x:Key="CharityIconFile">charity</x:String>
+            <x:String x:Key="TargetsIconFile">targets</x:String>
+            <x:String x:Key="LeadsNewIconFile">leads_new_icon</x:String>
+            <x:String x:Key="CallBacksNewIconFile">menu_callbacks</x:String>
+            <x:String x:Key="CustomerServicesIconFile">customer_services_icon</x:String>
+            <x:String x:Key="OtherIconFile">other_icon</x:String>
+            <x:String x:Key="SuppliersIconFile">suppliers_icon</x:String>
+            <x:String x:Key="StaffIconFile">staff_icon</x:String>
+            <x:String x:Key="HomeTabIconFile">home_tab_icon</x:String>
+            <x:String x:Key="RankTabIconFile"></x:String>
+            <x:String x:Key="CalendarTabIconFile">menu_calendar</x:String>
+            <x:String x:Key="MessagesTabIconFile">messages_tab_icon</x:String>
+            <x:String x:Key="MedalsTabIconFile">menu_medal</x:String>
+            <x:String x:Key="CallBacksTabIconFile">appointments_tab_icon</x:String>
+            <x:String x:Key="CamouBackgroundTabIconFile">camou_bg</x:String>
+            <!-- Colors -->
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="PrimaryColor">
+                <x:Arguments>
+                    <x:String>435742</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="PrimaryDarkColor">
+                <x:Arguments>
+                    <x:String>8F0607</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="PrimaryLightColor">
+                <x:Arguments>
+                    <x:String>FA8D8D</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="AccentColor">
+                <x:Arguments>
+                    <x:String>363636</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="PrimaryTextColor">
+                <x:Arguments>
+                    <x:String>212121</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="SecondaryTextColor">
+                <x:Arguments>
+                    <x:String>757575</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="IconsColor">
+                <x:Arguments>
+                    <x:String>FFFFFF</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="DividerColor">
+                <x:Arguments>
+                    <x:String>BDBDBD</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="SelectorColor">
+                <x:Arguments>
+                    <x:String>979797</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="MainWhiteColor">
+                <x:Arguments>
+                    <x:String>EBEBEB</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="MainBlackColor">
+                <x:Arguments>
+                    <x:String>363636</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="MainGrayColor">
+                <x:Arguments>
+                    <x:String>979797</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="MainYellowColor">
+                <x:Arguments>
+                    <x:String>FEF372</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="MainGreenColor">
+                <x:Arguments>
+                    <x:String>74B230</x:String>
+                </x:Arguments>
+            </Color>
+            <Color x:FactoryMethod="FromHex"
+                   x:Key="PageHeaderColor">
+                <x:Arguments>
+                    <x:String>D9D9D9</x:String>
+                </x:Arguments>
+            </Color>
+            <!-- Fonts -->
+            <x:Double x:Key="HeaderFontSize">18</x:Double>
+            <x:Double x:Key="PageHeadersFontSize">22</x:Double>
+            <x:Double x:Key="BackButtonFontSize">35</x:Double>
+            <x:Double x:Key="LabelFontSize">16</x:Double>
+            <x:Double x:Key="RankLabelSize">16</x:Double>
+            <x:Double x:Key="BarcodeFontSize">12</x:Double>
+            <x:Double x:Key="TextFontSize">12</x:Double>
+            <x:Double x:Key="InputFontSize">14</x:Double>
+            <x:Double x:Key="ButtonFontSize">12</x:Double>
+            <x:Double x:Key="IconFontSize">30</x:Double>
+            <x:Double x:Key="BarcodeNumberFontSize">25</x:Double>
+            <x:Double x:Key="EarnedValueFontSize">22</x:Double>
+            <x:Double x:Key="BulletIconFontSize">8</x:Double>
+            <!--<OnPlatform x:Key="ButtonFontSize"
+                        x:TypeArguments="x:Double"
+                        iOS="8"
+                        Android="12" />-->
+            <!-- Dimensions -->
+            <OnPlatform x:Key="ButtonsRowSpacing"
+                        x:TypeArguments="x:Double"
+                        iOS="8"
+                        Android="0" />
+            <OnPlatform x:Key="RowDefinitionHeight"
+                        x:TypeArguments="GridLength"
+                        iOS="50"
+                        Android="58"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

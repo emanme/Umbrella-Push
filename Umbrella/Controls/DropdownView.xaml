@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Controls.DropdownView"
+             xmlns:custom="clr-namespace:Umbrella.Custom;assembly=Umbrella"
+             BackgroundColor="#363636"
+             xmlns:constants="clr-namespace:Umbrella.Constants;assembly=Umbrella">
+    <ContentView.Content>
+      <StackLayout Orientation="Horizontal"
+                     Padding="5" Margin="2" BackgroundColor="#F5F5F5">
+            <Label x:Name="DropdownLabel"
+                   Text="{Binding Label}"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+                   FontSize="{StaticResource InputFontSize}"
+                   TextColor="{Binding LabelColor}"
+                   LineBreakMode="TailTruncation" />
+            <custom:FontAwesomeLabel Text="{x:Static constants:FontIcon.ANGLE_DOWN}"
+                                     FontFamily="FontAwesome"
+                                     WidthRequest="{StaticResource IconFontSize}"
+                                     HeightRequest="{StaticResource IconFontSize}"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="End"
+                                     VerticalTextAlignment="Center"
+                                     HorizontalTextAlignment="End"
+                                     FontSize="{StaticResource IconFontSize}"
+                                     TextColor="{StaticResource PrimaryTextColor}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

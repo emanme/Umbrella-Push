@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.RewardLevelPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             BackgroundColor="#EBEBEB"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+       <StackLayout Orientation="Vertical" Spacing="0">
+        <Grid>
+            <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical" Spacing="0">
+                <controls:HeaderView VerticalOptions="Start" />
+                <StackLayout Orientation="Vertical" Spacing="0">
+                   <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <ScrollView>
+                        <StackLayout Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand"
+                                 Padding="20"
+                                 Spacing="20">
+                            <AbsoluteLayout>
+                                <StackLayout AbsoluteLayout.LayoutFlags="All"
+                                         AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                         Orientation="Vertical"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         BackgroundColor="Transparent">
+                                    <StackLayout x:Name="whitePage" Orientation="Vertical"
+                                             VerticalOptions="FillAndExpand"
+                                             HorizontalOptions="FillAndExpand"
+                                             Spacing="0"
+                                             Padding="0,0,0,15"
+                                             BackgroundColor="White">
+                                        <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 Padding="10"
+                                                 BackgroundColor="{StaticResource PrimaryColor}">
+                                            <Label x:Name="CurrentLevelLabel"
+                                               Text=""
+                                               HorizontalOptions="CenterAndExpand"
+                                               Margin="30,0,0,0"
+                                               FontSize="11"
+                                               FontAttributes="Bold"
+                                               TextColor="White" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal"
+                                             Padding="10"
+                                             Spacing="10">
+                                            <Image x:Name="CurrentLevelImage"
+                                               Source="war1"
+                                               VerticalOptions="Start"
+                                               HorizontalOptions="Center"
+                                               WidthRequest="100"
+                                               Aspect="AspectFit" />
+                                            <StackLayout x:Name="CurrentRewardsList"
+                                                     Orientation="Vertical" />
+                                        </StackLayout>
+                                              <StackLayout x:Name="CurrentExcessRewardsList" Padding="15,15,15,0"
+                                                     Orientation="Vertical" HorizontalOptions="Start" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <AbsoluteLayout IsVisible="{Binding IsCurrent}">
+                                    <Image AbsoluteLayout.LayoutFlags="SizeProportional"
+                                       AbsoluteLayout.LayoutBounds="-2,-2,1,1"
+                                       Source="reward_lvl_ribbon_green"
+                                       HeightRequest="100"
+                                       Scale="1.2" />
+                                    <Label AbsoluteLayout.LayoutFlags="PositionProportional"
+                                       AbsoluteLayout.LayoutBounds="-0.27,0.21,-1,-1"
+                                       Text="CURRENT"
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       Rotation="-45"
+                                       TextColor="#FFD700" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                            <StackLayout x:Name="RequirementsLayout"
+                                     Orientation="Vertical"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand"
+                                     BackgroundColor="Transparent">
+                                <StackLayout Orientation="Vertical"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         Spacing="0"
+                                         BackgroundColor="White">
+                                    <StackLayout Orientation="Horizontal"
+                                             HorizontalOptions="FillAndExpand"
+                                             Padding="10"
+                                             BackgroundColor="{StaticResource PrimaryColor}">
+                                        <Label x:Name="NextLevelLabel"
+                                           Text="BECOME A CORPORAL &amp; RECEIVE"
+                                           HorizontalOptions="CenterAndExpand"
+                                           FontSize="11"
+                                           FontAttributes="Bold"
+                                           TextColor="White" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal"
+                                             Padding="10"
+                                             Spacing="10">
+                                        <Image x:Name="NextLevelImage"
+                                           Source="ar"
+                                           VerticalOptions="Start"
+                                           HorizontalOptions="Center"
+                                           WidthRequest="100"
+                                           Aspect="AspectFit" />
+                                        <StackLayout x:Name="NextRewardsList"
+                                                 Orientation="Vertical" />
+                                    </StackLayout>
+                                           <StackLayout x:Name="NextExcessRewardsList" Padding="15,15,15,0"
+                                                     Orientation="Vertical" HorizontalOptions="Start" />
+                                </StackLayout>
+                            </StackLayout>
+                            <controls:DirectedButton x:Name="MoreButton"
+                                                 Text="MORE ON LEVEL 2"
+                                                 VerticalOptions="End"
+                                                 Direction="Right"
+                                                 Position="Right"
+                                                 Clicked="MoreClicked" />
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+                
+               
+            </StackLayout>
+        </Grid>
+            <controls:FooterView x:Name="RewardLevelFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

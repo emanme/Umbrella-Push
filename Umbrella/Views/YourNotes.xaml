@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.YourNotes"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             Title="{StaticResource YourNotesString}"
+  >
+       <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Search" Icon="add_button" Order="Primary" 
+                Clicked="AddButtonTapped" />
+    
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.BindingContext >
+        <viewmodels:NotesViewModel/> 
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+          
+           <!-- <controls:DescriptionLabel Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non imperdiet mauris." /> -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="0"
+                         BackgroundColor="Black">
+                
+            </StackLayout>
+            <controls:SystemListView x:Name="LeadsListView"
+                                     
+                                     ItemsSource="{Binding Leads}">
+                <controls:SystemListView.ItemTemplate  >
+                    <DataTemplate>
+                        <ViewCell >
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal">
+                                    
+                                    <Grid RowSpacing="0"
+                                          ColumnSpacing="0"
+                                          HorizontalOptions="StartAndExpand"
+                                          Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                               <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Status:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="0"
+                                               Grid.Column="1"
+                                             Grid.ColumnSpan="1"
+                                               Text="{Binding status}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="Contact Enquiry:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                             Grid.ColumnSpan="3"
+                                               Text="{Binding contact_enquiry}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <controls:MultilineLabel Grid.Row="2"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="3"
+                                                                 Text="{Binding partner_notes}"
+                                                                 Margin="0,5,0,0"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 LineBreakMode="TailTruncation" />
+                                    </Grid>
+                                    
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+            <controls:FooterView VerticalOptions="End" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

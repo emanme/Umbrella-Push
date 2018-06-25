@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.MedalsItemPage"
+             xmlns:converters="clr-namespace:Umbrella.Converters"
+             xmlns:controls="clr-namespace:Umbrella.Controls"
+             Title="{Binding MedalName}">
+
+       <ContentPage.Resources> 
+        <ResourceDictionary>
+            <converters:MedalOpacityConverter x:Key="MedalImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <Image Source="{Binding MedalNameWithAction , Converter={StaticResource MedalImageConverter}}" HeightRequest="200" WidthRequest="200" Aspect="AspectFit"/>
+            </StackLayout>
+             <WebView IsEnabled="false" Margin="10,0,10,0" x:Name="HtmlWebView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

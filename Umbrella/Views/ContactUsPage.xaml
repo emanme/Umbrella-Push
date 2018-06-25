@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.ContactUsPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             Title="{StaticResource ContactUsString}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Spacing="0"
+                         BackgroundColor="White">
+                <StackLayout Orientation="Vertical"
+                             Margin="10,0,10,10"
+                             Padding="10"
+                             Spacing="10"
+                             BackgroundColor="{StaticResource MainWhiteColor}">
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="0">
+                        <StackLayout VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="80"
+                                     HeightRequest="50"
+                                     BackgroundColor="Silver">
+                            <Label Text="Phone"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   HeightRequest="50"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource InputFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                            <Label Text="Book Call Back"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   HeightRequest="50"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="18"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Start"
+                                     Padding="5"
+                                     WidthRequest="40"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">  
+                            <Label Text=">"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="CenterAndExpand"
+                                   HeightRequest="50"
+                                   VerticalTextAlignment="Center"    
+                                   FontSize="28"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        
+                    </StackLayout>
+                    </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="White" Padding="0,10,0,10">
+                       <Label Text="OR" HorizontalOptions="CenterAndExpand" VerticalTextAlignment="Center" FontSize="18"/>
+                     </StackLayout>
+                  <StackLayout Orientation="Vertical"
+                             VerticalOptions="FillAndExpand"
+                             Margin="10,0,10,10"
+                             Padding="10"
+                             Spacing="10"
+                             BackgroundColor="{StaticResource MainWhiteColor}">
+                             <StackLayout Orientation="Horizontal"
+                                 Spacing="0">
+                        <controls:DropdownView x:Name="Dropdown"
+                                               Label="Select..."
+                                               LabelColor="{StaticResource SecondaryTextColor}"
+                                               HorizontalOptions="FillAndExpand"
+                                               HeightRequest="50"
+                                               BackgroundColor="{StaticResource MainGrayColor}">
+                            <controls:DropdownView.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="DropdownTapped" />
+                            </controls:DropdownView.GestureRecognizers>
+                        </controls:DropdownView>
+                    </StackLayout>
+                    <Editor x:Name="Editor"
+                            Text="Enter your question here"
+                            HeightRequest="150"
+                            HorizontalOptions="FillAndExpand"
+                            FontSize="{StaticResource InputFontSize}"
+                            TextColor="{StaticResource SecondaryTextColor}"
+                            BackgroundColor="{StaticResource MainGrayColor}"
+                            Focused="EditorFocused"
+                            Unfocused="EditorUnfocused" />
+                
+                    <Button x:Name="contactButton" Text="SEND MESSAGE" VerticalOptions="End"
+                                     FontSize="{StaticResource ButtonFontSize}"
+                                     FontAttributes="Bold"
+                                      TextColor="White"
+                                     BackgroundColor="#435742"
+                                             HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                    
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

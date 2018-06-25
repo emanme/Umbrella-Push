@@ -1,0 +1,916 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF1A4944-6D08-43F9-B86E-B182E28C68F7}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Umbrella</RootNamespace>
+    <AssemblyName>Umbrella</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\EnquiriesPage %28copy%29.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.xaml" />
+    <EmbeddedResource Include="Views\LoginPage.xaml" />
+    <EmbeddedResource Include="Views\MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LeadsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EarningsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AppointmentsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CalendarEventsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CharityPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoyaltyCardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RewardLevelPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MessagesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReferAndEarnPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SpringboardButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ContactUsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PrivacyPolicyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NotificationsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TermsAndConditionsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\BarcodeImage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TabButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MessageItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FooterView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ReferralItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DropdownView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TouchableStackLayout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FooterItem.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HeaderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LeadsPage2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OtherPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SuppliersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StaffPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\YourNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\HeaderViewYourNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AddYourNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AgentsNotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AssignTaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpendPointsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RecruitMapKeyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ComradesMapKeyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DownloadFundsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AlliesMapKeyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SegmentedTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\TabCustomButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StepProgressPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CallTimeSchedulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LaterTimePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Views\EnquiriesPage.xaml %28copy%29.cs" />
+    <Compile Remove="Views\CustomersPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Constants\AppSettings.cs" />
+    <Compile Include="Constants\MapboxSetting.cs" />
+    <Compile Include="Constants\StripeClientConstants.cs" />
+    <Compile Include="Controls\CustomDatePicker.xaml.cs">
+      <DependentUpon>CustomDatePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomTabButton.xaml.cs">
+      <DependentUpon>CustomTabButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomTimePicker.xaml.cs">
+      <DependentUpon>CustomTimePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DescriptionLabel.xaml.cs">
+      <DependentUpon>DescriptionLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DirectedButton.xaml.cs">
+      <DependentUpon>DirectedButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListItemStackLayout.xaml.cs">
+      <DependentUpon>ListItemStackLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StillTabbedPage.xaml.cs">
+      <DependentUpon>StillTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SystemListView.xaml.cs">
+      <DependentUpon>SystemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LabelTabButton.xaml.cs">
+      <DependentUpon>LabelTabButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MultilineLabel.xaml.cs">
+      <DependentUpon>MultilineLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BooleanToTextConverter.cs" />
+    <Compile Include="Converters\CharityStatusToImageConverter.cs" />
+    <Compile Include="Converters\CharityStatusToStringConverter.cs" />
+    <Compile Include="Converters\CheckEmptyBooleanConverter.cs" />
+    <Compile Include="Converters\CurrentRewardNameConverter.cs" />
+    <Compile Include="Converters\EmailValidateBehavior.cs" />
+    <Compile Include="Converters\ImagePulseConverter.cs" />
+    <Compile Include="Converters\MedalImageConverter.cs" />
+    <Compile Include="Converters\MedalOpacityConverter.cs" />
+    <Compile Include="Converters\MoraleTextColorConverter.cs" />
+    <Compile Include="Converters\ReferralStatusToImageConverter.cs" />
+    <Compile Include="Converters\TargetIconConverter.cs" />
+    <Compile Include="Converters\TargetStatusConverter.cs" />
+    <Compile Include="Converters\TargetStatusTextConverter.cs" />
+    <Compile Include="Converters\ValidateLettersOnlyBehavior.cs" />
+    <Compile Include="Custom\Badge.cs" />
+    <Compile Include="Custom\CustomReturnTypeEditor.cs" />
+    <Compile Include="Custom\CustomReturnTypeEntry.cs" />
+    <Compile Include="Custom\LargeImage.cs" />
+    <Compile Include="Custom\RoundedBox.cs" />
+    <Compile Include="DAL\DataAccess.cs" />
+    <Compile Include="DataSync\DataSynchronizationBase.cs" />
+    <Compile Include="DataSync\SynchronizationItems.cs" />
+    <Compile Include="Data\MedalDatabase.cs" />
+    <Compile Include="Data\TargetsDatabase.cs" />
+    <Compile Include="Enums\ArrowDirection.cs" />
+    <Compile Include="Enums\ArrowPosition.cs" />
+    <Compile Include="Enums\AuthenticationType.cs" />
+    <Compile Include="Enums\CharityStatus.cs" />
+    <Compile Include="Enums\MessageType.cs" />
+    <Compile Include="Enums\RanksEnum.cs" />
+    <Compile Include="Enums\ReturnType.cs" />
+    <Compile Include="Enums\RewardLevelValue.cs" />
+    <Compile Include="Helpers\CustomTabButtonManager.cs" />
+    <Compile Include="Helpers\SingleClick.cs" />
+    <Compile Include="Interfaces\IAppointmentRetriever.cs" />
+    <Compile Include="Interfaces\ICredentialRetriever.cs" />
+    <Compile Include="Interfaces\IConnectionChecker.cs" />
+    <Compile Include="Interfaces\IOntraportContactIdRetriever.cs" />
+    <Compile Include="Interfaces\ISQLiteHelper.cs" />
+    <Compile Include="Interfaces\ISynchronizable.cs" />
+    <Compile Include="Interfaces\ITopupPaymentService.cs" />
+    <Compile Include="Models\CalendarEvent.cs" />
+    <Compile Include="Models\CallBack.cs" />
+    <Compile Include="Models\Card.cs" />
+    <Compile Include="Models\Charity.cs" />
+    <Compile Include="Models\Comrades.cs" />
+    <Compile Include="Models\ConquerorRanking.cs" />
+    <Compile Include="Models\Credential.cs" />
+    <Compile Include="Models\Earning.cs" />
+    <Compile Include="Models\Lead.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\LongRunningTaskModel.cs" />
+    <Compile Include="Models\Medal.cs" />
+    <Compile Include="Models\OntraportContact.cs" />
+    <Compile Include="Models\Rank.cs" />
+    <Compile Include="Models\Recruit.cs" />
+    <Compile Include="Models\RewardLevel.cs" />
+    <Compile Include="Models\RewardLevelItem.cs" />
+    <Compile Include="Models\SyncInformation.cs" />
+    <Compile Include="Models\StripeApiCustomer.cs" />
+    <Compile Include="Models\Target.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\RewardLevelRepository.cs" />
+    <Compile Include="Repository\SyncInfoRepository.cs" />
+    <Compile Include="RestClient\RestClient.cs" />
+    <Compile Include="RestClient\RewardLevelClientService.cs" />
+    <Compile Include="Services\BasicAccountServices.cs" />
+    <Compile Include="Services\CalendarEventsService.cs" />
+    <Compile Include="Services\CallBacksService.cs" />
+    <Compile Include="Services\CharitiesService.cs" />
+    <Compile Include="Services\ComradesService.cs" />
+    <Compile Include="Services\ConquerorRankingService.cs" />
+    <Compile Include="Services\LoyaltyCardService.cs" />
+    <Compile Include="Services\EarningsService.cs" />
+    <Compile Include="Services\AppointmentsService.cs" />
+    <Compile Include="Services\LeadsService.cs" />
+    <Compile Include="Services\MedalsService.cs" />
+    <Compile Include="Services\MessagesService.cs" />
+    <Compile Include="Services\NotificationsService.cs" />
+    <Compile Include="Services\RecruitService.cs" />
+    <Compile Include="Services\ReferralsService.cs" />
+    <Compile Include="Services\RewardLevelsService.cs" />
+    <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="Services\TargetsService.cs" />
+    <Compile Include="Services\TaskCounter.cs" />
+    <Compile Include="Services\TaskLoadCustomerService.cs" />
+    <Compile Include="Utilities\Global.cs" />
+    <Compile Include="ViewModels\CallBacksViewModel.cs" />
+    <Compile Include="ViewModels\AppointmentsModel.cs" />
+    <Compile Include="ViewModels\CharitiesViewModel.cs" />
+    <Compile Include="ViewModels\ComradesViewModel.cs" />
+    <Compile Include="ViewModels\ConquerorRankingViewModel.cs" />
+    <Compile Include="ViewModels\EarningsViewModel.cs" />
+    <Compile Include="ViewModels\CalendarEventsViewModel.cs" />
+    <Compile Include="ViewModels\LeadsViewModel.cs" />
+    <Compile Include="ViewModels\MapLocationPageViewModel.cs" />
+    <Compile Include="ViewModels\MedalsViewModel.cs" />
+    <Compile Include="ViewModels\RecruitViewModel.cs" />
+    <Compile Include="ViewModels\RewardLevelsViewModel.cs" />
+    <Compile Include="ViewModels\TargetsViewModel.cs" />
+    <Compile Include="Views\CalendarDatesPage.xaml.cs">
+      <DependentUpon>CalendarDatesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CallBacksItemPage.xaml.cs">
+      <DependentUpon>CallBacksItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CallBacksPage.xaml.cs">
+      <DependentUpon>CallBacksPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CallBacksSchedulePage.xaml.cs">
+      <DependentUpon>CallBacksSchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharityItemPage.xaml.cs">
+      <DependentUpon>CharityItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComradesArmoryPage.xaml.cs">
+      <DependentUpon>ComradesArmoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComradesPage.xaml.cs">
+      <DependentUpon>ComradesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConquerorRankingPage.xaml.cs">
+      <DependentUpon>ConquerorRankingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateAlliancePage.xaml.cs">
+      <DependentUpon>CreateAlliancePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EnquiriesPage.xaml.cs">
+      <DependentUpon>EnquiriesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForgotPasswordPage.xaml.cs">
+      <DependentUpon>ForgotPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeadsItemPage.xaml.cs">
+      <DependentUpon>LeadsItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\FontAwesomeLabel.cs" />
+    <Compile Include="Constants\FontIcon.cs" />
+    <Compile Include="Views\LoyaltyPage.xaml.cs">
+      <DependentUpon>LoyaltyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainSwitchTimeSched.xaml.cs">
+      <DependentUpon>MainSwitchTimeSched.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MapLocationPage.xaml.cs">
+      <DependentUpon>MapLocationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedalsItemPage.xaml.cs">
+      <DependentUpon>MedalsItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MedalsPage.xaml.cs">
+      <DependentUpon>MedalsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageSendPage.xaml.cs">
+      <DependentUpon>MessageSendPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecruitsArmoryPage.xaml.cs">
+      <DependentUpon>RecruitsArmoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RecruitsPage.xaml.cs">
+      <DependentUpon>RecruitsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RewardLevelItemPage.xaml.cs">
+      <DependentUpon>RewardLevelItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeadsPage.xaml.cs">
+      <DependentUpon>LeadsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EarningsPage.xaml.cs">
+      <DependentUpon>EarningsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppointmentsPage.xaml.cs">
+      <DependentUpon>AppointmentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CalendarEventsPage.xaml.cs">
+      <DependentUpon>CalendarEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharityPage.xaml.cs">
+      <DependentUpon>CharityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoyaltyCardPage.xaml.cs">
+      <DependentUpon>LoyaltyCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RewardLevelPage.xaml.cs">
+      <DependentUpon>RewardLevelPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TargetsPage.xaml.cs">
+      <DependentUpon>TargetsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopupPage.xaml.cs">
+      <DependentUpon>TopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessagesPage.xaml.cs">
+      <DependentUpon>MessagesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReferAndEarnPage.xaml.cs">
+      <DependentUpon>ReferAndEarnPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpringboardButton.xaml.cs">
+      <DependentUpon>SpringboardButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Constants\OntraportApi.cs" />
+    <Compile Include="Effects\ShadowEffect.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Models\SettingsItem.cs" />
+    <Compile Include="Views\ContactUsPage.xaml.cs">
+      <DependentUpon>ContactUsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrivacyPolicyPage.xaml.cs">
+      <DependentUpon>PrivacyPolicyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotificationsPage.xaml.cs">
+      <DependentUpon>NotificationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TermsAndConditionsPage.xaml.cs">
+      <DependentUpon>TermsAndConditionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BarcodeImage.xaml.cs">
+      <DependentUpon>BarcodeImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="ViewModels\MessagesViewModel.cs" />
+    <Compile Include="Controls\TabButton.xaml.cs">
+      <DependentUpon>TabButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageItemPage.xaml.cs">
+      <DependentUpon>MessageItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\TabButtonManager.cs" />
+    <Compile Include="ViewModels\ReferralsViewModel.cs" />
+    <Compile Include="Models\Referral.cs" />
+    <Compile Include="Enums\ReferralStatus.cs" />
+    <Compile Include="Converters\ReferralStatusToStringConverter.cs" />
+    <Compile Include="Controls\FooterView.xaml.cs">
+      <DependentUpon>FooterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BooleanToFontAttributesConverter.cs" />
+    <Compile Include="Models\NotificationsItem.cs" />
+    <Compile Include="ViewModels\NotificationsViewModel.cs" />
+    <Compile Include="Views\ReferralItemPage.xaml.cs">
+      <DependentUpon>ReferralItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DropdownView.xaml.cs">
+      <DependentUpon>DropdownView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TouchableStackLayout.xaml.cs">
+      <DependentUpon>TouchableStackLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FooterItem.xaml.cs">
+      <DependentUpon>FooterItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeaderView.xaml.cs">
+      <DependentUpon>HeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Constants\UmbrellaApi.cs" />
+    <Compile Include="RestClient\ApiClient.cs" />
+    <Compile Include="RestClient\UserClientService.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\AuthenticationResult.cs" />
+    <Compile Include="Enums\AuthenticationStatus.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Models\AuthenticationCookie.cs" />
+    <Compile Include="Models\LoginJson.cs" />
+    <Compile Include="Helpers\APIHelper.cs" />
+    <Compile Include="Models\APIConnect.cs" />
+    <Compile Include="Models\Leads.cs" />
+    <Compile Include="Helpers\ObservableBase.cs" />
+    <Compile Include="Data\LeadsDataBase.cs" />
+    <Compile Include="Interfaces\IFileHelper.cs" />
+    <Compile Include="Helpers\StorageHelper.cs" />
+    <Compile Include="Models\LeadInformation.cs" />
+    <Compile Include="Data\LeadsManager.cs" />
+    <Compile Include="ViewModels\CustomersViewModel.cs" />
+    <Compile Include="Views\LeadsPage2.xaml.cs">
+      <DependentUpon>LeadsPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomersPage.xaml.cs">
+      <DependentUpon>CustomersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OtherPage.xaml.cs">
+      <DependentUpon>OtherPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SuppliersPage.xaml.cs">
+      <DependentUpon>SuppliersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffPage.xaml.cs">
+      <DependentUpon>StaffPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OtherViewModel.cs" />
+    <Compile Include="ViewModels\SuppliersViewModel.cs" />
+    <Compile Include="ViewModels\StaffViewModel.cs" />
+    <Compile Include="Views\WeaponsPage.xaml.cs">
+      <DependentUpon>WeaponsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\YourNotes.xaml.cs">
+      <DependentUpon>YourNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeaderViewYourNotes.xaml.cs">
+      <DependentUpon>HeaderViewYourNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddYourNotes.xaml.cs">
+      <DependentUpon>AddYourNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Notes.cs" />
+    <Compile Include="ViewModels\NotesViewModel.cs" />
+    <Compile Include="Views\AgentsNotes.xaml.cs">
+      <DependentUpon>AgentsNotes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\LeadsActionType.cs" />
+    <Compile Include="Models\Loyalty.cs" />
+    <Compile Include="Views\AssignTaskPage.xaml.cs">
+      <DependentUpon>AssignTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpendPointsPage.xaml.cs">
+      <DependentUpon>SpendPointsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RankDatabase.cs" />
+    <Compile Include="Data\LoyaltyDatabase.cs" />
+    <Compile Include="Services\MapLocationService.cs" />
+    <Compile Include="Models\MapLocation.cs" />
+    <Compile Include="Views\RecruitMapKeyPage.xaml.cs">
+      <DependentUpon>RecruitMapKeyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ComradesMapKeyPage.xaml.cs">
+      <DependentUpon>ComradesMapKeyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\CustomImage.cs" />
+    <Compile Include="Helpers\PointEventArgs.cs" />
+    <Compile Include="Views\DownloadFundsPage.xaml.cs">
+      <DependentUpon>DownloadFundsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlliesMapKeyPage.xaml.cs">
+      <DependentUpon>AlliesMapKeyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SegmentedTab.xaml.cs">
+      <DependentUpon>SegmentedTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\SegmentedTabManager.cs" />
+    <Compile Include="Interfaces\IDeviceChecker.cs" />
+    <Compile Include="Controls\TabCustomButton.xaml.cs">
+      <DependentUpon>TabCustomButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\TabCustomButtonManager.cs" />
+    <Compile Include="Interfaces\ILaunchCalendar.cs" />
+    <Compile Include="Custom\ExtendedTimePicker.cs" />
+    <Compile Include="Interfaces\IChangeNavColor.cs" />
+    <Compile Include="Views\StepProgressPage.xaml.cs">
+      <DependentUpon>StepProgressPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\CustomProgressBar.cs" />
+    <Compile Include="Views\CallTimeSchedulePage.xaml.cs">
+      <DependentUpon>CallTimeSchedulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LaterTimePage.xaml.cs">
+      <DependentUpon>LaterTimePage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Plugin.Badge, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Badge.Plugin.2.0.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10\Plugin.Badge.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Badge.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Badge.Plugin.2.0.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10\Plugin.Badge.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\netstandard1.0\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.3\lib\netstandard1.0\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net4-client\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SegmentedControl.FormsPlugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SegmentedControl.FormsPlugin.1.3.4\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+Xamarin.iOS10\SegmentedControl.FormsPlugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfBusyIndicator.XForms, Version=14.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Syncfusion.SfBusyIndicator.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfCalendar.XForms, Version=14.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Syncfusion.SfCalendar.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.8\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.4.118\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.5\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Platform">
+      <HintPath>..\packages\Xamarin.FFImageLoading.2.3.5\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Forms">
+      <HintPath>..\packages\Xamarin.FFImageLoading.Forms.2.3.5\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Vibrate.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Vibrate.3.0.1\lib\netstandard\Plugin.Vibrate.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Vibrate">
+      <HintPath>..\packages\Xam.Plugins.Vibrate.3.0.1\lib\netstandard\Plugin.Vibrate.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.SimpleAudioPlayer.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.SimpleAudioPlayer.1.1.0\lib\netstandard1.0\Plugin.SimpleAudioPlayer.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.SimpleAudioPlayer">
+      <HintPath>..\packages\Xam.Plugin.SimpleAudioPlayer.1.1.0\lib\netstandard1.0\Plugin.SimpleAudioPlayer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MessageSendPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libraries\Syncfusion.SfBusyIndicator.XForms.dll" />
+    <None Include="Libraries\Syncfusion.SfCalendar.XForms.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LeadsItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CalendarDatesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharityItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\EnquiriesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CallBacksPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CallBacksSchedulePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CallBacksItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\DirectedButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\StillTabbedPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RewardLevelItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\SystemListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\ListItemStackLayout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\LabelTabButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>
+      </SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\DescriptionLabel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomDatePicker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomTimePicker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\MultilineLabel.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ForgotPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MapLocationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mapbox\MapBox\Naxam.Mapbox.Forms.csproj">
+      <Project>{ebb04763-2e36-4d2c-94c9-351fbace3c83}</Project>
+      <Name>Naxam.Mapbox.Forms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TargetsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WeaponsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RecruitsArmoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ComradesArmoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CreateAlliancePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\RecruitsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ComradesPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\LoyaltyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CustomTabButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MedalsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MedalsItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ConquerorRankingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainSwitchTimeSched.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.2.4.0.280\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.4.0.280\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
+</Project>

@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.ReferralItemPage"
+             xmlns:converters="clr-namespace:Umbrella.Converters;assembly=Umbrella">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ReferralStatusToStringConverter x:Key="ReferralStatusToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Padding="20">
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="0,0,0,5">
+                        <Label Text="{Binding Created, StringFormat='{}{0:MMM dd, yyyy}'}"
+                               HorizontalOptions="StartAndExpand"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Text="{Binding Status, Converter={StaticResource ReferralStatusToStringConverter}}"
+                               HorizontalOptions="End"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Image  Source="profile_default"
+                                VerticalOptions="Start"
+                                HorizontalOptions="Start"
+                                WidthRequest="50"
+                                HeightRequest="50"
+                                Aspect="AspectFill" />
+                        <Grid RowSpacing="0"
+                              ColumnSpacing="0"
+                              VerticalOptions="Center"
+                              HorizontalOptions="StartAndExpand"
+                              Margin="10,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Name:"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   LineBreakMode="WordWrap" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="Business:"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Business}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   LineBreakMode="WordWrap" />
+                            <Label Grid.Row="2"
+                                   Grid.Column="0"
+                                   Text="Relationship:"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            <Label Grid.Row="2"
+                                   Grid.Column="1"
+                                   Text="{Binding Relationship}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   LineBreakMode="WordWrap" />
+                        </Grid>
+                    </StackLayout>
+                    <ContentView Margin="0,5"
+                                 HeightRequest="1"
+                                 BackgroundColor="Black" />
+                    <Grid RowSpacing="0"
+                          ColumnSpacing="0"
+                          VerticalOptions="Center"
+                          HorizontalOptions="StartAndExpand"
+                          Margin="10,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0"
+                               Grid.Column="0"
+                               Text="Email Address:"
+                               HorizontalTextAlignment="Start"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Text="{Binding EmailAddress}"
+                               HorizontalTextAlignment="Start"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               LineBreakMode="WordWrap" />
+                        <Label Grid.Row="1"
+                               Grid.Column="0"
+                               Text="Phone Number:"
+                               HorizontalTextAlignment="Start"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding PhoneNumber}"
+                               HorizontalTextAlignment="Start"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               LineBreakMode="WordWrap" />
+                        <Label Grid.Row="2"
+                               Grid.Column="0"
+                               Text="Mobile Number:"
+                               HorizontalTextAlignment="Start"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <Label Grid.Row="2"
+                               Grid.Column="1"
+                               Text="{Binding MobileNumber}"
+                               HorizontalTextAlignment="Start"
+                               FontSize="{StaticResource TextFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}"
+                               LineBreakMode="WordWrap" />
+                    </Grid>
+                </StackLayout>
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <Label Text="{Binding Message}"
+                       FontSize="{StaticResource TextFontSize}"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       LineBreakMode="WordWrap" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

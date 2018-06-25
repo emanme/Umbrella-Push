@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Controls.FooterView"
+             xmlns:custom="clr-namespace:Umbrella.Custom"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentView.Content>
+       <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand" Spacing="0">
+             <StackLayout Orientation="Horizontal"
+                     HeightRequest="60"
+                     Padding="0"
+                     Spacing="0"
+                     BackgroundColor="{StaticResource MainWhiteColor}"
+                     VerticalOptions="EndAndExpand">
+            <controls:FooterItem x:Name="RankTab"
+                                 Icon="{StaticResource RankTabIconFile}"
+                                 VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 Label="{StaticResource RankString}"
+                                 WidthReq="40"
+                                 HeightReq="40"
+                                 HeightRequest="20"
+                                 Margin="10,2,0,0"
+                                 WidthRequest="20"
+                                 LabelSize="10"
+                                 LabelColor="Gray"
+                                 Tapped="RewardLevelButtonTapped" />
+            
+            <controls:FooterItem x:Name="CalendarTab"
+                                 Icon="{StaticResource CalendarTabIconFile}"
+                                 VerticalOptions="FillAndExpand"
+                                 WidthReq="40"
+                                 HeightReq="40"
+                                 HorizontalOptions="FillAndExpand"
+                                 Label="{StaticResource CalendarsString}"
+                                 LabelSize="10"
+                                 Margin="10,0,0,0"
+                                 LabelColor="Gray"
+                                 Tapped="CalendarButtonTapped" />
+            
+            <Grid>
+                <controls:FooterItem x:Name="MessagesTab"
+                                 Icon="menu_messages"
+                                 VerticalOptions="FillAndExpand"
+                                 WidthReq="40"
+                                 HeightReq="40"
+                                 HorizontalOptions="FillAndExpand"
+                                 Label="{StaticResource MessagesString}"
+                                 LabelSize="10"
+                                 LabelColor="Gray"
+                                 Tapped="MessagesButtonTapped" />
+                <custom:Badge x:Name="BadgeMessage" Text="0" WidthRequest="25" Margin="35,0,5,35" 
+                              HeightRequest="25" VerticalOptions="Start" HorizontalOptions="Center" BoxColor="Red">
+                    <x:Arguments>
+                        <x:Double>30</x:Double>
+                        <x:Double>12</x:Double>
+                    </x:Arguments>
+                </custom:Badge>
+            </Grid> 
+            
+            <controls:FooterItem x:Name="CallBacksTab"
+                                 Icon="menu_callbacks"
+                                 Margin="0,3,0,0"
+                                 WidthReq="35"
+                                 HeightReq="35"
+                                 VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 Label="{StaticResource CallBackString}"
+                                 LabelSize="10"
+                                 LabelColor="Gray"
+                                 Tapped="CallBacksButtonTapped" />
+         
+            <controls:FooterItem x:Name="MedalsTab"
+                                 WidthReq="40"
+                                 HeightReq="40"
+                                Icon="{StaticResource MedalsTabIconFile}"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Label="{StaticResource MedalString}"
+                                LabelSize="10"
+                                LabelColor="Gray"
+                                Tapped="MedalsButtonTapped" />
+             
+           
+        </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

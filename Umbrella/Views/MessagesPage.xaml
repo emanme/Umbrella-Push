@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.MessagesPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:converters="clr-namespace:Umbrella.Converters;assembly=Umbrella"
+              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BooleanToFontAttributesConverter x:Key="BooleanToFontAttributesConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewmodels:MessagesViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+      <StackLayout Orientation="Vertical" Spacing="0">
+       <Grid>
+                 <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+             <controls:HeaderView VerticalOptions="Start" />
+           
+             <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  BackgroundColor="Black">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="65" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="33*" />
+                                                        <ColumnDefinition Width="33*" />
+                                                        <ColumnDefinition Width="33*" />
+                                                    </Grid.ColumnDefinitions>
+                        <controls:CustomTabButton x:Name="BusinessGrowthExecutiveTab"
+                                    Icon="mission_green"
+                                    Label=""
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    WidthReq="50"
+                                    HeightReq="50"
+                                    LabelSize="10"
+                                    HasIcon="true"
+                                    Tapped="BusinessGrowthExecutiveButtonTapped" />
+                <controls:CustomTabButton x:Name="UmbrellaMessagesTab"
+                                    Icon="general_white"
+                                    Label="Messages&#x0a;from Command"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    WidthReq="30"
+                                    HeightReq="30"
+                                    LabelSize="10"
+                                    HasIcon="true"
+                                    Tapped="UmbrellaMessagesButtonTapped" />
+                <controls:CustomTabButton x:Name="OtherPartnersTab"
+                                    Icon="top_secret_white"
+                                    Label=""
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    LabelSize="12"
+                                    WidthReq="50"
+                                    HeightReq="50"
+                                    HasIcon="true"
+                                    Tapped="OtherPartnersButtonTapped" />
+                     </Grid>
+            <controls:SystemListView x:Name="MessagesListView"
+                                     ItemTapped="MessagesItemTapped"
+                                     ItemsSource="{Binding Messages}">
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal"
+                                                               Padding="10">
+                                    <Image Source="{Binding Image}"
+                                           VerticalOptions="Start"
+                                           HorizontalOptions="Start"
+                                           WidthRequest="50"
+                                           HeightRequest="50"
+                                           Aspect="AspectFill" />
+                                    <StackLayout Orientation="Vertical"
+                                                 VerticalOptions="Start"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 Margin="10,0,0,0"
+                                                 Spacing="0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image IsVisible="{Binding IsUnread}"
+                                                   Source="red_dot"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   WidthRequest="10"
+                                                   HeightRequest="10" />
+                                            <Label Text="{Binding Sender}"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="{Binding IsUnread, Converter={StaticResource BooleanToFontAttributesConverter}}"
+                                                   TextColor="{StaticResource PrimaryTextColor}"
+                                                   LineBreakMode="TailTruncation" />
+                                            <StackLayout Orientation="Horizontal"
+                                                         VerticalOptions="Center"
+                                                         HorizontalOptions="End"
+                                                         WidthRequest="100"
+                                                         Spacing="0">
+                                                <ContentView HorizontalOptions="StartAndExpand" />
+                                                <Image IsVisible="{Binding HasAttachment}"
+                                                       Source="attachment_icon"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="End"
+                                                       WidthRequest="20"
+                                                       HeightRequest="20"
+                                                       Aspect="AspectFit" />
+                                                <Label Text="{Binding Received, StringFormat='{}{0:h:mm tt&#xA;dd MMM}'}"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="End"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="Gray" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Label Text="{Binding Subject}"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="{Binding IsUnread, Converter={StaticResource BooleanToFontAttributesConverter}}"
+                                               TextColor="Gray"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding Body}"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="Gray"
+                                               LineBreakMode="TailTruncation" />
+                                    </StackLayout>
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+            <StackLayout x:Name="MissionsTabPage" Orientation="Horizontal" Padding="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="No Missions Assigned to You &#x0a; At this time Commander" HorizontalTextAlignment="Center" FontSize="14"/>
+            </StackLayout>
+            <controls:SystemListView x:Name="TopSecretTabPage"
+                                     ItemTapped="TopItemTapped"
+                                    >
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal"
+                                                               Padding="10">
+                                    <Image Source="{Binding Image}"
+                                           VerticalOptions="Start"
+                                           HorizontalOptions="Start"
+                                           WidthRequest="50"
+                                           HeightRequest="50"
+                                           Aspect="AspectFill" />
+                                   <Grid>
+                                     <Image x:Name="testWatermark" Source="destroyed_watermark" IsVisible="{Binding Read}" Margin="0,0,15,0" WidthRequest="55" HeightRequest="55" Aspect="AspectFit"/>
+                                    <StackLayout Orientation="Vertical"
+                                                 VerticalOptions="Start"
+                                                 HorizontalOptions="FillAndExpand"
+                                                 Margin="10,0,0,0"
+                                                 Spacing="0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image IsVisible="{Binding IsUnread}"
+                                                   Source="red_dot"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   WidthRequest="10"
+                                                   HeightRequest="10" />
+                                            <Label Text="{Binding Sender}"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="{Binding IsUnread, Converter={StaticResource BooleanToFontAttributesConverter}}"
+                                                   TextColor="{StaticResource PrimaryTextColor}"
+                                                   LineBreakMode="TailTruncation" />
+                                            <StackLayout Orientation="Horizontal"
+                                                         VerticalOptions="Center"
+                                                         HorizontalOptions="End"
+                                                         WidthRequest="100"
+                                                         Spacing="0">
+                                                <ContentView HorizontalOptions="StartAndExpand" />
+                                                <Image IsVisible="{Binding HasAttachment}"
+                                                       Source="attachment_icon"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="End"
+                                                       WidthRequest="20"
+                                                       HeightRequest="20"
+                                                       Aspect="AspectFit" />
+                                                <Label Text="{Binding Received, StringFormat='{}{0:h:mm tt&#xA;dd MMM}'}"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="End"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="Gray" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Label Text="{Binding Subject}"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="{Binding IsUnread, Converter={StaticResource BooleanToFontAttributesConverter}}"
+                                               TextColor="Gray"
+                                               LineBreakMode="TailTruncation" />
+                                        <!--<Label Text="{Binding Body}"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="Gray"
+                                               LineBreakMode="TailTruncation" /> -->
+                                    </StackLayout>
+                                   </Grid>
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+        </StackLayout>
+        </Grid>
+            <controls:FooterView x:Name="MessagesFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

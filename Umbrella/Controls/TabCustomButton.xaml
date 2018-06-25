@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Umbrella.Controls.TabCustomButton"
+    BackgroundColor="{Binding BorderColor}">
+	 <ContentView.Content>
+        <StackLayout x:Name="Background"
+                     Orientation="Vertical"
+                     Margin="2"
+                     Padding="0,5"
+                     Spacing="0"
+                     BackgroundColor="{Binding Color}">
+          <Grid>
+            <Image x:Name="ButtonIcon"
+                   Source="{Binding Icon}"
+                   VerticalOptions="Start"
+                   HorizontalOptions="CenterAndExpand"
+                   WidthRequest="{Binding HeightReq}"
+                   HeightRequest="{Binding WidthReq}"
+                   IsVisible="{Binding HasIcon}" 
+                   Margin="0,0,0,10"
+                   Aspect="Fill"
+                  />
+            <Label x:Name="ButtonLabel"
+                   Text="{Binding Label}"
+                   VerticalOptions="End"
+                   HorizontalOptions="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="{Binding LabelSize}"
+                   FontAttributes="Bold"
+                   TextColor="{Binding LabelColor}"
+                   LineBreakMode="WordWrap" />
+            </Grid>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TabButtonTapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

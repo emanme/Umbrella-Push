@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="294" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="umbrella_army_logo.png">
+                                <rect key="frame" x="9.5" y="184" width="302.5" height="139.5"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinX="YES" flexibleMaxY="YES" flexibleMinY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="leads_tab_icon.png" width="40" height="40"/>
+        <image name="messages_tab_icon.png" width="192" height="192"/>
+        <image name="refer_and_earn_tab_icon.png" width="40" height="40"/>
+        <image name="reward_lvl_tab_icon.png" width="40" height="40"/>
+        <image name="home_tab_icon.png" width="192" height="192"/>
+        <image name="settings_icon.png" width="192" height="192"/>
+        <image name="topup_icon.png" width="192" height="192"/>
+        <image name="appointments_icon.png" width="110.333336" height="89.3333359"/>
+        <image name="calendar_icon.png" width="110.333336" height="89.3333359"/>
+        <image name="charity_icon.png" width="110.333336" height="89.3333359"/>
+        <image name="earnings_icon.png" width="110.333336" height="89.3333359"/>
+        <image name="leads_icon.png" width="110.333336" height="89.3333359"/>
+        <image name="loyalty_card_icon.png" width="110.333336" height="89.3333359"/>
+        <image name="barcode_image.png" width="290" height="30"/>
+        <image name="umbrella_logo_30.png" width="144" height="34"/>
+        <image name="customers_red.png" width="40" height="40"/>
+        <image name="customers.png" width="40" height="40"/>
+        <image name="back_button.png" width="192" height="192"/>
+        <image name="add_button.png" width="25" height="25"/>
+        <image name="rank1.png" width="192" height="192"/>
+        <image name="rank2.png" width="192" height="192"/>
+        <image name="rank3.png" width="192" height="192"/>
+        <image name="rank4.png" width="192" height="192"/>
+        <image name="rank5.png" width="192" height="192"/>
+        <image name="army_5t_black.png" width="192" height="192"/>
+        <image name="army_5t.png" width="192" height="192"/>
+        <image name="guyt_black.png" width="192" height="192"/>
+        <image name="guyt.png" width="192" height="192"/>
+        <image name="war1.png" width="192" height="192"/>
+        <image name="ar1.png" width="100" height="100"/>
+        <image name="ar2.png" width="100" height="100"/>
+        <image name="ar3.png" width="100" height="100"/>
+        <image name="ar4.png" width="100" height="100"/>
+        <image name="ar5.png" width="100" height="100"/>
+        <image name="hand_shaket_black.png" width="192" height="192"/>
+        <image name="visa_icon.png" width="62" height="46"/>
+        <image name="master_card_icon.png" width="62" height="46"/>
+        <image name="privacy_policy_icon.png" width="54" height="59"/>
+        <image name="terms_and_conditions_icon.png" width="54" height="59"/>
+        <image name="contact_us_icon.png" width="54" height="60"/>
+        <image name="notifications_icon.png" width="54" height="62"/>
+        <image name="logout_icon.png" width="60" height="60"/>
+        <image name="attachment_icon.png" width="21" height="50"/>
+        <image name="check_mark.png" width="100" height="100"/>
+        <image name="in_progress_mark.png" width="100" height="100"/>
+        <image name="wrong_mark.png" width="100" height="100"/>
+        <image name="profile_default.png" width="100" height="100"/>
+        <image name="business_growth_executive.png" width="50" height="40"/>
+        <image name="business_growth_executive_red.png" width="50" height="40"/>
+        <image name="other_partners.png" width="69" height="40"/>
+        <image name="other_partners_red.png" width="69" height="40"/>
+        <image name="umbrella_messages.png" width="55" height="40"/>
+        <image name="umbrella_messages_red.png" width="55" height="40"/>
+        <image name="status_icon.png" width="100" height="100"/>
+        <image name="category_icon.png" width="100" height="100"/>
+        <image name="reward_lvl_ribbon.png" width="200" height="200"/>
+        <image name="reward_lvl_up_5.png" width="100" height="100"/>
+        <image name="reward_lvl_up_2.png" width="100" height="100"/>
+        <image name="reward_lvl_up_3.png" width="100" height="100"/>
+        <image name="reward_lvl_up_4.png" width="100" height="100"/>
+        <image name="reward_lvl_5_tab_icon.png" width="40" height="40"/>
+        <image name="reward_lvl_1_tab_icon.png" width="40" height="40"/>
+        <image name="reward_lvl_2_tab_icon.png" width="40" height="40"/>
+        <image name="reward_lvl_3_tab_icon.png" width="40" height="40"/>
+        <image name="reward_lvl_4_tab_icon.png" width="40" height="40"/>
+        <image name="red_dot.png" width="32" height="32"/>
+        <image name="reward_lvl_1.png" width="100" height="100"/>
+        <image name="reward_lvl_2.png" width="100" height="100"/>
+        <image name="reward_lvl_3.png" width="100" height="100"/>
+        <image name="reward_lvl_4.png" width="100" height="100"/>
+        <image name="reward_lvl_5.png" width="100" height="100"/>
+        <image name="call_backs.png" width="40" height="40"/>
+        <image name="call_backs_red.png" width="40" height="40"/>
+        <image name="clean_water.png" width="40" height="40"/>
+        <image name="clean_water_red.png" width="40" height="40"/>
+        <image name="enquiries.png" width="40" height="40"/>
+        <image name="enquiries_red.png" width="40" height="40"/>
+        <image name="leads.png" width="40" height="40"/>
+        <image name="leads_red.png" width="40" height="40"/>
+        <image name="micro_finance.png" width="40" height="40"/>
+        <image name="micro_finance_red.png" width="40" height="40"/>
+        <image name="month.png" width="40" height="40"/>
+        <image name="month_red.png" width="40" height="40"/>
+        <image name="previous_referrals.png" width="40" height="40"/>
+        <image name="previous_referrals_red.png" width="40" height="40"/>
+        <image name="refer_and_earn.png" width="40" height="40"/>
+        <image name="refer_and_earn_red.png" width="40" height="40"/>
+        <image name="week.png" width="40" height="40"/>
+        <image name="week_red.png" width="40" height="40"/>
+        <image name="year.png" width="40" height="40"/>
+        <image name="year_red.png" width="40" height="40"/>
+        <image name="your_charity.png" width="40" height="40"/>
+        <image name="your_charity_red.png" width="40" height="40"/>
+        <image name="suppliers_icon.png" width="479" height="390"/>
+        <image name="customer_services_icon.png" width="479" height="390"/>
+        <image name="other_icon.png" width="479" height="390"/>
+        <image name="staff_icon.png" width="479" height="390"/>
+        <image name="call_backs_new_icon.png" width="479" height="390"/>
+        <image name="leads_new_icon.png" width="479" height="390"/>
+        <image name="appointments_tab_icon_red.png" width="40" height="40"/>
+        <image name="leads_tab_icon_red.png" width="40" height="40"/>
+        <image name="messages_tab_icon_red.png" width="40" height="40"/>
+        <image name="refer_and_earn_tab_icon_red.png" width="192" height="192"/>
+        <image name="reward_lvl_tab_icon_red.png" width="40" height="40"/>
+        <image name="reward_lvl5_footer_icon_.png" width="40" height="40"/>
+        <image name="reward_lvl1_footer_icon_.png" width="40" height="40"/>
+        <image name="reward_lvl2_footer_icon_.png" width="40" height="40"/>
+        <image name="reward_lvl3_footer_icon_.png" width="40" height="40"/>
+        <image name="reward_lvl4_footer_icon_.png" width="40" height="40"/>
+        <image name="reward_lvl4_footer_icon_red_.png" width="40" height="40"/>
+        <image name="reward_lvl5_footer_icon_red_.png" width="40" height="40"/>
+        <image name="reward_lvl1_footer_icon_red_.png" width="40" height="40"/>
+        <image name="reward_lvl2_footer_icon_red_.png" width="40" height="40"/>
+        <image name="reward_lvl3_footer_icon_red_.png" width="40" height="40"/>
+        <image name="umbrella_army_logo.png" width="1024" height="500"/>
+        <image name="charity.png" width="434" height="350"/>
+        <image name="comrades.png" width="434" height="350"/>
+        <image name="recruits.png" width="434" height="350"/>
+        <image name="resources.png" width="434" height="350"/>
+        <image name="targets.png" width="434" height="350"/>
+        <image name="weapons.png" width="434" height="350"/>
+        <image name="camou_bg.jpg" width="474" height="842"/>
+        <image name="rank_t2.png" width="512" height="394"/>
+        <image name="menu_calendar.png" width="192" height="192"/>
+        <image name="menu_callbacks.png" width="192" height="192"/>
+        <image name="menu_medal.png" width="192" height="192"/>
+        <image name="menu_messages.png" width="192" height="192"/>
+        <image name="button_bg.png" width="1000" height="1000"/>
+        <image name="pound_sign.png" width="192" height="192"/>
+        <image name="satelite_dish.png" width="192" height="192"/>
+        <image name="settings.png" width="192" height="192"/>
+        <image name="cc.png" width="192" height="192"/>
+        <image name="army5_gray.png" width="100" height="100"/>
+        <image name="army5_green.png" width="100" height="100"/>
+        <image name="guy_gray.png" width="100" height="100"/>
+        <image name="hand_shake_gray.png" width="100" height="100"/>
+        <image name="hand_shake_green.png" width="100" height="100"/>
+        <image name="heart_rate_green.gif" width="1000" height="1000"/>
+        <image name="heart_rate_red.gif" width="1000" height="1000"/>
+        <image name="heart_rate_yellow.gif" width="1000" height="1000"/>
+        <image name="location_gray.png" width="100" height="100"/>
+        <image name="location_green.png" width="100" height="100"/>
+        <image name="target_icon_gray.png" width="100" height="100"/>
+        <image name="target_icon_green.png" width="100" height="100"/>
+        <image name="target_icon_red.png" width="100" height="100"/>
+        <image name="camou_bg.png" width="474" height="842"/>
+        <image name="reward_lvl_ribbon_green.png" width="200" height="200"/>
+        <image name="medal_grayed.png" width="60" height="78"/>
+        <image name="medal_victory.png" width="60" height="78"/>
+        <image name="medal_bravery.png" width="60" height="78"/>
+        <image name="medal_conqueror.png" width="60" height="78"/>
+        <image name="medal_defender.png" width="60" height="78"/>
+        <image name="medal_expert.png" width="60" height="78"/>
+        <image name="medal_intel.png" width="60" height="78"/>
+        <image name="rank5_footer_green.png" width="192" height="192"/>
+        <image name="calendar_footer_green.png" width="192" height="192"/>
+        <image name="medal_footer_green.png" width="512" height="512"/>
+        <image name="messages_footer_green.png" width="192" height="192"/>
+        <image name="phone_footer_green.png" width="192" height="192"/>
+        <image name="rank1_footer_green.png" width="192" height="192"/>
+        <image name="rank2_footer_green.png" width="192" height="192"/>
+        <image name="rank3_footer_green.png" width="192" height="192"/>
+        <image name="rank4_footer_green.png" width="192" height="192"/>
+        <image name="pound_sign_gray.png" width="192" height="192"/>
+        <image name="business_growth_executive_green.png" width="50" height="40"/>
+        <image name="camouflage_gray_bg.png" width="474" height="842"/>
+        <image name="clean_water_green.png" width="40" height="40"/>
+        <image name="contact_us_icon_green.png" width="54" height="60"/>
+        <image name="logout_icon_green.png" width="60" height="60"/>
+        <image name="micro_finance_green.png" width="40" height="40"/>
+        <image name="month_green_bg.png" width="40" height="40"/>
+        <image name="month_white_bg.png" width="40" height="40"/>
+        <image name="notifications_icon_green.png" width="54" height="62"/>
+        <image name="other_partners_green.png" width="69" height="40"/>
+        <image name="privacy_policy_icon_green.png" width="54" height="59"/>
+        <image name="terms_and_conditions_icon_green.png" width="54" height="59"/>
+        <image name="umbrella_messages_green.png" width="55" height="40"/>
+        <image name="week_green_bg.png" width="40" height="40"/>
+        <image name="week_white_bg.png" width="40" height="40"/>
+        <image name="year_green_bg.png" width="40" height="40"/>
+        <image name="year_white_bg.png" width="40" height="40"/>
+        <image name="your_charity_green.png" width="40" height="40"/>
+        <image name="general_green.png" width="1000" height="1000"/>
+        <image name="general_grey.png" width="1000" height="1000"/>
+        <image name="mission_green.png" width="1000" height="1000"/>
+        <image name="mission_grey.png" width="1000" height="1000"/>
+        <image name="top_secret_green.png" width="1000" height="1000"/>
+        <image name="top_secret_grey.png" width="1000" height="1000"/>
+        <image name="top_secret_red.png" width="1000" height="1000"/>
+        <image name="calendar_w.png" width="434" height="350"/>
+        <image name="callbacks_w.png" width="434" height="350"/>
+        <image name="charity_w.png" width="434" height="350"/>
+        <image name="earnings_w.png" width="434" height="350"/>
+        <image name="hand_shaket.png" width="192" height="192"/>
+        <image name="icon.png" width="1024" height="1024"/>
+        <image name="leads_w.png" width="434" height="350"/>
+        <image name="loyalty_w.png" width="434" height="350"/>
+        <image name="UmbrellaArmyFavicon.png" width="512" height="512"/>
+        <image name="war2.png" width="192" height="192"/>
+        <image name="war3.png" width="192" height="192"/>
+        <image name="war4.png" width="192" height="192"/>
+        <image name="war5.png" width="192" height="192"/>
+        <image name="pin_command.png" width="20" height="63"/>
+        <image name="umbrella_army_logo_splash.png" width="500" height="200"/>
+        <image name="general_white.png" width="192" height="192"/>
+        <image name="mission_white.png" width="192" height="192"/>
+        <image name="top_secret_white.png" width="192" height="192"/>
+        <image name="medal_bravery_big.png" width="430" height="587"/>
+        <image name="medal_conqueror_big.png" width="430" height="587"/>
+        <image name="medal_defender_big.png" width="430" height="587"/>
+        <image name="medal_expert_big.png" width="430" height="587"/>
+        <image name="medal_intel_big.png" width="430" height="587"/>
+        <image name="medal_victory_big.png" width="430" height="587"/>
+        <image name="heart_rate_green.png" width="100" height="100"/>
+        <image name="heart_rate_red.png" width="100" height="100"/>
+        <image name="heart_rate_yellow.png" width="100" height="100"/>
+    </resources>
+</document>

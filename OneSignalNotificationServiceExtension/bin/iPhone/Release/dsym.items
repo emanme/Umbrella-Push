@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_AppExtensionDebugSymbolProperties Include="OneSignalNotificationServiceExtension.appex">
+      <CompiledArchitectures></CompiledArchitectures>
+      <NativeExecutable>OneSignalNotificationServiceExtension</NativeExecutable>
+      <NoSymbolStrip>False</NoSymbolStrip>
+      <SymbolsList>/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/OneSignalNotificationServiceExtension/obj/iPhone/Release/mtouch-symbols.list</SymbolsList>
+      <NoDSymUtil>false</NoDSymUtil>
+    </_AppExtensionDebugSymbolProperties>
+  </ItemGroup>
+</Project>

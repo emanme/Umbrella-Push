@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.CallBacksSchedulePage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Spacing="0">
+                <StackLayout x:Name="ScheduleHeaderLayout"
+                             Orientation="Vertical"
+                             Spacing="0">
+                    <controls:DescriptionLabel Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non imperdiet mauris." />
+                    <ContentView HeightRequest="1"
+                                 BackgroundColor="Gray" />
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="0"
+                                 BackgroundColor="White">
+                        <StackLayout Orientation="Vertical"
+                                     WidthRequest="60"
+                                     Spacing="0"
+                                     BackgroundColor="{StaticResource MainWhiteColor}">
+                            <Image Source="profile_default"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   Margin="5"
+                                   Aspect="AspectFit" />
+                        </StackLayout>
+                        <Grid RowSpacing="0"
+                              ColumnSpacing="0"
+                              HorizontalOptions="StartAndExpand"
+                              Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Name:"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryColor}" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="{Binding Name}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryColor}"
+                                   LineBreakMode="TailTruncation" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="Business:"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryColor}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Business}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryColor}"
+                                   LineBreakMode="TailTruncation" />
+                            <Label Grid.Row="2"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                   Margin="0,5,0,0"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   LineBreakMode="WordWrap" />
+                        </Grid>
+                        <StackLayout Orientation="Vertical"
+                                     WidthRequest="60"
+                                     Spacing="0"
+                                     BackgroundColor="{StaticResource MainWhiteColor}">
+                            <Image Source="category_icon"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   Margin="5"
+                                   Aspect="AspectFit" />
+                            <Label Text="{Binding Category}"
+                                   VerticalOptions="End"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="White"
+                                   BackgroundColor="{StaticResource MainBlackColor}"
+                                   LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout x:Name="RescheduleHeaderLayout"
+                             Orientation="Vertical"
+                             Spacing="0"
+                             IsVisible="false">
+                    <ContentView HeightRequest="1"
+                                 BackgroundColor="Gray" />
+                    <StackLayout Orientation="Horizontal"
+                                 HeightRequest="25"
+                                 Padding="10"
+                                 BackgroundColor="Silver">
+                        <Label Text="Current Appointment"
+                               VerticalOptions="Center"
+                               HorizontalOptions="StartAndExpand"
+                               VerticalTextAlignment="Center"
+                               FontSize="{StaticResource TextFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource PrimaryTextColor}" />
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="EndAndExpand">
+                            <Label Text="Contact ID:"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            <Label Text="{Binding Lead.ContactId}"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="0"
+                                 BackgroundColor="White">
+                        <StackLayout Orientation="Vertical"
+                                     WidthRequest="60"
+                                     Spacing="0"
+                                     BackgroundColor="{StaticResource MainWhiteColor}">
+                            <Label Text="{Binding Lead.Created, StringFormat='{}{0:h:mm tt}'}"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   Margin="5"
+                                   FontSize="{StaticResource HeaderFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   BackgroundColor="{StaticResource MainWhiteColor}"
+                                   LineBreakMode="WordWrap" />
+                            <Label Text="{Binding Lead.Created, StringFormat='{}{0:ddd d MMM}'}"
+                                   VerticalOptions="End"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="White"
+                                   BackgroundColor="{StaticResource MainBlackColor}"
+                                   LineBreakMode="WordWrap" />
+                        </StackLayout>
+                        <Grid RowSpacing="0"
+                              ColumnSpacing="0"
+                              HorizontalOptions="StartAndExpand"
+                              Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0"
+                                   Grid.Column="0"
+                                   Text="Name:"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryColor}" />
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Text="{Binding Lead.Name}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryColor}"
+                                   LineBreakMode="TailTruncation" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="0"
+                                   Text="Business:"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryColor}" />
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Text="{Binding Lead.Business}"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryColor}"
+                                   LineBreakMode="TailTruncation" />
+                            <Label Grid.Row="2"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                                   Margin="0,5,0,0"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   LineBreakMode="WordWrap" />
+                        </Grid>
+                        <StackLayout Orientation="Vertical"
+                                     WidthRequest="60"
+                                     Spacing="0"
+                                     BackgroundColor="{StaticResource MainWhiteColor}">
+                            <Image Source="status_icon"
+                                   VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   Margin="5"
+                                   Aspect="AspectFit" />
+                            <Label Text="{Binding Lead.Status}"
+                                   VerticalOptions="End"
+                                   HorizontalOptions="FillAndExpand"
+                                   VerticalTextAlignment="Center"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   TextColor="White"
+                                   BackgroundColor="{StaticResource MainBlackColor}"
+                                   LineBreakMode="WordWrap" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+                <ContentView HeightRequest="1"
+                             BackgroundColor="Gray" />
+                <StackLayout Orientation="Vertical"
+                             VerticalOptions="FillAndExpand"
+                             Margin="10"
+                             Padding="10"
+                             Spacing="10"
+                             BackgroundColor="{StaticResource MainWhiteColor}">
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="0">
+                        <StackLayout VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="120"
+                                     HeightRequest="25"
+                                     BackgroundColor="Silver">
+                            <Label x:Name="DateLabel"
+                                   Text="Choose Date"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   HeightRequest="25"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                            <controls:CustomDatePicker x:Name="DatePicker"
+                                                       Format="ddd d MMM"
+                                                       HeightRequest="50"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       TextColor="{StaticResource PrimaryTextColor}"
+                                                       Color="{StaticResource MainWhiteColor}"
+                                                       BackgroundColor="{StaticResource MainWhiteColor}"
+                                                       DateSelected="DatePickerDateSelected" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="0">
+                        <StackLayout VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="120"
+                                     HeightRequest="25"
+                                     BackgroundColor="Silver">
+                            <Label x:Name="TimeLabel"
+                                   Text="Choose Time"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   HeightRequest="25"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                            <controls:CustomTimePicker x:Name="TimePicker"
+                                                       Format="h:mm tt"
+                                                       HeightRequest="50"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       TextColor="{StaticResource PrimaryTextColor}"
+                                                       Color="{StaticResource MainWhiteColor}"
+                                                       BackgroundColor="{StaticResource MainWhiteColor}"
+                                                       TimeSelected="TimePickerTimeSelected" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="ScheduleFooterLayout"
+                                 Orientation="Vertical"
+                                 Spacing="10">
+                        <StackLayout Orientation="Vertical"
+                                     Spacing="0">
+                            <StackLayout VerticalOptions="Center"
+                                         Padding="5"
+                                         WidthRequest="120"
+                                         HeightRequest="25"
+                                         BackgroundColor="Silver">
+                                <Label Text="Call Back"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       HeightRequest="25"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="{StaticResource TextFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryTextColor}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5"
+                                         HeightRequest="50"
+                                         BackgroundColor="{StaticResource MainGrayColor}">
+                                <controls:DropdownView x:Name="Dropdown"
+                                                       Label="Select..."
+                                                       LabelColor="{StaticResource SecondaryTextColor}"
+                                                       WidthRequest="100"
+                                                       HeightRequest="50"
+                                                       BackgroundColor="{StaticResource MainWhiteColor}">
+                                    <controls:DropdownView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="DropdownTapped" />
+                                    </controls:DropdownView.GestureRecognizers>
+                                </controls:DropdownView>
+                                <Entry x:Name="NumbersEntry"
+                                       HeightRequest="50"
+                                       Keyboard="Telephone"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="{StaticResource MainWhiteColor}"
+                                       IsEnabled="false"
+                                       TextChanged="NumbersEntryTextChanged" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     Spacing="0">
+                            <StackLayout VerticalOptions="Center"
+                                         Padding="5"
+                                         WidthRequest="120"
+                                         HeightRequest="25"
+                                         BackgroundColor="Silver">
+                                <Label Text="Summary"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       HeightRequest="25"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="{StaticResource TextFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryTextColor}" />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center"
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5"
+                                         HeightRequest="50"
+                                         BackgroundColor="{StaticResource MainGrayColor}">
+                                <Label x:Name="ScheduleSummaryText"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       HeightRequest="50"
+                                       FontSize="{StaticResource LabelFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryColor}"
+                                       BackgroundColor="{StaticResource MainWhiteColor}"
+                                       LineBreakMode="WordWrap" />
+                            </StackLayout>
+                        </StackLayout>
+                        <controls:DirectedButton Text="BOOK CALL BACK NOW"
+                                                 VerticalOptions="End"
+                                                 Direction="Right"
+                                                 Position="Right"
+                                                 Clicked="BookCallBackNowClicked" />
+                    </StackLayout>
+                    <StackLayout x:Name="RescheduleFooterLayout"
+                                 Orientation="Vertical"
+                                 Spacing="10"
+                                 IsVisible="false">
+                        <StackLayout Orientation="Vertical"
+                                     Spacing="0">
+                            <StackLayout VerticalOptions="Center"
+                                         Padding="5"
+                                         WidthRequest="120"
+                                         HeightRequest="25"
+                                         BackgroundColor="Silver">
+                                <Label Text="New Appointment"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       HeightRequest="25"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="{StaticResource TextFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryTextColor}" />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center"
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5"
+                                         HeightRequest="50"
+                                         BackgroundColor="{StaticResource MainGrayColor}">
+                                <StackLayout Orientation="Vertical"
+                                             HeightRequest="50"
+                                             HorizontalOptions="FillAndExpand"
+                                             Spacing="0"
+                                             BackgroundColor="{StaticResource MainWhiteColor}">
+                                    <Label x:Name="RescheduleSummaryText"
+                                           HorizontalOptions="FillAndExpand"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           HeightRequest="50"
+                                           FontSize="{StaticResource LabelFontSize}"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource PrimaryColor}"
+                                           BackgroundColor="{StaticResource MainWhiteColor}"
+                                           LineBreakMode="WordWrap" />
+                                    <Label Text="OLD APPOINTMENT WILL BE CANCELLED"
+                                           VerticalOptions="StartAndExpand"
+                                           VerticalTextAlignment="Center"
+                                           HorizontalTextAlignment="Center"
+                                           FontSize="{StaticResource TextFontSize}"
+                                           TextColor="Gray"
+                                           LineBreakMode="WordWrap" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <controls:DirectedButton Text="NEW APPOINTMENT"
+                                                 VerticalOptions="End"
+                                                 Direction="Right"
+                                                 Position="Right"
+                                                 Clicked="NewAppointmentClicked" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

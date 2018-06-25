@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.CalendarEventsPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+               xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.BindingContext>
+        <viewmodels:CalendarEventsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+       <AbsoluteLayout>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0" AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1">
+                      <controls:HeaderView VerticalOptions="Start" />
+            <StackLayout x:Name="AppointmentsTabs"
+                         Orientation="Vertical"
+                         Spacing="0">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="FillAndExpand"
+                             Spacing="0"
+                             BackgroundColor="Black">
+                    <controls:TabButton x:Name="WeekTab"
+                                        Icon="week_new_green_bg"
+                                        Label="Week"
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand"
+                                        LabelSize="16"
+                                        HasIcon="true"
+                                        Tapped="WeekButtonTapped" />
+                    <controls:TabButton x:Name="MonthTab"
+                                        Icon="month_new_white_bg"
+                                        Label="Month"
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand"
+                                        LabelSize="16"
+                                        HasIcon="true"
+                                        Tapped="MonthButtonTapped" />
+                    <controls:TabButton x:Name="YearTab"
+                                        Icon="year_new_white_bg"
+                                        Label="Year"
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand"
+                                        LabelSize="16"
+                                        HasIcon="true"
+                                        Tapped="YearButtonTapped" />
+                </StackLayout>
+            </StackLayout>
+            <controls:SystemListView x:Name="EventsListViewWeek"
+                                     ItemTapped="EventsItemTapped"
+                                     ItemsSource="{Binding CalendarEventsWeek}">
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal"
+                                                               Padding="10">
+                                    <Grid RowSpacing="1"
+                                          ColumnSpacing="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Row="0"
+                                                     Grid.Column="0"
+                                                     Orientation="Vertical"
+                                                     Spacing="0">
+                                            <Label Text="{Binding StartEventDateTime, StringFormat='{}{0:h:mm tt}'}"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{StaticResource PrimaryTextColor}" />
+                                            <Label Text="{Binding StartEventDateTime, StringFormat='{}{0:ddd d MMM}'}"
+                                                   FontSize="{StaticResource TextFontSize}"
+                                                   TextColor="{StaticResource PrimaryColor}" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="0"
+                                                     Grid.Column="1"
+                                                     Orientation="Vertical"
+                                                     Spacing="0">
+                                            <Label Text="{Binding Subject}"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{StaticResource PrimaryColor}" />
+                                            <Label Text="{Binding StringLocation}"
+                                                                     FontSize="{StaticResource TextFontSize}"
+                                                                     TextColor="Gray"
+                                                                     />
+                                        </StackLayout>
+                                    </Grid>
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+              <controls:SystemListView x:Name="EventsListViewMonth"
+                                     ItemTapped="EventsItemTapped"
+                                     >
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal"
+                                                               Padding="10">
+                                    <Grid RowSpacing="1"
+                                          ColumnSpacing="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Row="0"
+                                                     Grid.Column="0"
+                                                     Orientation="Vertical"
+                                                     Spacing="0">
+                                            <Label Text="{Binding StartEventDateTime, StringFormat='{}{0:h:mm tt}'}"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{StaticResource PrimaryTextColor}" />
+                                            <Label Text="{Binding StartEventDateTime, StringFormat='{}{0:ddd d MMM}'}"
+                                                   FontSize="{StaticResource TextFontSize}"
+                                                   TextColor="{StaticResource PrimaryColor}" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="0"
+                                                     Grid.Column="1"
+                                                     Orientation="Vertical"
+                                                     Spacing="0">
+                                            <Label Text="{Binding Subject}"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{StaticResource PrimaryColor}" />
+                                            <Label Text="{Binding StringLocation}"
+                                                                     FontSize="{StaticResource TextFontSize}"
+                                                                     TextColor="Gray"
+                                                                     />
+                                        </StackLayout>
+                                    </Grid>
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+              <controls:SystemListView x:Name="EventsListViewYear"
+                                     ItemTapped="EventsItemTapped"
+                                     >
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal"
+                                                               Padding="10">
+                                    <Grid RowSpacing="1"
+                                          ColumnSpacing="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="80" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Row="0"
+                                                     Grid.Column="0"
+                                                     Orientation="Vertical"
+                                                     Spacing="0">
+                                            <Label Text="{Binding StartEventDateTime, StringFormat='{}{0:h:mm tt}'}"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{StaticResource PrimaryTextColor}" />
+                                            <Label Text="{Binding StartEventDateTime, StringFormat='{}{0:ddd d MMM}'}"
+                                                   FontSize="{StaticResource TextFontSize}"
+                                                   TextColor="{StaticResource PrimaryColor}" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Row="0"
+                                                     Grid.Column="1"
+                                                     Orientation="Vertical"
+                                                     Spacing="0">
+                                            <Label Text="{Binding Subject}"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="Bold"
+                                                   TextColor="{StaticResource PrimaryColor}" />
+                                            <Label Text="{Binding StringLocation}"
+                                                                     FontSize="{StaticResource TextFontSize}"
+                                                                     TextColor="Gray"
+                                                                     />
+                                        </StackLayout>
+                                    </Grid>
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+            <StackLayout Orientation="Horizontal"
+                         Padding="20"
+                         Spacing="10">
+                <controls:DirectedButton Text="ADD EVENT"
+                                         Direction="Right"
+                                         Position="Right"
+                                         Clicked="AddEventClicked" />
+                <controls:DirectedButton Text="VIEW DATES"
+                                         Direction="Right"
+                                         Position="Right"
+                                         Clicked="ViewDatesClicked" />
+            </StackLayout>
+        </StackLayout>
+              <AbsoluteLayout AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                                x:Name="BusyIndicator"
+                                IsVisible="false">
+                    <ContentView AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 AbsoluteLayout.LayoutBounds="0.5,0.4,150,150"
+                                 BackgroundColor="Black"
+                                 Opacity="0.8">
+                        <busyindicator:SfBusyIndicator x:Name="Indicator"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       AnimationType="ECG"
+                                                       Title="Loading..."
+                                                       TextColor="White"
+                                                       IsBusy="false">
+                            <busyindicator:SfBusyIndicator.ViewBoxWidth>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxWidth>
+                            <busyindicator:SfBusyIndicator.ViewBoxHeight>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxHeight>
+                            <busyindicator:SfBusyIndicator.TextSize>
+                                <OnPlatform x:TypeArguments="x:Single"
+                                            iOS="12"
+                                            Android="45" />
+                            </busyindicator:SfBusyIndicator.TextSize>
+                        </busyindicator:SfBusyIndicator>
+                    </ContentView>
+                </AbsoluteLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

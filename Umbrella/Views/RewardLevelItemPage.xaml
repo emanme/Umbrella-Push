@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.RewardLevelItemPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+              NavigationPage.HasNavigationBar="false"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentPage.BindingContext>
+        <viewmodels:RewardLevelsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+      <StackLayout Orientation="Vertical" Spacing="0">
+       <Grid>
+         <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+       <StackLayout Orientation="Vertical" Spacing="0">
+        <controls:HeaderView VerticalOptions="Start" />
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Spacing="0">
+                <StackLayout Orientation="Vertical"
+                             VerticalOptions="FillAndExpand"
+                             Padding="20"
+                             Spacing="20"
+                             BackgroundColor="Transparent">
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 BackgroundColor="Transparent">
+                        <StackLayout x:Name="whitePage"
+                                     Orientation="Vertical"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand"
+                                     Spacing="0"
+                                     BackgroundColor="White">
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="10"
+                                         BackgroundColor="{StaticResource PrimaryColor}">
+                                <Label x:Name="CurrentLevelLabel"
+                                       Text="LEVEL 1 REWARDS"
+                                       HorizontalOptions="CenterAndExpand"
+                                       FontSize="{StaticResource LabelFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="White" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         Padding="10"
+                                         Spacing="10">
+                                <Image x:Name="CurrentLevelImage"
+                                       Source="war"
+                                       VerticalOptions="StartAndExpand"
+                                       HorizontalOptions="Center"
+                                       WidthRequest="100"
+                                       Aspect="AspectFit" />
+                                <StackLayout x:Name="RewardsList"
+                                             Orientation="Vertical" />
+                            </StackLayout>
+                                         <StackLayout x:Name="CurrentGrid"
+                                                     Orientation="Vertical" HorizontalOptions="Start"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="FillAndExpand"
+                                 HorizontalOptions="FillAndExpand"
+                                 BackgroundColor="Transparent">
+                        <StackLayout Orientation="Vertical"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand"
+                                     Spacing="0"
+                                     BackgroundColor="White">
+                            <StackLayout Orientation="Horizontal"
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="10"
+                                         BackgroundColor="{StaticResource PrimaryColor}">
+                                <Label Text="REQUIREMENTS"
+                                       HorizontalOptions="CenterAndExpand"
+                                       FontSize="{StaticResource LabelFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="White" />
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical"
+                                         Padding="10"
+                                         Spacing="10">
+                                <StackLayout x:Name="RequirementsList"
+                                             Orientation="Vertical" />
+                            </StackLayout>
+                                        
+                        </StackLayout>
+                    </StackLayout>
+                 
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+              <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
+                    <StackLayout Orientation="Horizontal"
+                                 Spacing="10" Padding="20">
+                        <controls:DirectedButton x:Name="BackButton"
+                                                 Text="LEVEL 1"
+                                                 Direction="Left"
+                                                 Position="Left"
+                                                 Clicked="BackClicked" IsVisible="{Binding _backButtonIsVisible}"/>
+                        <controls:DirectedButton x:Name="NextButton"
+                                                 Text="LEVEL 3"
+                                                 Direction="Right"
+                                                 Position="Right"
+                                                 Clicked="NextClicked" IsVisible="{Binding _nextButtonIsVisible}" />
+                    </StackLayout>
+                    </StackLayout>
+        </StackLayout>
+        </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

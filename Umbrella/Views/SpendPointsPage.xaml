@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Umbrella.Views.SpendPointsPage"
+    xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+    xmlns:custom="clr-namespace:Umbrella.Custom"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"    
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="Secret Message">
+	<ContentPage.Content>
+        <AbsoluteLayout>
+                <StackLayout x:Name="stackExplosion" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+               </StackLayout>
+             <StackLayout x:Name="messg" Padding="0,0,1,0" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" IsVisible="true" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                <controls:MultilineLabel 
+                            Text="{Binding Body}"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            FontSize="{StaticResource TextFontSize}"
+                            TextColor="{StaticResource PrimaryTextColor}"
+                            Lines="4"
+                            LineBreakMode="TailTruncation" />
+            </StackLayout>
+
+             <StackLayout Padding="0,0,1,0" VerticalOptions="Start" Orientation="Horizontal" HorizontalOptions="CenterAndExpand"  x:Name="stack2" IsVisible="true" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                     <Image Source="bomb_timer" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            </StackLayout>
+               <StackLayout x:Name="stack" VerticalOptions="Start" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" IsVisible="true" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                     <Label Margin="0,55,0,0" x:Name="timeText" TextColor="Red" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="5" FontSize="30"/>
+              </StackLayout>
+            <StackLayout x:Name="subImage" Orientation="Horizontal" IsVisible="true" Spacing="0" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+                <Image x:Name="subimageFingeprint" Source="fingerprint_image" Aspect="AspectFit" HeightRequest="162"/>
+            </StackLayout>
+            <StackLayout Padding="1,0,1,1" x:Name="fingerPrintPage" Orientation="Horizontal" Spacing="0" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0.5,0.5,1,1">
+             <Image x:Name="imageFingerPrint" Source="fingerprint_thumb" Aspect="AspectFit">
+                </Image>
+                <custom:CustomImage VerticalOptions="Center" x:Name="reqThumb" Source="required_thumb" Aspect="AspectFit" TapEvent="TapGestureRecognizer_Tapped"/>
+            </StackLayout>
+        </AbsoluteLayout>
+	</ContentPage.Content>
+</ContentPage>

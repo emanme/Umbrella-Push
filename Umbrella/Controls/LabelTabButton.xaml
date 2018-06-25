@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Controls.LabelTabButton"
+             BackgroundColor="{Binding BorderColor}">
+    <ContentView.Content>
+        <StackLayout x:Name="Background"
+                     Orientation="Vertical"
+                     Margin="1"
+                     Padding="0,10"
+                     Spacing="0"
+                     BackgroundColor="{Binding Color}">
+            <Label x:Name="ButtonTitle"
+                   Text="{Binding Title}"
+                   VerticalOptions="StartAndExpand"
+                   HorizontalOptions="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="{Binding TitleSize}"
+                   FontAttributes="Bold"
+                   TextColor="{Binding TitleColor}"
+                   LineBreakMode="WordWrap" />
+            <Label x:Name="ButtonDescription"
+                   Text="{Binding Description}"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="{Binding DescriptionSize}"
+                   FontAttributes="Bold"
+                   TextColor="{Binding DescriptionColor}"
+                   LineBreakMode="WordWrap" />
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TabButtonTapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

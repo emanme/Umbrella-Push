@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.ConquerorRankingPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:abstractions="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+             xmlns:viewModels="clr-namespace:Umbrella.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewModels:ConquerorRankingViewModel/> 
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+      <AbsoluteLayout>
+       <StackLayout Orientation="Vertical" Spacing="0" AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1">
+        <Grid>
+            <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                <controls:HeaderView VerticalOptions="Start" />
+                <StackLayout Orientation="Vertical"
+                             Spacing="0">
+                           <StackLayout Orientation="Horizontal" Padding="8" HorizontalOptions="Center" VerticalOptions="Start" Spacing="0">
+                          <controls:SegmentedTab x:Name="TopPerformersTab" WidthReq="150" HeightReq="15" Tapped="ShowTopPerformersTapped" Label="TOP PERFORMERS"/>
+                          <controls:SegmentedTab x:Name="LocationTab" WidthReq="150" HeightReq="15" Tapped="ShowLocationTapped" Label="LOCATIONS"/>
+                        </StackLayout>
+                    <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  BackgroundColor="Black">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="65" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="33*" />
+                                                        <ColumnDefinition Width="33*" />
+                                                        <ColumnDefinition Width="33*" />
+                                                    </Grid.ColumnDefinitions>
+                     <controls:CustomTabButton x:Name="MostResourcesTab"
+                                            Icon="pound_sign_gray"
+                                            Label="MOST&#xA;RESOURCES"
+                                             Grid.Row="0"
+                                            Grid.Column="1"
+                                            WidthReq="30"
+                                            HeightReq="30"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="10"
+                                            HasIcon="true"
+                                            Tapped="MostResourcesTabTapped" />
+                        <controls:CustomTabButton x:Name="MostNewRecruitTab"
+                                            Icon="guyt"
+                                            Label="MOST NEW&#xA;RECRUITS"
+                                             Grid.Row="0"
+                                            Grid.Column="0"
+                                            WidthReq="30"
+                                            HeightReq="30"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="10"
+                                            HasIcon="true"
+                                            Tapped="MostNewRecruitsTabTapped" />
+                        <controls:CustomTabButton x:Name="MostNewComradesTab"
+                                            Icon="army_5t_black"
+                                            Label="MOST NEW&#xA;COMRADES"
+                                            Grid.Row="0"
+                                            Grid.Column="2"
+                                            WidthReq="30"
+                                            HeightReq="30"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="10"
+                                            Tapped="MostNewComradesTabTapped"
+                                            HasIcon="true"/>
+                     </Grid>
+                   <StackLayout x:Name="MostResourcesListView">
+                    <controls:SystemListView x:Name="mostResourceL"
+                                             ItemsSource="{Binding MostResourcesList}">
+                        <controls:SystemListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
+                                    <controls:ListItemStackLayout>
+                                        <controls:TouchableStackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Horizontal"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         Padding="5"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <StackLayout Orientation="Vertical">
+                                                    <ffimage:CachedImage Source="{Binding ImageString}"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="60"
+                                                       HeightRequest="60"
+                                                       DownsampleToViewSize="True"
+                                                       Aspect="Fill" />
+                                                    <Label x:Name="currentTargetDate"
+                                                       Text="{Binding Index}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontAttributes="Bold"
+                                                       FontSize="20"
+                                                       TextColor="#435742"
+                                                       LineBreakMode="WordWrap" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="25" />
+                                                    <RowDefinition Height="50" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="2*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <BoxView Color="Black" Grid.ColumnSpan="2" Grid.Row="0"/>
+                                                <Label 
+                                                    Grid.ColumnSpan="2"
+                                                    Grid.Row="0"
+                                                    Text="{Binding NameWithTitle}"
+                                                    FontSize="17"   
+                                                    TextColor="#FFD700"
+                                                    VerticalTextAlignment="Center"
+                                                    LineBreakMode="WordWrap"
+                                                    Margin="10,0,0,0"/>
+                                                <StackLayout Grid.Row="1"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Padding="5">
+                                                    <controls:MultilineLabel 
+                                                                 Text="{Binding Description}"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 FontAttributes="Italic"    
+                                                                 LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                                <StackLayout Padding="5" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                                    <Label 
+                                                       Text="Location:"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="12"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label 
+                                                       Text="{Binding Location}"
+                                                       FontSize="12"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                            </Grid>
+                                            <StackLayout Orientation="Vertical"
+                                                         HorizontalOptions="End"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Label Text="{Binding Amount, StringFormat='£{0:N}'}"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       TextColor="#435742"
+                                                       FontAttributes="Bold"
+                                                       FontSize="16"/>
+                                            </StackLayout>
+                                        </controls:TouchableStackLayout>
+                                    </controls:ListItemStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:SystemListView.ItemTemplate>
+                    </controls:SystemListView>
+                        </StackLayout>
+                   <StackLayout x:Name="MostNewRecruitsListView">
+                      <controls:SystemListView 
+                                             ItemsSource="{Binding MostNewRecruitsList}">
+                        <controls:SystemListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
+                                    <controls:ListItemStackLayout>
+                                        <controls:TouchableStackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Horizontal"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         Padding="5"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <StackLayout Orientation="Vertical">
+                                                    <ffimage:CachedImage Source="{Binding ImageString}"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="60"
+                                                       HeightRequest="60"
+                                                       DownsampleToViewSize="True"
+                                                       Aspect="Fill" />
+                                                    <Label x:Name="currentTargetDate"
+                                                       Text="{Binding Index}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontAttributes="Bold"
+                                                       FontSize="20"
+                                                       TextColor="#435742"
+                                                       LineBreakMode="WordWrap" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="25" />
+                                                    <RowDefinition Height="50" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="2*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <BoxView Color="Black" Grid.ColumnSpan="2" Grid.Row="0"/>
+                                                <Label 
+                                                    Grid.ColumnSpan="2"
+                                                    Grid.Row="0"
+                                                    Text="{Binding NameWithTitle}"
+                                                    FontSize="17"   
+                                                    TextColor="#FFD700"
+                                                    LineBreakMode="WordWrap"
+                                                    VerticalTextAlignment="Center"
+                                                    Margin="10,0,0,0"/>
+                                                <StackLayout Grid.Row="1"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Padding="5">
+                                                    <controls:MultilineLabel 
+                                                                 Text="{Binding Description}"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 FontAttributes="Italic"    
+                                                                 LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                                <StackLayout Padding="5" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                                    <Label 
+                                                       Text="Location:"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="12"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label 
+                                                       Text="{Binding Location}"
+                                                       FontSize="12"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                            </Grid>
+                                            <StackLayout Orientation="Vertical"
+                                                         HorizontalOptions="End"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Label Text="{Binding NumberOfAchievements}"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       TextColor="#435742"
+                                                       FontAttributes="Bold"
+                                                       FontSize="35"/>
+                                                <Label x:Name="currentTargetStatus"
+                                                       Text="THIS MONTH"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="StartAndExpand"
+                                                       HorizontalTextAlignment="Center"
+                                                       VerticalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                        </controls:TouchableStackLayout>
+                                    </controls:ListItemStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:SystemListView.ItemTemplate>
+                    </controls:SystemListView>
+                        </StackLayout>
+                    <StackLayout x:Name="MostNewComradesListView">
+                    <controls:SystemListView x:Name="mostNewComradesL"
+                                             ItemsSource="{Binding MostNewComradesList}">
+                        <controls:SystemListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
+                                    <controls:ListItemStackLayout>
+                                        <controls:TouchableStackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Horizontal"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         Padding="5"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <StackLayout Orientation="Vertical">
+                                                    <ffimage:CachedImage Source="{Binding ImageString}"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="60"
+                                                       HeightRequest="60"
+                                                       DownsampleToViewSize="True"
+                                                       Aspect="Fill" />
+                                                    <Label x:Name="currentTargetDate"
+                                                        Text="{Binding Index}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontAttributes="Bold"
+                                                       FontSize="20"
+                                                       TextColor="#435742"
+                                                       LineBreakMode="WordWrap" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="25" />
+                                                    <RowDefinition Height="50" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="2*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <BoxView Color="Black" Grid.ColumnSpan="2" Grid.Row="0"/>
+                                                <Label 
+                                                    Grid.ColumnSpan="2"
+                                                    Grid.Row="0"
+                                                    Text="{Binding NameWithTitle}"
+                                                    FontSize="17"   
+                                                    VerticalTextAlignment="Center"
+                                                    TextColor="#FFD700"
+                                                    LineBreakMode="WordWrap"
+                                                    Margin="10,0,0,0"/>
+                                                <StackLayout Grid.Row="1"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Padding="5">
+                                                    <controls:MultilineLabel 
+                                                                 Text="{Binding Description}"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 FontAttributes="Italic"    
+                                                                 LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                                <StackLayout Padding="5" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                                    <Label 
+                                                       Text="Location:"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="12"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label 
+                                                       Text="{Binding Location}"
+                                                       FontSize="12"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                            </Grid>
+                                            <StackLayout Orientation="Vertical"
+                                                         HorizontalOptions="End"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Label Text="{Binding NumberOfAchievements}"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       TextColor="#435742"
+                                                       FontAttributes="Bold"
+                                                       FontSize="35"/>
+                                                <Label x:Name="currentTargetStatus"
+                                                       Text="THIS MONTH"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="StartAndExpand"
+                                                       HorizontalTextAlignment="Center"
+                                                       VerticalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                        </controls:TouchableStackLayout>
+                                    </controls:ListItemStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:SystemListView.ItemTemplate>
+                    </controls:SystemListView>
+                        </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+                <controls:FooterView x:Name="ConquerorRankingFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+              <AbsoluteLayout AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                                x:Name="BusyIndicator"
+                                IsVisible="false">
+                    <ContentView AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 AbsoluteLayout.LayoutBounds="0.5,0.4,150,150"
+                                 BackgroundColor="Black"
+                                 Opacity="0.8">
+                        <busyindicator:SfBusyIndicator x:Name="Indicator"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       AnimationType="ECG"
+                                                       Title="Loading..."
+                                                       TextColor="White"
+                                                       IsBusy="false">
+                            <busyindicator:SfBusyIndicator.ViewBoxWidth>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxWidth>
+                            <busyindicator:SfBusyIndicator.ViewBoxHeight>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxHeight>
+                            <busyindicator:SfBusyIndicator.TextSize>
+                                <OnPlatform x:TypeArguments="x:Single"
+                                            iOS="12"
+                                            Android="45" />
+                            </busyindicator:SfBusyIndicator.TextSize>
+                        </busyindicator:SfBusyIndicator>
+                    </ContentView>
+                </AbsoluteLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>   
+</ContentPage>

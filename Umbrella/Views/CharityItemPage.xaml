@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.CharityItemPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Padding="20">
+                <Label x:Name="HeadlineLabel"
+                       HorizontalOptions="Center"
+                       FontSize="{StaticResource HeaderFontSize}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       LineBreakMode="WordWrap" />
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non imperdiet mauris."
+                       HorizontalTextAlignment="Center"
+                       FontSize="{StaticResource TextFontSize}"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       LineBreakMode="WordWrap" />
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Message"
+                           FontSize="{StaticResource TextFontSize}"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource PrimaryTextColor}" />
+                    <Label Text="{Binding Message}"
+                           FontSize="{StaticResource TextFontSize}"
+                           TextColor="{StaticResource PrimaryTextColor}"
+                           LineBreakMode="WordWrap" />
+                </StackLayout>
+                <Grid RowSpacing="{StaticResource ButtonsRowSpacing}"
+                      ColumnSpacing="10"
+                      Margin="0,20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="0"
+                                             Text="LOCATION"
+                                             Clicked="LocationClicked" />
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="FIELD PARTNER"
+                                             Clicked="FieldPartnerClicked" />
+                    <controls:DirectedButton Grid.Row="1"
+                                             Grid.Column="0"
+                                             Text="DIARY"
+                                             Clicked="DiaryClicked" />
+                    <controls:DirectedButton Grid.Row="1"
+                                             Grid.Column="1"
+                                             Text="REPAYMENTS"
+                                             Clicked="RepaymentsClicked" />
+                </Grid>
+                <Grid RowSpacing="{StaticResource ButtonsRowSpacing}"
+                      ColumnSpacing="10"
+                      Margin="0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="0"
+                                             Text="BACK"
+                                             Direction="Left"
+                                             Position="Left"
+                                             Clicked="BackClicked" />
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="NEXT"
+                                             Direction="Right"
+                                             Position="Right"
+                                             Clicked="NextClicked" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

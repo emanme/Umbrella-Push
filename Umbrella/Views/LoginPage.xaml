@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.LoginPage"
+             xmlns:constants="clr-namespace:Umbrella.Constants;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:custom="clr-namespace:Umbrella.Custom;assembly=Umbrella"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             Orientation="Vertical"
+                             Padding="30,0,30,30">
+                    <Image Source="{StaticResource UmbrellaLogoFile}"
+                           VerticalOptions="Start"
+                           WidthRequest="300"
+                           Margin="0,50,0,0" />
+                    <StackLayout Orientation="Vertical"
+                                 VerticalOptions="StartAndExpand"
+                                 Margin="0,50,0,0"
+                                 Spacing="10">
+                        <StackLayout Orientation="Horizontal">
+                            <custom:FontAwesomeLabel Text="{x:Static constants:FontIcon.USER}"
+                                                     FontFamily="FontAwesome"
+                                                     WidthRequest="{StaticResource IconFontSize}"
+                                                     HeightRequest="{StaticResource IconFontSize}"
+                                                     VerticalOptions="Center"
+                                                     HorizontalOptions="Center"
+                                                     VerticalTextAlignment="Center"
+                                                     HorizontalTextAlignment="Center"
+                                                     FontSize="{StaticResource IconFontSize}"
+                                                     TextColor="{StaticResource PrimaryTextColor}" />
+                            <Entry x:Name="UsernameEntry"
+                                   Text="rhoward@raptorsms.com"
+                                   Placeholder="{StaticResource UsernameString}"
+                                   Keyboard="Email"
+                                   HeightRequest="50"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource InputFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                   BackgroundColor="Transparent" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <custom:FontAwesomeLabel Text="{x:Static constants:FontIcon.LOCK}"
+                                                     FontFamily="FontAwesome"
+                                                     WidthRequest="{StaticResource IconFontSize}"
+                                                     HeightRequest="{StaticResource IconFontSize}"
+                                                     VerticalOptions="Center"
+                                                     HorizontalOptions="Center"
+                                                     VerticalTextAlignment="Center"
+                                                     HorizontalTextAlignment="Center"
+                                                     FontSize="{StaticResource IconFontSize}"
+                                                     TextColor="{StaticResource PrimaryTextColor}" />
+                            <Entry x:Name="PasswordEntry"
+                                   Text="testing1"
+                                   Placeholder="{StaticResource PasswordString}"
+                                   IsPassword="true"
+                                   HeightRequest="50"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource InputFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                   BackgroundColor="Transparent" />
+                        </StackLayout>
+                        <controls:DirectedButton Text="{StaticResource LoginString}"
+                                                 Margin="0,10,0,0"
+                                                 Color="{StaticResource PrimaryColor}"
+                                                 Clicked="LoginClicked" />
+                        <Label Text="{StaticResource ForgotPasswordString}"
+                               Margin="0,10,0,0"
+                               HorizontalTextAlignment="Center"
+                               FontSize="{StaticResource ButtonFontSize}"
+                               TextColor="{StaticResource PrimaryTextColor}">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ForgotPasswordTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+                <AbsoluteLayout AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                                x:Name="BusyIndicator"
+                                IsVisible="false">
+                    <ContentView AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 AbsoluteLayout.LayoutBounds="0.5,0.4,150,150"
+                                 BackgroundColor="Black"
+                                 Opacity="0.8">
+                        <busyindicator:SfBusyIndicator x:Name="Indicator"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       AnimationType="ECG"
+                                                       Title="Loading..."
+                                                       TextColor="White"
+                                                       IsBusy="false">
+                            <busyindicator:SfBusyIndicator.ViewBoxWidth>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxWidth>
+                            <busyindicator:SfBusyIndicator.ViewBoxHeight>
+                                <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                            </busyindicator:SfBusyIndicator.ViewBoxHeight>
+                            <busyindicator:SfBusyIndicator.TextSize>
+                                <OnPlatform x:TypeArguments="x:Single"
+                                            iOS="12"
+                                            Android="45" />
+                            </busyindicator:SfBusyIndicator.TextSize>
+                        </busyindicator:SfBusyIndicator>
+                    </ContentView>
+                </AbsoluteLayout>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.TargetsPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:viewModels="clr-namespace:Umbrella.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:abstractions="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+             xmlns:converters="clr-namespace:Umbrella.Converters"
+             Title="{StaticResource TargetsString}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:TargetStatusConverter x:Key="TargetBooleanConverter"/>
+            <converters:TargetStatusTextConverter x:Key="TargetTextConverter"/>
+            <converters:TargetIconConverter x:Key="TargetIconConverter"/>
+            <converters:CurrentRewardNameConverter x:Key="CurrentRewardConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <viewModels:TargetsViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+       <StackLayout Orientation="Vertical" Spacing="0">
+             <Grid>
+            <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                <controls:HeaderView VerticalOptions="Start" />
+                <StackLayout Orientation="Vertical"
+                             Spacing="0">
+                    <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="10" BackgroundColor="Transparent">
+                        <Label Text="TARGETS" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold" TextColor="#435742"/>
+                    </StackLayout>
+                       <StackLayout Orientation="Horizontal" Padding="20" HorizontalOptions="Center" VerticalOptions="Start" Spacing="0">
+                          <controls:SegmentedTab x:Name="UpcomingTab" WidthReq="70" HeightReq="15" Tapped="ShowUpcomingTapped" Label="Upcoming"/>
+                          <controls:SegmentedTab x:Name="PreviousTab" WidthReq="70" HeightReq="15" Tapped="ShowPreviousTapped" Label="Previous"/>
+                        </StackLayout>
+                    <StackLayout x:Name="CurrentLayout">
+                       <controls:SystemListView x:Name="CurrentTargetListView"
+                                             ItemsSource="{Binding CurrentTargets}">
+                        <controls:SystemListView.Header>
+                           <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        </controls:SystemListView.Header>
+                        <controls:SystemListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
+                                    <controls:ListItemStackLayout>
+                                        <controls:TouchableStackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Image Source="{Binding IsAcquiredWithDate , Converter={StaticResource TargetIconConverter}}"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="50"
+                                                       HeightRequest="70"
+                                                       Margin="5"
+                                                       Aspect="Fill" />
+                                                <Label x:Name="currentTargetDate"
+                                                       Text="{Binding TargetDate, StringFormat='{}{0:MMM yyyy}'}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="Black"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                            <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="25" />
+                                                    <RowDefinition Height="25" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="2*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <BoxView Color="Black" Grid.ColumnSpan="2" Grid.Row="0"/>
+                                                <Label 
+                                                    Grid.ColumnSpan="2"
+                                                    Grid.Row="0"
+                                                    Text="{Binding RewardName, StringFormat='Reward: {0:N}'}"
+                                                    FontSize="17"   
+                                                    VerticalTextAlignment="Center"
+                                                    TextColor="{Binding TargetDate, Converter={StaticResource CurrentRewardConverter}}"
+                                                    LineBreakMode="WordWrap"
+                                                    Margin="13,0,0,0"/>
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="0"
+                                                       Grid.ColumnSpan="2"
+                                                       Text="{Binding TargetDescription}"
+                                                       HorizontalTextAlignment="Start"
+                                                        FontSize="{StaticResource TextFontSize}"
+                                                       Margin="10,6,0,0"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}" />
+                                                <StackLayout Padding="10,0,3,0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                                    <Label 
+                                                       Text="New Recruits:"
+                                                       HorizontalTextAlignment="Start"
+                                                         FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label 
+                                                       Text="{Binding RecruitCount}"
+                                                        FontSize="{StaticResource TextFontSize}"
+                                                       Margin="9,0,0,0"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                                <StackLayout Padding="10,0,3,0" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                                    <Label Text="New Comrades:"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label Text="{Binding ComradesCount}"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                            </Grid>
+                                            <StackLayout Orientation="Vertical"
+                                                         HorizontalOptions="End"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Label Text="{Binding TargetAmountString}"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="EndAndExpand"
+                                                       FontSize="15"/>
+                                                <Label x:Name="currentTargetStatus"
+                                                       Text="{Binding IsTargetAcquired, Converter={StaticResource TargetBooleanConverter}, ConverterParameter={x:Reference currentTargetDate}}"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{Binding IsTargetAcquired, Converter={StaticResource TargetTextConverter}}"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                        </controls:TouchableStackLayout>
+                                    </controls:ListItemStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:SystemListView.ItemTemplate>
+                    </controls:SystemListView>
+                    </StackLayout>
+                  <StackLayout x:Name="PreviousLayout">
+                    <controls:SystemListView x:Name="PreviousTargetListView"
+                                             ItemsSource="{Binding PreviousTargets}">
+                       <controls:SystemListView.Header>
+                           <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        </controls:SystemListView.Header>
+                        <controls:SystemListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
+                                    <controls:ListItemStackLayout>
+                                        <controls:TouchableStackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Image Source="{Binding IsAcquiredWithDate , Converter={StaticResource TargetIconConverter}}"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="50"
+                                                       HeightRequest="70"
+                                                       Margin="5"
+                                                       Aspect="Fill" />
+                                                <Label x:Name="currentTargetDate"
+                                                       Text="{Binding TargetDate, StringFormat='{}{0:MMM yyyy}'}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="Black"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                            <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  VerticalOptions="FillAndExpand"
+                                                  >
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="25" />
+                                                    <RowDefinition Height="25" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="2*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <BoxView Color="Black" Grid.ColumnSpan="2" Grid.Row="0"/>
+                                                <Label 
+                                                    Grid.ColumnSpan="2"
+                                                    Grid.Row="0"
+                                                    VerticalTextAlignment="Center"
+                                                    Text="{Binding RewardName, StringFormat='Reward: {0:N}'}"
+                                                    FontSize="17"   
+                                                    TextColor="{Binding TargetDate, Converter={StaticResource CurrentRewardConverter}}"
+                                                    LineBreakMode="WordWrap"
+                                                    Margin="13,0,0,0"/>
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="0"
+                                                       Grid.ColumnSpan="2"
+                                                       Text="{Binding TargetDescription}"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       Margin="10,6,0,0"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}" />
+                                                <StackLayout Padding="10,0,3,0" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                                    <Label 
+                                                       Text="New Recruits:"
+                                                       HorizontalTextAlignment="Start"
+                                                    FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label 
+                                                       Text="{Binding RecruitCount}"
+                                                         FontSize="{StaticResource TextFontSize}"
+                                                       Margin="9,0,0,0"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                                <StackLayout Padding="10,0,3,0" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                                    <Label Text="New Comrades:"
+                                                         FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label Text="{Binding ComradesCount}"
+                                                        FontSize="{StaticResource TextFontSize}"    
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                </StackLayout>
+                                            </Grid>
+                                            <StackLayout Orientation="Vertical"
+                                                         HorizontalOptions="End"
+                                                         WidthRequest="65"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Label Text="{Binding TargetAmountString}"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="EndAndExpand"
+                                                       FontSize="15"/>
+                                                <Label x:Name="currentTargetStatus"
+                                                       Text="{Binding IsTargetAcquired, Converter={StaticResource TargetBooleanConverter}, ConverterParameter={x:Reference currentTargetDate}}"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{Binding IsTargetAcquired, Converter={StaticResource TargetTextConverter}}"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                        </controls:TouchableStackLayout>
+                                    </controls:ListItemStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:SystemListView.ItemTemplate>
+                    </controls:SystemListView>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+                <controls:FooterView x:Name="TargetFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

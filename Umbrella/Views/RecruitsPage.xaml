@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.RecruitsPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls"
+             xmlns:viewModels="clr-namespace:Umbrella.ViewModels"
+             xmlns:converters="clr-namespace:Umbrella.Converters"
+             xmlns:abstractions="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewModels:RecruitViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImagePulseConverter x:Key="ImageConverter"/>
+            <converters:MoraleTextColorConverter x:Key="TextMoraleConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+       <StackLayout Orientation="Vertical" Spacing="0">
+             <Grid>
+            <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                <controls:HeaderView VerticalOptions="Start" />
+                <StackLayout Orientation="Vertical"
+                             Spacing="0">
+                    <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="10">
+                        <Label Text="RECRUITS" HorizontalOptions="CenterAndExpand" TextColor="#435742" FontSize="Large" FontAttributes="Bold"/>
+                    </StackLayout>
+                             <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  BackgroundColor="Black">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="65" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="33*" />
+                                                        <ColumnDefinition Width="33*" />
+                                                        <ColumnDefinition Width="33*" />
+                                                    </Grid.ColumnDefinitions>
+                       <controls:TabCustomButton x:Name="RecruitingTab"
+                                            Icon="target_icon_green"
+                                            Label="Recruiting"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                              Grid.Row="0"
+                                            Grid.Column="0"
+                                            WidthReq="30"
+                                            HeightReq="60"
+                                            LabelSize="10"
+                                            HasIcon="true"
+                                            Tapped="RecruitingTabTapped" />
+                        <controls:TabCustomButton x:Name="RecruitedTab"
+                                            Icon="hand_shake_gray"
+                                            Label="Recruited"
+                                              Grid.Row="0"
+                                            Grid.Column="1"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="10"
+                                             WidthReq="40"
+                                            HeightReq="60"
+                                            HasIcon="true"
+                                            Tapped="RecruitedTabTapped" />
+                        <controls:TabCustomButton x:Name="LocationsTab"
+                                            Icon="location_gray"
+                                            Label="Locations"
+                                            Grid.Row="0"
+                                            Grid.Column="2"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="10"
+                                            WidthReq="40"
+                                            HeightReq="60"
+                                            Tapped="LocationTabTapped"
+                                            HasIcon="true"/>
+                     </Grid>
+                    <controls:SystemListView x:Name="RecruitedListView" ItemsSource="{Binding RecruitedList}"
+                                            >
+                            <controls:SystemListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell IsEnabled="false">
+                                        <controls:ListItemStackLayout>
+                                            <controls:TouchableStackLayout  Orientation="Horizontal">
+                                                <StackLayout Orientation="Vertical"
+                                                         WidthRequest="60"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                    <Image Source="guy_gray"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="50"
+                                                       HeightRequest="50"
+                                                       Aspect="AspectFit" />
+                                                    <Label Text="{Binding DateRecruited, StringFormat='{}{0:dd.MM.yy}'}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="Black"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="WordWrap" />
+                                                </StackLayout>
+                                                <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  Padding="10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="70" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                   <Label Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Text="Name :"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Row="0"
+                                                       Grid.Column="1"
+                                                       Text="{Binding Fullname}"
+                                                         WidthRequest="50"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                         <Label Grid.Row="1"
+                                                       Grid.Column="0"
+                                                       Text="Business :"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Row="1"
+                                                       Grid.Column="1"
+                                                       Text="{Binding Business}"
+                                                        WidthRequest="50"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <controls:MultilineLabel Grid.Row="2"
+                                                                         Grid.Column="0"
+                                                                         Grid.ColumnSpan="2"
+                                                                         Text="{Binding Description}"
+                                                                         Margin="0,5,0,0"
+                                                                         HorizontalTextAlignment="Start"
+                                                                         FontSize="{StaticResource TextFontSize}"
+                                                                         TextColor="{StaticResource PrimaryTextColor}"
+                                                                         Lines="2"
+                                                                         LineBreakMode="TailTruncation" />
+                                                </Grid>
+                                                <StackLayout Orientation="Vertical"
+                                                         WidthRequest="60"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                   <Grid>
+                                                          
+                                                    <forms:CachedImage Source="{Binding Morale, Converter={StaticResource ImageConverter}"
+                                                      VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       HeightRequest="65"
+                                                       WidthRequest="60"
+                                                       Aspect="AspectFit"/>
+                                                             <Label Text="{Binding Morale}"
+                                                                 VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       FontSize="20"
+                                                       TextColor="{Binding Morale, Converter={StaticResource TextMoraleConverter}}"
+                                                       LineBreakMode="WordWrap" />
+                                                        </Grid>
+                                                 
+                                                    <Label Text="Morale"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="EndAndExpand"
+                                                       FontSize="13"
+                                                       TextColor="Black"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="WordWrap" />
+
+                                                </StackLayout>
+                                            </controls:TouchableStackLayout>
+                                        </controls:ListItemStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+
+                            </controls:SystemListView.ItemTemplate>
+                            <controls:SystemListView.Footer>
+                                    <StackLayout Orientation="Horizontal" x:Name="buttonLayout" VerticalOptions="End" HorizontalOptions="Center" Padding="5">
+                                         <Button     BorderColor="White"
+                                                     BorderWidth="2"
+                                                     BorderRadius="2"
+                                                     HeightRequest="30"
+                                                     WidthRequest="100"
+                                                     Text="Previous"
+                                                      IsVisible="{Binding IsVisiblePreviousRecruited}"
+                                                      FontSize="{StaticResource ButtonFontSize}"
+                                                      FontAttributes="Bold"
+                                                     TextColor="White"
+                                                     x:Name="nextRecruitedBtn"
+                                                     BackgroundColor="#435742"
+                                                      IsEnabled="{Binding IsEnablePreviousRecruited}"
+                                                 Clicked="PreviousButtonRecruitedClicked"
+                                                     />
+                                           <Button     BorderColor="White"
+                                                     BorderWidth="2"
+                                                     BorderRadius="2"
+                                                     HeightRequest="30"
+                                                     WidthRequest="100"
+                                                     Text="Next"
+                                                      x:Name="previousRecruitedBtn"
+                                                     IsVisible="{Binding IsVisibleNextRecruited}"
+                                                      FontSize="{StaticResource ButtonFontSize}"
+                                                      FontAttributes="Bold"
+                                                     TextColor="White"
+                                                     BackgroundColor="#435742"
+                                                   Clicked="NextButtonRecruitedClicked"
+                                                 IsEnabled="{Binding IsEnableNextRecruited}"
+                                                     />
+                        </StackLayout>
+                                </controls:SystemListView.Footer>
+                        </controls:SystemListView>
+                      
+                    <StackLayout x:Name="RecruitingListView">
+                        <controls:SystemListView ItemsSource="{Binding RecruitingList}">
+                            <controls:SystemListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell IsEnabled="false">
+                                        <controls:ListItemStackLayout>
+                                            <controls:TouchableStackLayout Orientation="Horizontal">
+                                                <StackLayout Orientation="Vertical"
+                                                         WidthRequest="60"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                    <Image Source="guy_gray"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="50"
+                                                       HeightRequest="50"
+                                                       Aspect="AspectFit" />
+                                                    <Label Text="{Binding DateRecruited, StringFormat='{}{0:dd.MM.yy}'}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="Black"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="WordWrap" />
+                                                </StackLayout>
+                                                <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="FillAndExpand"
+                                                  Padding="10">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                          <ColumnDefinition Width="70" />   
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                     <Label Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Text="Name :"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Row="0"
+                                                       Grid.Column="1"
+                                                       Text="{Binding Fullname}"
+                                                       WidthRequest="50"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="TailTruncation" />
+                                                         <Label Grid.Row="1"
+                                                       Grid.Column="0"
+                                                       Text="Business :"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Row="1"
+                                                       Grid.Column="1"
+                                                       Text="{Binding Business}"
+                                                       WidthRequest="50"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                    <controls:MultilineLabel Grid.Row="2"
+                                                                         Grid.Column="0"
+                                                                         Grid.ColumnSpan="2"
+                                                                         Text="{Binding Description}"
+                                                                         Margin="0,5,0,0"
+                                                                         HorizontalTextAlignment="Start"
+                                                                         FontSize="{StaticResource TextFontSize}"
+                                                                         TextColor="{StaticResource PrimaryTextColor}"
+                                                                         Lines="2"
+                                                                         LineBreakMode="TailTruncation" />
+                                                </Grid>
+                                                <StackLayout Orientation="Vertical"
+                                                         WidthRequest="60"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                   <Grid>
+                                                          
+                                                    <forms:CachedImage Source="{Binding Morale, Converter={StaticResource ImageConverter}"
+                                                      VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       HeightRequest="65"
+                                                       WidthRequest="60"
+                                                       Aspect="AspectFit"/>
+                                                             <Label Text="{Binding Morale}"
+                                                                 VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       FontSize="20"
+                                                       TextColor="{Binding Morale, Converter={StaticResource TextMoraleConverter}}"
+                                                       LineBreakMode="WordWrap" />
+                                                        </Grid>
+                                                 
+                                                    <Label Text="Morale"
+                                                       HorizontalOptions="Center"
+                                                       VerticalOptions="EndAndExpand"
+                                                       FontSize="13"
+                                                       TextColor="Black"
+                                                       FontAttributes="Bold"
+                                                       LineBreakMode="WordWrap" />
+
+                                                </StackLayout>
+                                            </controls:TouchableStackLayout>
+                                        </controls:ListItemStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </controls:SystemListView.ItemTemplate>
+                                <controls:SystemListView.Footer>
+                                 <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center" Padding="5">
+                                         <Button     BorderColor="White"
+                                                     BorderWidth="2"
+                                                     BorderRadius="2"
+                                                     HeightRequest="30"
+                                                     WidthRequest="100"
+                                                     Text="Previous"
+                                                      FontSize="{StaticResource ButtonFontSize}"
+                                                      FontAttributes="Bold"
+                                                     IsVisible="{Binding IsVisiblePreviousRecruiting}"
+                                                     TextColor="White"
+                                                     BackgroundColor="#435742"
+                                                      IsEnabled="{Binding IsEnablePreviousRecruiting}"
+                                                 Clicked="PreviousButtonRecruitingClicked"
+                                                     />
+                                           <Button     BorderColor="White"
+                                                     BorderWidth="2"
+                                                     BorderRadius="2"
+                                                     HeightRequest="30"
+                                                     WidthRequest="100"
+                                                     Text="Next"
+                                                     IsVisible="{Binding IsVisibleNextRecruiting}"
+                                                      FontSize="{StaticResource ButtonFontSize}"
+                                                      FontAttributes="Bold"
+                                                     TextColor="White"
+                                                     BackgroundColor="#435742"
+                                                   Clicked="NextButtonRecruitingClicked"
+                                                 IsEnabled="{Binding IsEnableNextRecruiting}"
+                                                     />
+                       
+                        </StackLayout>
+                                </controls:SystemListView.Footer>
+                        </controls:SystemListView>
+                       
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+                <controls:FooterView x:Name="RecruitsFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

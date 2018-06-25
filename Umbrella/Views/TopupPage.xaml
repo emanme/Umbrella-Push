@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.TopupPage"
+             xmlns:custom="clr-namespace:Umbrella.Custom"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             Title="{StaticResource TopupString}">
+    <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout>
+                <StackLayout AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1"
+                             Orientation="Vertical"
+                             Spacing="0"
+                             BackgroundColor="White">
+                <controls:DescriptionLabel Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non imperdiet mauris." />
+                
+                    <StackLayout VerticalOptions="Start"
+                             HorizontalOptions="FillAndExpand"
+                             Padding="5"
+                             BackgroundColor="{StaticResource PrimaryColor}">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center">
+                        <Label Text="BALANCE:"
+                               HorizontalTextAlignment="Center"
+                               FontSize="{StaticResource HeaderFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="White" />
+                        <Label Text="£99999.99"
+                               HorizontalTextAlignment="Center"
+                               FontSize="{StaticResource HeaderFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource MainYellowColor}" />
+                    </StackLayout>
+                        <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 Spacing="0">
+                            <controls:TabButton x:Name="ExistingCardTab"
+                                            Label="Use Existing Card"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="17"
+                                            Tapped="ExistingCardTabTapped"/>
+                            <controls:TabButton x:Name="AddCardTab"
+                                            Label="Add New Card"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="17"
+                                            Tapped="AddCardTabTapped" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="existingCardTab"  Orientation="Vertical"
+                             VerticalOptions="FillAndExpand"
+                             Margin="10"
+                             Padding="10"
+                             Spacing="10"
+                             BackgroundColor="{StaticResource MainWhiteColor}">
+                        <StackLayout Orientation="Vertical"
+                                 Spacing="0">
+                            <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="120"
+                                     HeightRequest="25"
+                                     BackgroundColor="Silver">
+                                <Label Text="Cards"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   HeightRequest="25"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                                <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="End"
+                                         HeightRequest="25"
+                                         Spacing="0">
+                                    <Image Source="visa_icon"
+                                       HeightRequest="25"
+                                       VerticalOptions="Start" />
+                                    <Image Source="master_card_icon"
+                                       HeightRequest="25"
+                                       VerticalOptions="End" />
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                                <controls:DropdownView x:Name="DropdownAddCard"
+                                                   Label="Select Existing Card"
+                                                   LabelColor="{StaticResource SecondaryTextColor}"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   HeightRequest="50"
+                                                   BackgroundColor="{StaticResource MainWhiteColor}">
+                                    <controls:DropdownView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="CreditCardDropdownTapped" />
+                                    </controls:DropdownView.GestureRecognizers>
+                                </controls:DropdownView>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                 Spacing="0">
+                            <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="120"
+                                     HeightRequest="25"
+                                     BackgroundColor="Silver">
+                                <Label Text="Amount"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   HeightRequest="25"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                                <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="End"
+                                         HeightRequest="25"
+                                         Spacing="0">
+                                    <Image Source="visa_icon"
+                                       HeightRequest="25"
+                                       VerticalOptions="Start" />
+                                    <Image Source="master_card_icon"
+                                       HeightRequest="25"
+                                       VerticalOptions="End" />
+                                </StackLayout>
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                                <controls:DropdownView x:Name="DropdownCardAmount"
+                                                   Label="Select..."
+                                                   LabelColor="{StaticResource SecondaryTextColor}"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   HeightRequest="50"
+                                                   BackgroundColor="{StaticResource MainWhiteColor}">
+                                    <controls:DropdownView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="AmountExistingDropdownTapped" />
+                                    </controls:DropdownView.GestureRecognizers>
+                                </controls:DropdownView>
+                            </StackLayout>
+                        </StackLayout>
+                        <controls:DirectedButton x:Name="proceedButtonExistingCard"
+                                             Text="PROCEED"
+                                             VerticalOptions="End"
+                                             Direction="Right"
+                                             Position="Right"
+                                             Color="#D7090A"
+                                             />
+                    </StackLayout>
+                    <StackLayout x:Name="addCardTab" Orientation="Vertical"
+                             VerticalOptions="FillAndExpand"
+                             Margin="10"
+                             Padding="10"
+                             Spacing="10"
+                             BackgroundColor="{StaticResource MainWhiteColor}">
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="0">
+                        <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="120"
+                                     HeightRequest="25"
+                                     BackgroundColor="Silver">
+                            <Label Text="Amount"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   HeightRequest="25"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="End"
+                                         HeightRequest="25"
+                                         Spacing="0">
+                                <Image Source="visa_icon"
+                                       HeightRequest="25"
+                                       VerticalOptions="Start" />
+                                <Image Source="master_card_icon"
+                                       HeightRequest="25"
+                                       VerticalOptions="End" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                            <controls:DropdownView x:Name="Dropdown"
+                                                   Label="Select..."
+                                                   LabelColor="{StaticResource SecondaryTextColor}"
+                                                   HorizontalOptions="FillAndExpand"
+                                                   HeightRequest="50"
+                                                   BackgroundColor="{StaticResource MainWhiteColor}">
+                                <controls:DropdownView.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DropdownTapped" />
+                                </controls:DropdownView.GestureRecognizers>
+                            </controls:DropdownView>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="0">
+                        <StackLayout VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="120"
+                                     HeightRequest="25"
+                                     BackgroundColor="Silver">
+                            <Label Text="Name on Card"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   HeightRequest="25"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                            <custom:CustomReturnTypeEntry x:Name="NameInput"
+                                   HeightRequest="50"
+                                   Keyboard="Text"
+                                   ReturnType="Done"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource InputFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                   BackgroundColor="{StaticResource MainWhiteColor}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"
+                                 Spacing="0">
+                        <StackLayout VerticalOptions="Center"
+                                     Padding="5"
+                                     WidthRequest="120"
+                                     HeightRequest="25"
+                                     BackgroundColor="Silver">
+                            <Label Text="Card Number"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Start"
+                                   HeightRequest="25"
+                                   VerticalTextAlignment="Center"
+                                   FontSize="{StaticResource TextFontSize}"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="Center"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="5"
+                                     HeightRequest="50"
+                                     BackgroundColor="{StaticResource MainGrayColor}">
+                                <custom:CustomReturnTypeEntry x:Name="NumberInput"
+                                   HeightRequest="50"
+                                   ReturnType="Done"
+                                   Keyboard="Numeric"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource InputFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                   BackgroundColor="{StaticResource MainWhiteColor}" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Vertical"
+                                     HorizontalOptions="FillAndExpand"
+                                     Spacing="0">
+                            <StackLayout VerticalOptions="Center"
+                                         Padding="5"
+                                         WidthRequest="120"
+                                         HeightRequest="25"
+                                         BackgroundColor="Silver">
+                                <Label Text="Expiry Date"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       HeightRequest="25"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="{StaticResource TextFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryTextColor}" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5"
+                                         HeightRequest="50"
+                                         BackgroundColor="{StaticResource MainGrayColor}">
+                                    <custom:CustomReturnTypeEntry x:Name="ExpiryMonthInput"
+                                       Placeholder="mm"
+                                       ReturnType="Done"
+                                       HeightRequest="50"
+                                       Keyboard="Numeric"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="{StaticResource MainWhiteColor}" />
+                                    <custom:CustomReturnTypeEntry x:Name="ExpiryYearInput"
+                                       Placeholder="yy"
+                                       ReturnType="Done"
+                                       HeightRequest="50"
+                                       Keyboard="Numeric"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="{StaticResource MainWhiteColor}" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical"
+                                     HorizontalOptions="FillAndExpand"
+                                     Spacing="0">
+                            <StackLayout VerticalOptions="Center"
+                                         Padding="5"
+                                         WidthRequest="120"
+                                         HeightRequest="25"
+                                         BackgroundColor="Silver">
+                                <Label Text="CVV / CV2"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Start"
+                                       HeightRequest="25"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="{StaticResource TextFontSize}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource PrimaryTextColor}" />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="Center"
+                                         HorizontalOptions="FillAndExpand"
+                                         Padding="5"
+                                         HeightRequest="50"
+                                         BackgroundColor="{StaticResource MainGrayColor}">
+                                <custom:CustomReturnTypeEntry x:Name="CVCInput"
+                                       HeightRequest="50"
+                                       ReturnType="Done"
+                                       Keyboard="Numeric"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="{StaticResource MainWhiteColor}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <controls:DirectedButton x:Name="proceedButtonAddCard"
+                                             Text="PROCEED"
+                                             VerticalOptions="End"
+                                             Direction="Right"
+                                             Position="Right"
+                                             Color="#D7090A"
+                                             />
+                </StackLayout>
+            </StackLayout>
+            <AbsoluteLayout AbsoluteLayout.LayoutFlags="All"
+                                AbsoluteLayout.LayoutBounds="0.5,0.5,1,1"
+                                x:Name="BusyIndicator"
+                                IsVisible="false">
+                <ContentView AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 AbsoluteLayout.LayoutBounds="0.5,0.4,150,150"
+                                 BackgroundColor="Black"
+                                 Opacity="0.8">
+                    <busyindicator:SfBusyIndicator x:Name="Indicator"
+                                                       VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       AnimationType="ECG"
+                                                       Title="Loading..."
+                                                       TextColor="White"
+                                                       IsBusy="false">
+                        <busyindicator:SfBusyIndicator.ViewBoxWidth>
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                        </busyindicator:SfBusyIndicator.ViewBoxWidth>
+                        <busyindicator:SfBusyIndicator.ViewBoxHeight>
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                            iOS="120"
+                                            Android="60" />
+                        </busyindicator:SfBusyIndicator.ViewBoxHeight>
+                        <busyindicator:SfBusyIndicator.TextSize>
+                            <OnPlatform x:TypeArguments="x:Single"
+                                            iOS="12"
+                                            Android="45" />
+                        </busyindicator:SfBusyIndicator.TextSize>
+                    </busyindicator:SfBusyIndicator>
+                </ContentView>
+            </AbsoluteLayout>
+           </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

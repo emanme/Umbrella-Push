@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.AddYourNotes"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+     Title="{StaticResource AddNotesString}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Padding="20">
+                
+                <Label Text="Their Enquiry"
+                       FontSize="{StaticResource TextFontSize}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                <Editor x:Name="Editor"
+                        Text="Enter your question here"
+                        HeightRequest="150"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="{StaticResource InputFontSize}"
+                        TextColor="{StaticResource SecondaryTextColor}"
+                        BackgroundColor="{StaticResource MainGrayColor}"
+                       
+                        />
+             
+               
+                <Grid RowSpacing="{StaticResource ButtonsRowSpacing}"
+                      ColumnSpacing="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="Save Note"
+                                              />
+                    <!--<controls:DirectedButton Grid.Row="0"
+                                             Grid.Column="1"
+                                             Text="SELL ENQUIRY £££"
+                                             /> -->
+                     
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

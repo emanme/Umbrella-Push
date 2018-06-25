@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.CallBacksPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentPage.BindingContext>
+        <viewmodels:CallBacksViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                      <controls:HeaderView VerticalOptions="Start" />
+          <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="10" BackgroundColor="Transparent">
+                        <Label Text="CALL BACKS" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold" TextColor="#435742"/>
+                    </StackLayout>
+            <controls:SystemListView x:Name="CallBacksListView"
+                                     ItemTapped="CallBacksItemTapped"
+                                     ItemsSource="{Binding CallBacks}">
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical"
+                                                 WidthRequest="60"
+                                                 Spacing="0"
+                                                 BackgroundColor="{StaticResource MainWhiteColor}">
+                                        <Image Source="profile_default"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="Center"
+                                               WidthRequest="50"
+                                               HeightRequest="50"
+                                               Margin="5"
+                                               Aspect="AspectFit" />
+                                        <Label Text="{Binding ScheduledDate, StringFormat='{}{0:dd MMM&#xA;yyyy}'}"
+                                               VerticalOptions="End"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="9"
+                                               TextColor="White"
+                                               BackgroundColor="{StaticResource MainBlackColor}"
+                                               LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                    <Grid RowSpacing="0"
+                                          ColumnSpacing="0"
+                                          HorizontalOptions="StartAndExpand"
+                                          Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Name:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="0"
+                                               Grid.Column="1"
+                                             Grid.ColumnSpan="3"
+                                               Text="{Binding Name}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                             
+                                               Text="Business:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                             Grid.ColumnSpan="3"
+                                               Text="{Binding Business}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <controls:MultilineLabel Grid.Row="2"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="3"
+                                                                 Text="{Binding ContactEnquirye}"
+                                                                 Margin="0,5,0,0"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 LineBreakMode="TailTruncation" />
+                                    </Grid>
+                                    
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+            <StackLayout Orientation="Vertical"
+                          VerticalOptions="EndAndExpand"
+                         Padding="30"
+                         Spacing="0">
+                <Button Text="CHANGE CALL BACK HOURS"
+                 FontSize="{StaticResource ButtonFontSize}"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="#435742"
+                                         Clicked="ChangeOpeningHoursClicked" />
+                 <Button BackgroundColor="#435742" HorizontalOptions="Center"  FontSize="{StaticResource ButtonFontSize}" FontAttributes="Bold" Margin="0,10,0,0" VerticalOptions="End" Clicked="GoCallTime" WidthRequest="260" Text="CHOOSE TIME" TextColor="White"/>
+                
+            </StackLayout>
+            <controls:FooterView x:Name="CallbackFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

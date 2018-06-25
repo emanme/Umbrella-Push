@@ -1,0 +1,14 @@
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Naxam.Mapbox.Forms.dll
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Core.dll
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Platform.dll
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Xaml.dll
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Core.pdb
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Core.dll.mdb
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Core.xml
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Platform.pdb
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Platform.dll.mdb
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Xaml.pdb
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Xaml.dll.mdb
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/bin/iPhone/Debug/Xamarin.Forms.Xaml.xml
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/obj/iPhone/Debug/Naxam.Mapbox.Forms.csproj.CoreCompileInputs.cache
+/Users/bbeight/Documents/marksobiaco-ios-army-app-e48f18fb97e7 2/src/Mapbox/MapBox/obj/iPhone/Debug/Naxam.Mapbox.Forms.dll

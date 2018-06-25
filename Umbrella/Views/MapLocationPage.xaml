@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:forms="clr-namespace:Naxam.Controls.Mapbox.Forms;assembly=Naxam.Mapbox.Forms"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:abstractions="clr-namespace:SegmentedControl.FormsPlugin.Abstractions;assembly=SegmentedControl.FormsPlugin.Abstractions"
+             x:Class="Umbrella.Views.MapLocationPage"
+             NavigationPage.HasNavigationBar="false">
+    
+    <ContentPage.BindingContext>
+        <viewModels:MapLocationPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+       <StackLayout Orientation="Vertical"
+                     Spacing="0">
+            <controls:HeaderView VerticalOptions="Start" />
+
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <forms:MapView
+                    x:Name="map"
+                    Center="{Binding CenterLocation, Mode=OneWayToSource}"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    MapStyle="{Binding CurrentMapStyle}"
+                    ZoomLevel="{Binding ZoomLevel}"
+                    ToggleScaleBarFunc="{Binding ToggleScaleBarFunc}"
+                    DidFinishRenderingCommand="{Binding DidFinishRenderingCommand}"
+                    UpdateViewPortAction="{Binding UpdateViewPortAction}"
+                   >
+                </forms:MapView>
+                <StackLayout Orientation="Horizontal" Padding="20" HorizontalOptions="Center" VerticalOptions="Start" Spacing="0">
+                  <controls:SegmentedTab x:Name="RecruitTab" WidthReq="100" HeightReq="15" Tapped="ShowRecruitsTabTapped" Label="Recruits"/>
+                  <controls:SegmentedTab x:Name="ComradesTab" WidthReq="100" HeightReq="15" Tapped="ShowComradesTabTapped" Label="Comrades"/>
+                  <controls:SegmentedTab x:Name="AlliesTab" WidthReq="100" HeightReq="15" Tapped="ShowAlliesTabTapped" Label="Allies"/>
+                </StackLayout>
+              
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand">
+                   <Button x:Name="ReferButton"      BorderColor="White"
+                                                     BorderWidth="2"
+                                                     BorderRadius="2"
+                                                     HeightRequest="30"
+                                                     WidthRequest="100"
+                                                     Text="Map Key"
+                                                      FontSize="{StaticResource ButtonFontSize}"
+                                                      FontAttributes="Bold"
+                                                     TextColor="White"
+                                                     Margin="10,10,40,10"
+                                                     BackgroundColor="#435742"
+                                                     Clicked="MapKeyClicked"
+                                                     />
+                </StackLayout>
+               
+            </Grid>
+             
+            <controls:FooterView x:Name="MapFooter" VerticalOptions="End" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

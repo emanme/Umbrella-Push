@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.CharityPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:converters="clr-namespace:Umbrella.Converters;assembly=Umbrella"
+             NavigationPage.HasNavigationBar="False"
+             Title="{StaticResource CharityString}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:CharityStatusToImageConverter x:Key="CharityStatusToImageConverter" />
+            <converters:CharityStatusToStringConverter x:Key="CharityStatusToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewmodels:CharitiesViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                     <controls:HeaderView VerticalOptions="Start" />
+            <controls:DescriptionLabel Text="Your hard work increasing the number of Recruits &amp; Comrades has allowed Umbrella to make the below donations in your name. Thank you." />
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="0"
+                         BackgroundColor="Black">
+                <controls:TabButton x:Name="MicroFinanceTab"
+                                    Icon="micro_finance_green_new"
+                                    Label="Micro-Finance"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    LabelSize="12"
+                                    HasIcon="true"
+                                    Tapped="MicroFinanceButtonTapped" />
+                <controls:TabButton x:Name="CleanWaterTab"
+                                    Icon="clean_water_new"
+                                    Label="Clean Water"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    LabelSize="12"
+                                    HasIcon="true"
+                                    Tapped="CleanWaterButtonTapped" />
+                <controls:TabButton x:Name="YourCharityTab"
+                                    Icon="your_charity_new"
+                                    Label="Your Charity"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    LabelSize="12"
+                                    HasIcon="true"
+                                    Tapped="YourCharityButtonTapped" />
+            </StackLayout>
+            <controls:SystemListView x:Name="CharityListView"
+                                     ItemTapped="CharityItemTapped"
+                                     ItemsSource="{Binding Charities}">
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical"
+                                                 WidthRequest="60"
+                                                 Spacing="0"
+                                                 BackgroundColor="{StaticResource MainWhiteColor}">
+                                        <Image Source="guy_gray"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="Center"
+                                               WidthRequest="50"
+                                               HeightRequest="50"
+                                               Margin="5"
+                                               Aspect="AspectFit" />
+                                    </StackLayout>
+                                    <Grid RowSpacing="0"
+                                          ColumnSpacing="0"
+                                          HorizontalOptions="StartAndExpand"
+                                          Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="70" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Name:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="0"
+                                               Grid.Column="1"
+                                               Text="{Binding Name}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="Business:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                               Text="{Binding Business}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <controls:MultilineLabel Grid.Row="2"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Text="{Binding Message}"
+                                                                 Margin="0,5,0,0"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 LineBreakMode="TailTruncation" />
+                                    </Grid>
+                                    <StackLayout Orientation="Vertical"
+                                                 WidthRequest="60"
+                                                 Spacing="0"
+                                                 BackgroundColor="{StaticResource MainWhiteColor}">
+                                        <Image Source="{Binding Status, Converter={StaticResource CharityStatusToImageConverter}}"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="Center"
+                                               WidthRequest="40"
+                                               HeightRequest="40"
+                                               Margin="10"
+                                               Aspect="AspectFit" />
+                                        <Label Text="{Binding Status, Converter={StaticResource CharityStatusToStringConverter}}"
+                                               VerticalOptions="End"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="White"
+                                               BackgroundColor="{StaticResource MainBlackColor}"
+                                               LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+             <StackLayout x:Name="YourCharityPage" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <Label Text="Contact us to Raise Money &#x0a; for a Charity of Your Choice" HorizontalTextAlignment="Center" FontSize="14"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

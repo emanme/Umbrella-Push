@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.EnquiriesPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             Title="{StaticResource AllEnquiriesString}"
+             BackgroundColor="{StaticResource PrimaryDarkColor}">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+            <Grid RowSpacing="30"
+                  ColumnSpacing="30"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  Padding="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <controls:SpringboardButton Grid.Row="0"
+                                            Grid.Column="0"
+                                            Icon="{StaticResource LeadsNewIconFile}"
+                                            Label="{StaticResource LeadsString}"
+                                            Tapped="LeadsButtonTapped" />
+                <controls:SpringboardButton Grid.Row="0"
+                                            Grid.Column="1"
+                                            Icon="{StaticResource CallBacksNewIconFile}"
+                                            Label="{StaticResource CallBacksString}"
+                                            Tapped="CallBacksButtonTapped" />
+                <controls:SpringboardButton Grid.Row="1"
+                                            Grid.Column="0"
+                                            Icon="{StaticResource CustomerServicesIconFile}"
+                                            Label="{StaticResource CustomersString}"
+                                            Tapped="CustomerServicesButtonTapped" />
+                <controls:SpringboardButton Grid.Row="1"
+                                            Grid.Column="1"
+                                            Icon="{StaticResource OtherIconFile}"
+                                            Label="{StaticResource OtherString}"
+                                            Tapped="OtherButtonTapped" />
+                <controls:SpringboardButton Grid.Row="2"
+                                            Grid.Column="0"
+                                            Icon="{StaticResource SuppliersIconFile}"
+                                            Label="{StaticResource SuppliersString}"
+                                            Tapped="SuppliersButtonTapped" />
+                <controls:SpringboardButton Grid.Row="2"
+                                            Grid.Column="1"
+                                            Icon="{StaticResource StaffIconFile}"
+                                            Label="{StaticResource StaffString}"
+                                            Tapped="StaffButtonTapped" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

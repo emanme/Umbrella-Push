@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Controls.SpringboardButton"
+             xmlns:effects="clr-namespace:Umbrella.Effects;assembly=Umbrella">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical">
+            <Image x:Name="ButtonIcon"
+                   Source="{Binding Icon}">
+                <Image.VerticalOptions>
+                    <OnPlatform x:TypeArguments="LayoutOptions"
+                                iOS="FillAndExpand"
+                                Android="FillAndExpand" />
+                </Image.VerticalOptions>
+                <Image.HorizontalOptions>
+                    <OnPlatform x:TypeArguments="LayoutOptions"
+                                iOS="FillAndExpand"
+                                Android="FillAndExpand" />
+                </Image.HorizontalOptions>
+            </Image>
+            <Label x:Name="ButtonLabel"
+                   Text="{Binding Label}"
+                   VerticalOptions="End"
+                   HorizontalOptions="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="{StaticResource LabelFontSize}"
+                   FontAttributes="Bold"
+                   TextColor="White">
+                <Label.Effects>
+                    <effects:ShadowEffect DistanceX="0"
+                                          DistanceY="5"
+                                          Radius="5"
+                                          Color="Black" />
+                </Label.Effects>
+            </Label>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SpringboardButtonTapped" />
+            </StackLayout.GestureRecognizers>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

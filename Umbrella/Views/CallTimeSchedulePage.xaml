@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:views="clr-namespace:Umbrella.Views"
+    x:Class="Umbrella.Views.CallTimeSchedulePage">
+   
+    <ContentPage.Content>
+        <StackLayout Spacing="0" Orientation="Vertical">
+           <Label x:Name="dateNow" FontSize="12" FontAttributes="Bold" TextColor="Gray" HorizontalOptions="Center"/>
+          <Grid x:Name="timeGrid" RowSpacing="10"
+                ColumnSpacing="5" Padding="5"
+                HorizontalOptions="FillAndExpand"
+                >
+                <Grid.RowDefinitions>
+                     <RowDefinition Height="Auto" />
+                     <RowDefinition Height="Auto" />
+                     <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+          </Grid>
+            <Entry x:Name="timeEntry" Margin="0,10,0,0" HorizontalTextAlignment="Center" VerticalOptions="End" HorizontalOptions="Center" WidthRequest="150" IsEnabled="false"/>
+        </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

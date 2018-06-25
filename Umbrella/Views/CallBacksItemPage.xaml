@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.CallBacksItemPage"
+             Title="Call Back"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <ScrollView>
+                <StackLayout Orientation="Vertical" Spacing="0">
+                    <StackLayout Orientation="Vertical" Spacing="0" Padding="0,0,0,0">
+                        <Label Text="{Binding Name, StringFormat='Mr/Mrs {0}'}"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{StaticResource HeaderFontSize}"
+                       FontAttributes="None"
+                       BackgroundColor="#435742" 
+                       TextColor="Black"
+                       LineBreakMode="WordWrap" />
+                         <Label Text="{Binding Business}"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{StaticResource HeaderFontSize}"
+                       FontAttributes="Bold"
+                       BackgroundColor="#435742" 
+                       TextColor="Black"
+                       LineBreakMode="WordWrap" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" BackgroundColor="#EBEBEB">
+                        <StackLayout Padding="20,0,20,0">
+                            <Label Text="Enquiry"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       Margin="0,5,0,0"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                        </StackLayout>
+                        <StackLayout Padding="20,0,20,0">
+                            <!--<Label Text="{Binding ContactEnquirye}"
+                       Margin="0,0,0,5"
+                       FontSize="{StaticResource TextFontSize}"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       LineBreakMode="WordWrap"/>-->
+                            <controls:MultilineLabel  Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore"
+                                      Margin="0,5,0,0"
+                                      HorizontalTextAlignment="Start"
+                                      FontAttributes="Italic"
+                                      FontSize="15"
+                                      TextColor="{StaticResource PrimaryTextColor}"
+                                      Lines="5"
+                                      LineBreakMode="WordWrap" />
+                        </StackLayout>
+                        <Button HorizontalOptions="EndAndExpand"
+                                             Text="More"
+                                             WidthRequest="78"
+                                             HeightRequest="35"
+                                             Margin="0,0,5,10"
+                                              FontSize="{StaticResource ButtonFontSize}"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="#435742"
+                                             />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"
+                             Spacing="0" BackgroundColor="#435742">
+                        <Grid RowSpacing="1"
+                          ColumnSpacing="1" HorizontalOptions="CenterAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Row="0"
+                                     Grid.Column="0"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand" Padding="10" >
+                                <Label Text="Time:"
+                                   FontSize="17"
+                                   FontAttributes="None"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                                <Label Text="{Binding ScheduledTime, StringFormat='{}{0:h:mm tt}'}"
+                                   FontSize="17"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            </StackLayout>
+                            <StackLayout Grid.Row="0"
+                                     Grid.Column="1"
+                                     Orientation="Horizontal"
+                                     HorizontalOptions="FillAndExpand"
+                                     Padding="10">
+                                <Label Text="Date:"
+                                   FontSize="17"
+                                   FontAttributes="None"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                                <Label Text="{Binding ScheduledDate, StringFormat='{0:ddd dd MMM}'}"
+                                   FontSize="17"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource PrimaryTextColor}" />
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" BackgroundColor="#EBEBEB">
+                        <StackLayout Padding="20" Orientation="Horizontal">
+                            <controls:DropdownView x:Name="contactNumDropdown"
+                                               Label=""
+                                               LabelColor="{StaticResource SecondaryTextColor}"
+                                               WidthRequest="200"
+                                               HeightRequest="20">
+                                <controls:DropdownView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="DropdownTappedContact" />
+                                    </controls:DropdownView.GestureRecognizers>
+                            </controls:DropdownView>
+                            <Button HorizontalOptions="EndAndExpand"
+                                             Text="Call"
+                                             WidthRequest="66"
+                                             HeightRequest="35"
+                                             Clicked="Do_PhoneCall"
+                                              FontSize="{StaticResource ButtonFontSize}"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    BackgroundColor="#435742"
+                                             />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Padding="10,10,10,20">
+                        <Label Text="Call Back Actions"
+                       HorizontalOptions="Center"
+                       FontSize="{StaticResource HeaderFontSize}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                    </StackLayout>
+                    <ContentView Margin="0,5"
+                             HeightRequest="1" />
+
+                    <Grid RowSpacing="{StaticResource ButtonsRowSpacing}"
+                     VerticalOptions="CenterAndExpand"
+                      ColumnSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="done"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               HeightRequest="60"
+                               WidthRequest="60"/>
+                        <Label Text="Done"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       HorizontalOptions="Center"
+                       FontSize="15"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                        <Image Source="no_answer"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               HeightRequest="60"
+                               WidthRequest="60"/>
+                        <Label Text="No Answer"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       HorizontalOptions="Center"
+                       FontSize="15"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                        <Image Source="re_schedule"
+                               Grid.Row="0"
+                               Grid.Column="2"
+                               HeightRequest="60"
+                               WidthRequest="60"/>
+                        <Label Text="Re-Schedule"
+                       Grid.Row="1"
+                       Grid.Column="2"
+                       HorizontalOptions="Center"
+                       FontSize="15"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                        <Image Source="cancel"
+                               Grid.Row="0"
+                               Grid.Column="3"
+                               HeightRequest="60"
+                               WidthRequest="60"/>
+                        <Label Text="Cancel"
+                       Grid.Row="1"
+                       Grid.Column="3"
+                       HorizontalOptions="Center"
+                       FontSize="15"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <controls:FooterView x:Name="CallBackItemFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.MessageSendPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Padding="20">
+                <StackLayout x:Name="ToLabel"
+                             Orientation="Horizontal">
+                    <Label Text="To:"
+                           FontSize="{StaticResource TextFontSize}"
+                           TextColor="{StaticResource PrimaryTextColor}" />
+                    <Label Text="{Binding Sender}"
+                           FontSize="{StaticResource TextFontSize}"
+                           TextColor="{StaticResource PrimaryTextColor}" />
+                </StackLayout>
+                <controls:DropdownView x:Name="Dropdown"
+                                       Label="Select..."
+                                       LabelColor="{StaticResource SecondaryTextColor}"
+                                       HorizontalOptions="FillAndExpand"
+                                       HeightRequest="50"
+                                       BackgroundColor="{StaticResource MainGrayColor}">
+                    <controls:DropdownView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="DropdownTapped" />
+                    </controls:DropdownView.GestureRecognizers>
+                </controls:DropdownView>
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <Label x:Name="SubjectLabel"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Start"
+                       FontSize="{StaticResource HeaderFontSize}"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       LineBreakMode="WordWrap" />
+                <Entry x:Name="SubjectEntry"
+                       Placeholder="Subject"
+                       HeightRequest="50"
+                       Keyboard="Default"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Start"
+                       FontSize="{StaticResource InputFontSize}"
+                       TextColor="{StaticResource PrimaryTextColor}"
+                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                       BackgroundColor="Transparent" />
+                <ContentView Margin="0,5"
+                             HeightRequest="1"
+                             BackgroundColor="Black" />
+                <Editor x:Name="Editor"
+                        Text="Write here..."
+                        HeightRequest="200"
+                        HorizontalOptions="FillAndExpand"
+                        FontSize="{StaticResource InputFontSize}"
+                        TextColor="{StaticResource SecondaryTextColor}"
+                        BackgroundColor="{StaticResource MainGrayColor}"
+                        Focused="EditorFocused"
+                        Unfocused="EditorUnfocused" />
+                <StackLayout Orientation="Vertical"
+                             Margin="0,15">
+                    <controls:DirectedButton Text="SEND NOW"
+                                             Direction="Right"
+                                             Position="Right"
+                                             Clicked="SendNowClicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

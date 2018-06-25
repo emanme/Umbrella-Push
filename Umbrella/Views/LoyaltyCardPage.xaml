@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.LoyaltyCardPage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             Title="{StaticResource LoyaltyCardString}"  >
+    <ContentPage.Content >
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Spacing="0"
+                         BackgroundColor="White">
+                <controls:DescriptionLabel Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non imperdiet mauris." />
+                <StackLayout VerticalOptions="Start"
+                             HorizontalOptions="FillAndExpand"
+                             Padding="5"
+                             BackgroundColor="{StaticResource PrimaryColor}">
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="Center">
+                        <Label Text="POINTS:"
+                               HorizontalTextAlignment="Center"
+                               FontSize="{StaticResource HeaderFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="White" />
+                        <Label Text="--"
+                               x:Name="lblLoyaltyPoints"
+                               HorizontalTextAlignment="Center"
+                               FontSize="{StaticResource HeaderFontSize}"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource MainYellowColor}" />
+                    </StackLayout>
+                </StackLayout>
+                <!--  -->
+                
+                 <ContentView 
+             Rotation="270" VerticalOptions="CenterAndExpand">
+                     <ContentView.Margin>
+                        <OnPlatform x:TypeArguments="Thickness"
+                                    iOS="30"
+                                    Android="50" />
+                                    
+                    </ContentView.Margin>
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical"
+                     VerticalOptions="Center" >
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center">
+                <Label Text="Business:"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{StaticResource BarcodeFontSize}"
+                       FontAttributes="Bold" />
+                <Label Text="--"
+                       x:Name="lblBusiness"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="{StaticResource BarcodeFontSize}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="StartAndExpand">
+                    <Label Text="Partner ID:"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource BarcodeFontSize}"
+                           FontAttributes="Bold" />
+                    <Label Text="--"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource BarcodeFontSize}" x:Name="lblPartnerID" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="EndAndExpand">
+                    <Label Text="Package:"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource BarcodeFontSize}"
+                           FontAttributes="Bold" />
+                    <Label Text="--"
+                           x:Name="lblPackage"
+                           HorizontalTextAlignment="Center"
+                           FontSize="{StaticResource BarcodeFontSize}" />
+                </StackLayout>
+            </StackLayout>
+            <Image Source="barcode_image.png"
+                   HeightRequest="150"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill"
+                   Aspect="Fill" x:Name="imgbarcode"   />
+            <Label Text="0 07567 8 164125"
+                    x:Name="lblbarcode" 
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   FontSize="{StaticResource BarcodeNumberFontSize}"
+                   FontAttributes="Bold" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
+               
+                 <!--  -->
+                <StackLayout Orientation="Vertical"
+                             Padding="20"
+                             Spacing="0">
+                    <controls:DirectedButton Text="SPEND UMBRELLA POINTS"
+                                             Direction="Right"
+                                             Position="Right"
+                                             Clicked="SpendUmbrellaPointsClicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

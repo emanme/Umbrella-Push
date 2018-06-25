@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.HomePage"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:views="clr-namespace:Umbrella.Views"
+             xmlns:custom="clr-namespace:Umbrella.Custom"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             BackgroundColor="{StaticResource PrimaryDarkColor}"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+       <StackLayout Orientation="Vertical" Spacing="0">
+             <Grid>
+            <Image Source="{StaticResource CamouBackgroundTabIconFile}" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                <controls:HeaderView VerticalOptions="Start" />
+                <Grid RowSpacing="30"
+                  ColumnSpacing="30"
+                  VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand"
+                  Padding="30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <controls:SpringboardButton Grid.Row="0"
+                                            Grid.Column="0"
+                                            Icon="{StaticResource RecruitsIconFile}"
+                                            Label="{StaticResource RecruitsString}"
+                                            Tapped="RecruitPageButtonTapped" />
+                    <controls:SpringboardButton Grid.Row="0"
+                                            Grid.Column="1"
+                                            Icon="{StaticResource ComradesIconFile}"
+                                            Label="{StaticResource ComradesString}"
+                                            Tapped="ComradesButtonTapped" />
+                    <controls:SpringboardButton Grid.Row="1"
+                                            Grid.Column="0"
+                                            Icon="{StaticResource ResourcesIconFile}"
+                                            Label="{StaticResource ResourcesString}"
+                                            Tapped="EarningsButtonTapped" />
+                    <controls:SpringboardButton Grid.Row="1"
+                                            Grid.Column="1"
+                                            Icon="{StaticResource WeaponsIconFile}"
+                                            Label="{StaticResource WeaponsString}"
+                                            Tapped="WeaponButtonTapped" />
+                    <controls:SpringboardButton Grid.Row="2"
+                                            Grid.Column="0"
+                                            Icon="{StaticResource CharityIconFile}"
+                                            Label="{StaticResource CharityString}"
+                                            Tapped="CharityButtonTapped" />
+                    <controls:SpringboardButton Grid.Row="2"
+                                            Grid.Column="1"
+                                            Icon="{StaticResource TargetsIconFile}"
+                                            Label="{StaticResource TargetsString}"
+                                            Tapped="TargetsPageButtonTapped" />
+                </Grid>
+            </StackLayout>
+        </Grid>
+                <controls:FooterView x:Name="HomeFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

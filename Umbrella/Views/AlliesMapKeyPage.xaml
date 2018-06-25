@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Umbrella.Views.AlliesMapKeyPage"
+    Title="Allies Map Key">
+	<ContentPage.Content>
+
+         <Grid>
+           <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+             <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+             <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="Gray">
+                <StackLayout Orientation="Vertical" Spacing="0" BackgroundColor="White" Padding="10,10,20,10" Margin="2">
+               <Grid RowSpacing="30" Padding="5,5,5,20" ColumnSpacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+             <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="50"/>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+                 <Image Source="map_alliance_green" WidthRequest="100" HorizontalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="0" Aspect="AspectFit"/>
+                 <Label Text="Active Allies" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Grid.Row="0" Grid.Column="1" FontSize="16"/>
+                 <Image Source="map_alliance_yellow" WidthRequest="100" HorizontalOptions="CenterAndExpand"  Grid.Row="1" Grid.Column="0" Aspect="AspectFit"/>
+                 <Label Text="Needs Support" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Grid.Row="1" Grid.Column="1" FontSize="16"/>
+                 <Image Source="pin_command" HorizontalOptions="CenterAndExpand"  Grid.Row="3" Grid.Column="0" Aspect="Fill"/>
+                 <Label Text="Command" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Grid.Row="3" Grid.Column="1" FontSize="16"/>
+                 <Image Source="map_alliance_red" WidthRequest="100" HorizontalOptions="CenterAndExpand"  Grid.Row="2" Grid.Column="0" Aspect="AspectFit"/>
+                 <Label Text="Unit Lost" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  Grid.Row="2" Grid.Column="1" FontSize="16"/>
+                
+               
+        </Grid>
+                    </StackLayout>
+                </StackLayout>
+
+               
+                
+        </Grid>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

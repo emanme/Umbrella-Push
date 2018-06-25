@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.ReferAndEarnPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:custom="clr-namespace:Umbrella.Custom"
+             xmlns:converters="clr-namespace:Umbrella.Converters"
+             Title="{StaticResource ReferAndEarnString}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ReferralStatusToImageConverter x:Key="ReferralStatusToImageConverter" />
+            <converters:ReferralStatusToStringConverter x:Key="ReferralStatusToStringConverter" />
+            <converters:CheckEmptyBooleanConverter x:Key="CheckEmptyBooleanConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewmodels:ReferralsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+            <ScrollView>
+                <StackLayout Orientation="Vertical"
+                             Spacing="0">
+                    <controls:DescriptionLabel Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non imperdiet mauris." />
+                    <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="FillAndExpand"
+                                 Spacing="0"
+                                 BackgroundColor="Black">
+                        <controls:TabButton x:Name="ReferAndEarnTab"
+                                            Icon="refer_and_earn_red"
+                                            Label="Refer &amp; Earn"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="12"
+                                            HasIcon="true"
+                                            Tapped="ReferAndEarnButtonTapped" />
+                        <controls:TabButton x:Name="PreviousReferralsTab"
+                                            Icon="previous_referrals"
+                                            Label="Previous Referrals"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"
+                                            LabelSize="10"
+                                            HasIcon="true"
+                                            Tapped="PreviousReferralsButtonTapped" />
+                    </StackLayout>
+                    <StackLayout  x:Name="ReferAndEarnLayout"
+                                  Padding="10"
+                                  BackgroundColor="{StaticResource MainGrayColor}">
+                        <StackLayout Orientation="Vertical"
+                                     VerticalOptions="FillAndExpand"
+                                     Padding="10"
+                                     Spacing="10"
+                                     BackgroundColor="{StaticResource MainWhiteColor}">
+                            <StackLayout Orientation="Horizontal">
+                                <custom:CustomReturnTypeEntry x:Name="FirstnameEntry"
+                                       Placeholder="Their First Name"
+                                       HeightRequest="50"
+                                       ReturnType="Done"
+                                       Keyboard="Text"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="Transparent" >
+                                    <custom:CustomReturnTypeEntry.Behaviors>
+                                        <converters:ValidateLettersOnlyBehavior/>
+                                    </custom:CustomReturnTypeEntry.Behaviors>
+                                </custom:CustomReturnTypeEntry>
+                                <custom:CustomReturnTypeEntry x:Name="LastnameEntry"
+                                       Placeholder="Their Last Name"
+                                       HeightRequest="50"
+                                       ReturnType="Done"
+                                       Keyboard="Text"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="Transparent" >
+                                    <custom:CustomReturnTypeEntry.Behaviors>
+                                        <converters:ValidateLettersOnlyBehavior/>
+                                    </custom:CustomReturnTypeEntry.Behaviors>
+                                </custom:CustomReturnTypeEntry>
+                            </StackLayout>
+                            <custom:CustomReturnTypeEntry x:Name="BusinessNameEntry"
+                                   Placeholder="Their Business Name"
+                                   HeightRequest="50"
+                                   ReturnType="Done"
+                                   Keyboard="Default"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource InputFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                   BackgroundColor="Transparent" />
+                            <custom:CustomReturnTypeEntry x:Name="EmailEntry"
+                                   Placeholder="Their Email Address"
+                                   HeightRequest="50"
+                                   ReturnType="Done"
+                                   Keyboard="Email"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Start"
+                                   FontSize="{StaticResource InputFontSize}"
+                                   TextColor="{StaticResource PrimaryTextColor}"
+                                   PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                   BackgroundColor="Transparent" >
+                                <custom:CustomReturnTypeEntry.Behaviors>
+                                    <converters:EmailValidateBehavior/>
+                                </custom:CustomReturnTypeEntry.Behaviors>
+                            </custom:CustomReturnTypeEntry>
+                            <StackLayout Orientation="Horizontal">
+                                <custom:CustomReturnTypeEntry x:Name="PhoneNumberEntry"
+                                       Placeholder="Phone Number"
+                                       HeightRequest="50"
+                                       ReturnType="Done"
+                                       Keyboard="Telephone"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="Transparent" />
+                                <custom:CustomReturnTypeEntry x:Name="MobileNumberEntry"
+                                       Placeholder="Mobile Number"
+                                       HeightRequest="50"
+                                       ReturnType="Done"
+                                       Keyboard="Telephone"
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"
+                                       FontSize="{StaticResource InputFontSize}"
+                                       TextColor="{StaticResource PrimaryTextColor}"
+                                       PlaceholderColor="{StaticResource SecondaryTextColor}"
+                                       BackgroundColor="Transparent" />
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="0">
+                                <StackLayout VerticalOptions="Center"
+                                             Padding="5"
+                                             HeightRequest="50"
+                                             BackgroundColor="Silver">
+                                    <Label Text="Who is this?"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Start"
+                                           VerticalTextAlignment="Center"
+                                           HeightRequest="50"
+                                           FontSize="{StaticResource InputFontSize}"
+                                           TextColor="{StaticResource PrimaryTextColor}" />
+                                </StackLayout>
+                                <controls:DropdownView x:Name="Dropdown"
+                                                       Label="Select..."
+                                                       LabelColor="{StaticResource SecondaryTextColor}"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       HeightRequest="50"
+                                                       BackgroundColor="{StaticResource MainGrayColor}">
+                                    <controls:DropdownView.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="DropdownTapped" />
+                                    </controls:DropdownView.GestureRecognizers>
+                                </controls:DropdownView>
+                            </StackLayout>
+                            <Editor x:Name="Editor"
+                                    Text="What you said so far"
+                                    HeightRequest="150"
+                                    HorizontalOptions="FillAndExpand"
+                                    FontSize="{StaticResource InputFontSize}"
+                                    TextColor="{StaticResource SecondaryTextColor}"
+                                    BackgroundColor="{StaticResource MainGrayColor}"
+                                    Focused="EditorFocused"
+                                    Unfocused="EditorUnfocused" />
+                            <controls:DirectedButton x:Name="ReferButton"
+                                                     Text="REFER NOW"
+                                                     VerticalOptions="End"
+                                                     Direction="Right"
+                                                     Position="Right"
+                                                     Color="#D7090A"
+                                                     />
+                        </StackLayout>
+                    </StackLayout>
+                    <controls:SystemListView x:Name="ReferralsListView"
+                                             ItemTapped="ReferralsItemTapped"
+                                             ItemsSource="{Binding Referrals}">
+                        <controls:SystemListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <controls:ListItemStackLayout>
+                                        <controls:TouchableStackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical"
+                                                         WidthRequest="60"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Image Source="profile_default"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="50"
+                                                       HeightRequest="50"
+                                                       Margin="5"
+                                                       Aspect="AspectFit" />
+                                                <Label Text="{Binding Created, StringFormat='{}{0:dd MMM&#xA;yyyy}'}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="White"
+                                                       BackgroundColor="{StaticResource MainBlackColor}"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                            <Grid RowSpacing="0"
+                                                  ColumnSpacing="0"
+                                                  HorizontalOptions="StartAndExpand"
+                                                  Padding="10">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="70" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Row="0"
+                                                       Grid.Column="0"
+                                                       Text="Name:"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}" />
+                                                <Label Grid.Row="0"
+                                                       Grid.Column="1"
+                                                       Text="{Binding Name}"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="0"
+                                                       Text="Business:"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{StaticResource PrimaryColor}" />
+                                                <Label Grid.Row="1"
+                                                       Grid.Column="1"
+                                                       Text="{Binding Business}"
+                                                       HorizontalTextAlignment="Start"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="{StaticResource PrimaryColor}"
+                                                       LineBreakMode="TailTruncation" />
+                                                <controls:MultilineLabel Grid.Row="2"
+                                                                         Grid.Column="0"
+                                                                         Grid.ColumnSpan="2"
+                                                                         Text="{Binding Message}"
+                                                                         Margin="0,5,0,0"
+                                                                         HorizontalTextAlignment="Start"
+                                                                         FontSize="{StaticResource TextFontSize}"
+                                                                         TextColor="{StaticResource PrimaryTextColor}"
+                                                                         Lines="2"
+                                                                         LineBreakMode="TailTruncation" />
+                                            </Grid>
+                                            <StackLayout Orientation="Vertical"
+                                                         WidthRequest="60"
+                                                         Spacing="0"
+                                                         BackgroundColor="{StaticResource MainWhiteColor}">
+                                                <Image Source="{Binding Status, Converter={StaticResource ReferralStatusToImageConverter}}"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="Center"
+                                                       WidthRequest="40"
+                                                       HeightRequest="40"
+                                                       Margin="10"
+                                                       Aspect="AspectFit" />
+                                                <Label Text="{Binding Status, Converter={StaticResource ReferralStatusToStringConverter}}"
+                                                       VerticalOptions="End"
+                                                       HorizontalOptions="FillAndExpand"
+                                                       VerticalTextAlignment="Center"
+                                                       HorizontalTextAlignment="Center"
+                                                       FontSize="{StaticResource TextFontSize}"
+                                                       TextColor="White"
+                                                       BackgroundColor="{StaticResource MainBlackColor}"
+                                                       LineBreakMode="WordWrap" />
+                                            </StackLayout>
+                                        </controls:TouchableStackLayout>
+                                    </controls:ListItemStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </controls:SystemListView.ItemTemplate>
+                    </controls:SystemListView>
+                </StackLayout>
+            </ScrollView>
+            <controls:FooterView x:Name="ReferFooter" VerticalOptions="End" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

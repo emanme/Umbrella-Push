@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.EarningsPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.BindingContext>
+        <viewmodels:EarningsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                     <controls:HeaderView VerticalOptions="Start" />
+             <controls:DescriptionLabel Text="Below you will find the total amount of resources captured from your recruits, comrades &amp; allies." />
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="0"
+                         BackgroundColor="Black">
+                <controls:LabelTabButton Title="£487.50"
+                                         Description="Dec 2017"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         TitleSize="{StaticResource LabelFontSize}"
+                                         TitleColor="#FFD700"
+                                         DescriptionSize="{StaticResource TextFontSize}"
+                                         DescriptionColor="Gray"
+                                         Color="{StaticResource MainBlackColor}" />
+                <controls:LabelTabButton Title="£153.10"
+                                         Description="Nov 2017"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         TitleSize="{StaticResource LabelFontSize}"
+                                         TitleColor="#FFD700"
+                                         DescriptionSize="{StaticResource TextFontSize}"
+                                         DescriptionColor="Gray"
+                                         Color="{StaticResource MainBlackColor}" />
+                <controls:LabelTabButton Title="£110.90"
+                                         Description="Oct 2017"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         TitleSize="{StaticResource LabelFontSize}"
+                                         TitleColor="#FFD700"
+                                         DescriptionSize="{StaticResource TextFontSize}"
+                                         DescriptionColor="Gray"
+                                         Color="{StaticResource MainBlackColor}" />
+            </StackLayout>
+            <controls:SystemListView x:Name="EarningsListView"
+                                     ItemTapped="EarningsItemTapped"
+                                     ItemsSource="{Binding Earnings}">
+                <controls:SystemListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical"
+                                                 WidthRequest="60"
+                                                 Spacing="0"
+                                                 BackgroundColor="{StaticResource MainWhiteColor}">
+                                        <Image Source="guy_gray"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="Center"
+                                               WidthRequest="50"
+                                               HeightRequest="50"
+                                               Margin="5"
+                                               Aspect="AspectFit" />
+                                        <Label Text="{Binding Created, StringFormat='{}{0:dd MMM}'}"
+                                               VerticalOptions="End"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="White"
+                                               BackgroundColor="{StaticResource MainBlackColor}"
+                                               LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                    <Grid RowSpacing="0"
+                                          ColumnSpacing="0"
+                                          HorizontalOptions="StartAndExpand"
+                                          Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="70" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Name:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="0"
+                                               Grid.Column="1"
+                                               Text="{Binding Name}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="Business:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                               Text="{Binding Business}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <controls:MultilineLabel Grid.Row="2"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Text="{Binding Description}"
+                                                                 Margin="0,5,0,0"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 LineBreakMode="TailTruncation" />
+                                    </Grid>
+                                    <StackLayout Orientation="Vertical"
+                                                 WidthRequest="80"
+                                                 Spacing="0">
+                                        <StackLayout VerticalOptions="FillAndExpand"
+                                                     HorizontalOptions="FillAndExpand"
+                                                     WidthRequest="80"
+                                                     HeightRequest="50"
+                                                     Spacing="0"
+                                                     BackgroundColor="{StaticResource PrimaryColor}">
+                                            <Label Text="{Binding Value, StringFormat='{}{0:£0.00}'}"
+                                                   VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="Center"
+                                                   VerticalTextAlignment="Center"
+                                                   HorizontalTextAlignment="Center"
+                                                   FontSize="{StaticResource LabelFontSize}"
+                                                   FontAttributes="Bold"
+                                                   TextColor="#FFD700" />
+                                           
+                                        </StackLayout>
+                                        <Label Text="{Binding Status}"
+                                               VerticalOptions="End"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="White"
+                                               BackgroundColor="{StaticResource MainBlackColor}"
+                                               LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+                   <controls:SystemListView.Footer>
+                               <StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="Center" Padding="5">
+                            <controls:DirectedButton Text="Previous"
+                                                 IsVisible="{Binding IsVisibleButton}"
+                                                 Color="{StaticResource PrimaryColor}"
+                                                 IsEnableButton="{Binding IsEnablePreviousEnlisted}"
+                                                 Clicked="PreviousButtonEnlistedClicked"
+                                                 WidthRequest="80"/>
+                            <controls:DirectedButton Text="Next"
+                                                 IsVisible="{Binding IsVisibleButton}"
+                                                 Clicked="NextButtonEnlistedClicked"
+                                                 IsEnableButton="{Binding IsEnableNextEnlisted}"
+                                                 Color="{StaticResource PrimaryColor}"
+                                                 WidthRequest="80"/>
+                        </StackLayout>
+                                </controls:SystemListView.Footer>
+            </controls:SystemListView>
+            <StackLayout Orientation="Vertical"
+                         Padding="15"
+                         Spacing="2">
+                <Label Text="You've earned"
+                       HorizontalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="14"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+                <Label Text="£487.50"
+                       x:Name="TotalEarn"
+                       HorizontalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="17"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource MainGreenColor}" />
+                <Label Text="so far this month!"
+                       HorizontalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontSize="14"
+                       TextColor="{StaticResource PrimaryTextColor}" />
+               <StackLayout Orientation="Horizontal">
+                     <controls:DirectedButton Text="Download Funds"
+                                         Margin="0,5,0,0"
+                                         Direction="Right"
+                                         Position="Right"
+                                         Color="{StaticResource PrimaryColor}"
+                                         Clicked="DownloadFundsClicked" />
+                     <controls:DirectedButton Text="Recruit Now"
+                                         Margin="0,5,0,0"
+                                         Direction="Right"
+                                         Position="Right"
+                                         Color="{StaticResource PrimaryColor}"
+                                         Clicked="ReferAndEarnNowClicked" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

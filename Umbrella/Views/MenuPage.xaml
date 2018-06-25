@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:StillTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          x:Class="Umbrella.Views.MenuPage"
+                          xmlns:views="clr-namespace:Umbrella.Views;assembly=Umbrella"
+                          xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+                          Title="{StaticResource AppNameString}">
+    <controls:StillTabbedPage.ToolbarItems>
+        <ToolbarItem Text="Topup"
+                     Icon="{StaticResource TopupIconFile}"
+                     Priority="0"
+                     Order="Primary"
+                     Activated="TopupButtonClicked" />
+        <ToolbarItem Text="Settings"
+                     Icon="{StaticResource SettingsIconFile}"
+                     Priority="1"
+                     Order="Primary"
+                     Activated="SettingsButtonClicked" />
+    </controls:StillTabbedPage.ToolbarItems>
+    <views:HomePage Title="{StaticResource HomeString}"
+                    Icon="{StaticResource HomeTabIconFile}" />
+    <views:RewardLevelPage x:Name="RewardLevelTab"
+                           Title="{StaticResource RewardLevelString}"
+                           Icon="{StaticResource RewardLevelTabIconFile}" />
+    <views:LeadsPage Title="{StaticResource LeadsString}"
+                     Icon="{StaticResource LeadsTabIconFile}" />
+    <views:MessagesPage Title="{StaticResource MessagesString}"
+                        Icon="{StaticResource MessagesTabIconFile}" />
+    <views:ReferAndEarnPage Title="{StaticResource ReferAndEarnString}"
+                            Icon="{StaticResource ReferAndEarnTabIconFile}"/>
+</controls:StillTabbedPage>

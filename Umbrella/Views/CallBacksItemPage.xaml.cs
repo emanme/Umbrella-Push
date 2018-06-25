@@ -1,0 +1,22 @@
+﻿using System;
+using System.Linq;
+using Umbrella.Models;
+using Umbrella.Utilities;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace Umbrella.Views
+{
+    public partial class CallBacksItemPage : ContentPage
+    {
+        private Lead _callBack;         private string[] SelectionArrayContact;
+        private string _currentMobNum = "";          public CallBacksItemPage(Lead callBack)         {             InitializeComponent();             NavigationPage.SetBackButtonTitle(this, "");             //CallButton.Text = "MOB: " + callBack.Mobile;             HandleReceivedMessages();             _callBack = callBack;             BindingContext = callBack;             SelectionArrayContact = new string[]{
+                "Home: " + _callBack.Home, "Mobile: "+ _callBack.Mobile,"Office: "+ _callBack.Office
+            };
+            contactNumDropdown.Label = "Home: " + _callBack.Home;
+            _currentMobNum = _callBack.Home;         }         void HandleReceivedMessages()         {             MessagingCenter.Subscribe<TickedMessages>(this, "TickedMessages", message => {                 Device.BeginInvokeOnMainThread(() => {                     CallBackItemFooter.BadgeVisibility = 1;                     var notifList = Global.GetAllTopic();                     var currentMessageCount = notifList.Where(e => e.Value == "new_message").Count();                     CallBackItemFooter.BadgeCountMessage = currentMessageCount.ToString();                 });             });         }         protected override void OnAppearing()         {             base.OnAppearing();             var notifList = Global.GetAllTopic();             var currentMessageCount = notifList.Where(e => e.Value == "new_message").Count();             if (currentMessageCount <= 0)             {                 CallBackItemFooter.BadgeVisibility = 0;             }             else             {                 CallBackItemFooter.BadgeVisibility = 1;                  CallBackItemFooter.BadgeCountMessage = currentMessageCount.ToString();             }             CallBackItemFooter.ActiveCallback(true);             CallBackItemFooter.SetRewardLevelIcon(Global.GetrewardPoints());         }         void Do_PhoneCall(object sender, System.EventArgs args)         {
+            System.Diagnostics.Debug.WriteLine("currentnum " + _currentMobNum);             Device.OpenUri(new Uri("tel:" + _currentMobNum));                    }          private async void DropdownTappedContact(object sender, EventArgs e)         {             var action = await DisplayActionSheet(contactNumDropdown.Label, "Cancel", null, SelectionArrayContact);             if (!action.Equals("Cancel"))             {                 contactNumDropdown.Label = action;
+                var newNum = action.Replace("Home: ", "").Replace("Mobile: ", "").Replace("Office: ", "");
+                _currentMobNum = newNum;                 contactNumDropdown.LabelColor = (Color)Application.Current.Resources["PrimaryTextColor"];             }         }         private void YourNotesClicked(object sender, EventArgs e)         {                       }          private void AgentsNotesClicked(object sender, EventArgs e)         {             // TODO         }          private async void CallClicked(object sender, EventArgs args)         {             var action = await DisplayActionSheet("Call Now", "Cancel", null,                 $"MOB: {_callBack.Mobile} ",                 $"HOME: {_callBack.Home} ",                 $"OFFICE: {_callBack.Office} ");             if (!action.Equals("Cancel"))             {                // CallButton.Text = action;             }         }          private void CallBackDoneClicked(object sender, EventArgs e)         {             // TODO         }          private void CalledNoAnswerClicked(object sender, EventArgs e)         {             // TODO         }          private async void RescheduleClicked(object sender, EventArgs e)         {             var page = new CallBacksSchedulePage(_callBack);             await Navigation.PushAsync(page);         }          private void CancelCallBackClicked(object sender, EventArgs e)         {             // TODO         }          private void ViewEnquiryClicked(object sender, EventArgs e)         {             // TODO         }          private void AddNotesClicked(object sender, EventArgs e)         {             // TODO         } 
+    }
+}

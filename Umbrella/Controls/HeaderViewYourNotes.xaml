@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Controls.HeaderViewYourNotes">
+    <ContentView.Content>
+        <StackLayout Orientation="Horizontal"
+                     Padding="0"
+                     Spacing="0"
+                     BackgroundColor="{StaticResource MainWhiteColor}">
+            <StackLayout.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double"
+                            iOS="65"
+                            Android="50" />
+            </StackLayout.HeightRequest>
+           
+            <StackLayout Orientation="Horizontal">
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,20,10,0"
+                                Android="0,0,5,0" />
+                </StackLayout.Margin>
+                <StackLayout.Spacing>
+                    <OnPlatform x:TypeArguments="x:Double"
+                                iOS="15" 
+                                Android="5" />
+                </StackLayout.Spacing>
+                <Image Source="open_icon"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="End">
+                    <Image.Scale>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    iOS="1.2"
+                                    Android="1" />
+                    </Image.Scale>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TopupButtonTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="back_button"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="End">
+                      
+                    <Image.Scale>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    iOS=".8"
+                                    Android="0.5" />
+                    </Image.Scale>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButtonTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="settings_icon"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="End">
+                    <Image.Scale>
+                        <OnPlatform x:TypeArguments="x:Double"
+                                    iOS="1"
+                                    Android="0.7" />
+                    </Image.Scale>
+                     <Image.Margin>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,15,20,0"
+                                Android="0,0,20,0" />
+                </Image.Margin>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="SettingsButtonTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    Title="Download Funds"
+     xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:Class="Umbrella.Views.DownloadFundsPage">
+	<ContentPage.Content>
+        <Grid>
+            <Image Source="matrix_first_img" Aspect="AspectFill"/>
+            <ffimage:CachedImage Source="matrix" Aspect="AspectFill"/>
+            <AbsoluteLayout>
+              <StackLayout Orientation="Vertical" Spacing="0" VerticalOptions="Center" HorizontalOptions="Center" AbsoluteLayout.LayoutFlags="All"
+                             AbsoluteLayout.LayoutBounds="0,0,1,1">
+             <AbsoluteLayout>
+                <Image x:Name="imgSmall" Source="text_field_small1" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" />
+                <Label Text="424561" FontSize="30" HorizontalOptions="CenterAndExpand" TextColor="Green" AbsoluteLayout.LayoutBounds=".5,.5,1,.1" AbsoluteLayout.LayoutFlags="All" />
+             </AbsoluteLayout>
+                 <AbsoluteLayout>
+                <Image x:Name="imgeBig" Source="text_field_big1" Aspect="AspectFit" AbsoluteLayout.LayoutFlags="All" />
+                <Label x:Name="labelFont" AbsoluteLayout.LayoutFlags="All" HorizontalTextAlignment="Center" Text="Enter the above code in the 'Resources' section of your Umbrella Army website login to withdraw your funds." HorizontalOptions="CenterAndExpand" TextColor="Green"/>
+             </AbsoluteLayout>
+        </StackLayout>
+            </AbsoluteLayout>
+        </Grid>
+	</ContentPage.Content>
+</ContentPage>

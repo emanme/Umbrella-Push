@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.LeadsPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             Title="{StaticResource EnquiriesString}" >
+    <ContentPage.BindingContext >
+        <viewmodels:LeadsViewModel/>
+        
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     Spacing="0">
+           <!-- <controls:DescriptionLabel Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin non imperdiet mauris." /> -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand"
+                         Spacing="0"
+                         BackgroundColor="Black">
+                <controls:TabButton x:Name="LeadsTab"
+                                    Icon="leads_red"
+                                    Label="Leads"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    LabelSize="12"
+                                    HasIcon="true"
+                                    Tapped="LeadsButtonTapped" />
+                <controls:TabButton x:Name="CustomersTab"
+                                    Icon="customers"
+                                    Label="Customers"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    LabelSize="12"
+                                    HasIcon="true"
+                                    Tapped="CustomersButtonTapped" />
+                <controls:TabButton x:Name="EnquiriesTab"
+                                    Icon="enquiries"
+                                    Label="Enquiries"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    LabelSize="12"
+                                    HasIcon="true"
+                                    Tapped="EnquiriesButtonTapped" />
+            </StackLayout>
+            <controls:SystemListView x:Name="LeadsListView"
+                                     ItemTapped="LeadsItemTapped"
+                                     ItemsSource="{Binding Leads}">
+                <controls:SystemListView.ItemTemplate  >
+                    <DataTemplate>
+                        <ViewCell >
+                            <controls:ListItemStackLayout>
+                                <controls:TouchableStackLayout Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical"
+                                                 WidthRequest="60"
+                                                 Spacing="0"
+                                                 BackgroundColor="{StaticResource MainWhiteColor}">
+                                        <Image Source="profile_default"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="Center"
+                                               WidthRequest="50"
+                                               HeightRequest="50"
+                                               Margin="5"
+                                               Aspect="AspectFit" />
+                                        <Label Text="{Binding ScheduledDate, StringFormat='{}{0:dd MMM&#xA;yyyy}'}"
+                                               VerticalOptions="End"
+                                               HorizontalOptions="FillAndExpand"
+                                               VerticalTextAlignment="Center"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="9"
+                                               TextColor="White"
+                                               BackgroundColor="{StaticResource MainBlackColor}"
+                                               LineBreakMode="WordWrap" />
+                                    </StackLayout>
+                                    <Grid RowSpacing="0"
+                                          ColumnSpacing="0"
+                                          HorizontalOptions="StartAndExpand"
+                                          Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                               <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Name:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="0"
+                                               Grid.Column="1"
+                                             Grid.ColumnSpan="3"
+                                               Text="{Binding Name}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                           
+                                               Text="Business:"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource PrimaryColor}" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1"
+                                            Grid.ColumnSpan="3"
+                                               Text="{Binding Business}"
+                                               HorizontalTextAlignment="Start"
+                                               FontSize="{StaticResource TextFontSize}"
+                                               TextColor="{StaticResource PrimaryColor}"
+                                               LineBreakMode="TailTruncation" />
+                                        <controls:MultilineLabel Grid.Row="2"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="3"
+                                                                 Text="{Binding ContactEnquirye}"
+                                                                 Margin="0,5,0,0"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="2"
+                                                                 LineBreakMode="TailTruncation" />
+                                    </Grid>
+                                    
+                                </controls:TouchableStackLayout>
+                            </controls:ListItemStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:SystemListView.ItemTemplate>
+            </controls:SystemListView>
+            <controls:FooterView x:Name="LeadsFooter" VerticalOptions="End" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

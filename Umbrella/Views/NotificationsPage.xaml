@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.NotificationsPage"
+             xmlns:viewmodels="clr-namespace:Umbrella.ViewModels;assembly=Umbrella"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella"
+             xmlns:converters="clr-namespace:Umbrella.Converters;assembly=Umbrella"
+             Title="{StaticResource NotificationsString}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BooleanToTextConverter x:Key="BooleanToTextConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <viewmodels:NotificationsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <controls:SystemListView x:Name="NotificationsListView"
+                                 ItemTapped="NotificationsItemTapped"
+                                 ItemsSource="{Binding NotificationsItems}">
+            <controls:SystemListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <controls:ListItemStackLayout>
+                            <controls:TouchableStackLayout Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="StartAndExpand"
+                                             Margin="4"
+                                             Spacing="0" >
+                                    <Label Text="{Binding Title}"
+                                           TextColor="{StaticResource PrimaryTextColor}"
+                                           FontSize="{StaticResource LabelFontSize}" />
+                                    <Label Text="{Binding Description}"
+                                           TextColor="Gray"
+                                           FontSize="{StaticResource TextFontSize}" WidthRequest="230"   />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             VerticalOptions="Center"
+                                             HorizontalOptions="End"
+                                             Margin="15"
+                                             Spacing="0">
+                                    <Label Text="{Binding IsToggled, Converter={StaticResource BooleanToTextConverter}}"
+                                           TextColor="{StaticResource PrimaryTextColor}"
+                                           FontSize="{StaticResource LabelFontSize}" WidthRequest="40"   />
+                                    <Switch IsToggled="{Binding IsToggled}"
+                                            VerticalOptions="Center"
+                                            Scale="0.8" />
+                                </StackLayout>
+                            </controls:TouchableStackLayout>
+                        </controls:ListItemStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </controls:SystemListView.ItemTemplate>
+        </controls:SystemListView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Umbrella.Views.MedalsPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:viewModels="clr-namespace:Umbrella.ViewModels"
+             xmlns:converters="clr-namespace:Umbrella.Converters"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:controls="clr-namespace:Umbrella.Controls;assembly=Umbrella">
+
+    <ContentPage.Resources> 
+        <ResourceDictionary>
+            <converters:MedalImageConverter x:Key="MedalImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.BindingContext>
+        <viewModels:MedalsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+       <StackLayout Orientation="Vertical" Spacing="0">
+         <Grid>
+            <Image Source="camouflage_gray_bg" Aspect="AspectFill"></Image>
+            <StackLayout Orientation="Vertical"
+                     Spacing="0">
+                <controls:HeaderView VerticalOptions="Start" />
+                <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="10">
+                    <Label Text="MEDALS" HorizontalOptions="CenterAndExpand" FontSize="Large" FontAttributes="Bold" TextColor="#435742"/>
+                </StackLayout>
+                <controls:SystemListView x:Name="MedalListView"
+                                     ItemTapped="MedalsTapped"
+                                     ItemsSource="{Binding MedalsList}">
+                           <controls:SystemListView.Header>
+                           <BoxView Color="Black" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                        </controls:SystemListView.Header>
+                    <controls:SystemListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <controls:ListItemStackLayout>
+                                    <controls:TouchableStackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical"
+                                                 WidthRequest="100"
+                                                 Spacing="0"
+                                                 BackgroundColor="{StaticResource MainWhiteColor}">
+                                            <Image Source="{Binding MedalNameWithAction , Converter={StaticResource MedalImageConverter}}"
+                                               VerticalOptions="CenterAndExpand"
+                                               HorizontalOptions="FillAndExpand"
+                                               WidthRequest="90"
+                                               HeightRequest="75"
+                                               Margin="5"
+                                               Aspect="AspectFit" />
+                                        </StackLayout>
+                                        <Grid RowSpacing="0"
+                                          ColumnSpacing="0"
+                                          HorizontalOptions="FillAndExpand"
+                                          VerticalOptions="FillAndExpand"
+                                          >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="25" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <BoxView Color="Black" Grid.ColumnSpan="2" Grid.Row="0"/>
+                                            <Label 
+                                                    Grid.ColumnSpan="2"
+                                                    Grid.Row="0"
+                                                    Text="{Binding MedalName}"
+                                                    FontSize="17"
+                                                    VerticalTextAlignment="Center"
+                                                    LineBreakMode="WordWrap"
+                                                    TextColor="#FFD700"
+                                                    Margin="10,0,0,0"/>
+                                            <controls:MultilineLabel Grid.Row="1"
+                                                                 Grid.Column="0"
+                                                                 Grid.ColumnSpan="2"
+                                                                 Text="{Binding Description}"
+                                                                 Margin="10,0,0,0"
+                                                                 VerticalTextAlignment="Start"
+                                                                 HorizontalTextAlignment="Start"
+                                                                 FontSize="{StaticResource TextFontSize}"
+                                                                 TextColor="{StaticResource PrimaryTextColor}"
+                                                                 Lines="4"
+                                                                 LineBreakMode="TailTruncation" />
+                                        </Grid>
+
+                                    </controls:TouchableStackLayout>
+                                </controls:ListItemStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </controls:SystemListView.ItemTemplate>
+                </controls:SystemListView>
+            </StackLayout>
+        </Grid>
+                <controls:FooterView x:Name="MedalsFooter" VerticalOptions="EndAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>   
+</ContentPage>
